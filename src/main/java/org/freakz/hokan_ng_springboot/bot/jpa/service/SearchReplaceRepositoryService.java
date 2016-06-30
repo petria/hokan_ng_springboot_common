@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by Petri Airio on 31.8.2015.
+ * -
  */
 @Service
 public class SearchReplaceRepositoryService implements SearchReplaceService {
@@ -18,7 +19,7 @@ public class SearchReplaceRepositoryService implements SearchReplaceService {
   private SearchReplaceRepository repository;
 
   @Override
-  @Transactional(readOnly = true)
+  @Transactional(readOnly = false)
   public SearchReplace addSearchReplace(String sender, String search, String replace) {
     SearchReplace searchReplace = new SearchReplace(sender, search, replace);
     return repository.save(searchReplace);
