@@ -6,7 +6,7 @@
     <name>hokan_ng_springboot-common</name>
     <artifactId>hokan_ng_springboot-common</artifactId>
     <groupId>org.freakz</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-final</version>
     <packaging>jar</packaging>
 
     <properties>
