@@ -22,6 +22,17 @@
 
     </properties>
 
+    <repositories>
+
+        <repository>
+            <id>hokannew</id>
+            <name>hokannew-releases</name>
+            <url>http://hokannew.no-ip.biz/artifactory/libs-release-local</url>
+        </repository>
+
+    </repositories>
+
+
     <dependencies>
 
         <dependency>
