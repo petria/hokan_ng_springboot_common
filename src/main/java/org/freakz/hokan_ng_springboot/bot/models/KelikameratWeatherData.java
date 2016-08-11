@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * Created by Petri Airio on 23.6.2015.
+ * -
  */
 public class KelikameratWeatherData implements Comparable, Serializable {
 

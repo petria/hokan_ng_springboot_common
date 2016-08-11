@@ -147,4 +147,8 @@ public class ServiceResponse implements Serializable {
   public String getSunRiseResponse() {
     return (String) responseData.get(type.getResponseDataKey());
   }
+
+  public HourlyWeatherData getHourlyWeatherData() {
+    return (HourlyWeatherData) responseData.get(type.getResponseDataKey());
+  }
 }

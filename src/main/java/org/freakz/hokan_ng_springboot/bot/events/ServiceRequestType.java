@@ -2,6 +2,7 @@ package org.freakz.hokan_ng_springboot.bot.events;
 
 /**
  * Created by Petri Airio (petri.j.airio@gmail.com) on 26.4.2015.
+ * -
  */
 public enum ServiceRequestType {
 
@@ -14,6 +15,7 @@ public enum ServiceRequestType {
   HORO_REQUEST("HORO_DATA_RESPONSE"),
   LUNCH_REQUEST("LUNCH_RESPONSE"),
   LUNCH_PLACES_REQUEST("LUNCH_PLACES_RESPONSE"),
+  ILMATIETEENLAITOS_HOURLY_REQUEST("ILMATIETEENLAITOS_HOURLY_RESPONSE"),
   IMDB_DETAILED_INFO_REQUEST("IMDB_DETAILED_INFO_DATA_RESPONSE"),
   IMDB_TITLE_REQUEST("IMDB_TITLE_DATA_RESPONSE"),
   METAR_REQUEST("METAR_DATA_RESPONSE"),
