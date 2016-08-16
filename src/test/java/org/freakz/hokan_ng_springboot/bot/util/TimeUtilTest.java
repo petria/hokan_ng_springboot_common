@@ -7,6 +7,7 @@ import org.junit.Test;
 
 /**
  * Created by Petri Airio on 21.8.2015.
+ * -
  */
 public class TimeUtilTest {
 
