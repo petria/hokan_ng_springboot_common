@@ -26,5 +26,4 @@ public class TimeUtilTest {
     Assert.assertEquals("month of year", 5, parsed.getMonthOfYear());
   }
 
-
 }
