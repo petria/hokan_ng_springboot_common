@@ -92,7 +92,7 @@ public class CommandPoolImpl implements CommandPool, DisposableBean {
       history.setStatus(CommandStatus.ERROR);
       StringWriter sw = new StringWriter();
       error.printStackTrace(new PrintWriter(sw));
-      history.setErrorException(sw.getBuffer().toString());
+      history.setErrorException(sw.getBuffer().toString().substring(0, 250));
     } else {
       history.setStatus(CommandStatus.FINISHED);
       history.setErrorException("");

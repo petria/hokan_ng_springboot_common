@@ -43,7 +43,7 @@ public class CommandHistory {
   @Column(name = "STARTED_BY")
   private String startedBy;
 
-  @Column(name = "ERROR_EXCEPTION", length = 40960)
+  @Column(name = "ERROR_EXCEPTION")
   private String errorException;
 
 
