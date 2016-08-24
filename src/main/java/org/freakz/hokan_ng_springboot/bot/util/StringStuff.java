@@ -75,7 +75,8 @@ public class StringStuff {
       if (xx != fromPos) {
         sb.append(" ");
       }
-      sb.append(array[xx]);
+      String str = "" + array[xx];
+      sb.append(str.trim());
     }
     return sb.toString();
   }

@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.jms.api.JmsSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.InvalidDestinationException;
+import org.springframework.jms.UncategorizedJmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
@@ -69,7 +70,7 @@ public class SpringJmsSender implements JmsSender {
         objectMessage.setObject(jmsMessage);
         return objectMessage;
       });
-    } catch (InvalidDestinationException ex) {
+    } catch (InvalidDestinationException | UncategorizedJmsException ex) {
       // ignore
     }
   }
