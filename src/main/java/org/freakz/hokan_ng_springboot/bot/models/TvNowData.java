@@ -6,6 +6,7 @@ import java.util.Map;
 
 /**
  * Created by Petri Airio on 20.5.2015.
+ * -
  */
 public class TvNowData implements Serializable {
 

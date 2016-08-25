@@ -105,4 +105,9 @@ public class TelkkuProgram implements Comparable, Serializable {
         return this.id;
     }
 
+
+    public static void resetIdCounter() {
+        idCounter = 0;
+    }
+
 }
