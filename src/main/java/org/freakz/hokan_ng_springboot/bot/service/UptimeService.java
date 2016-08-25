@@ -7,6 +7,6 @@ import org.freakz.hokan_ng_springboot.bot.util.Uptime;
  */
 public interface UptimeService {
 
-  Uptime getUptime();
+    Uptime getUptime();
 
 }

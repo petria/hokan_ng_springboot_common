@@ -16,139 +16,139 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public class ServiceResponse implements Serializable {
 
-  private final ServiceRequestType type;
-  private final Map<String, Object> responseData = new HashMap<>();
+    private final ServiceRequestType type;
+    private final Map<String, Object> responseData = new HashMap<>();
 
-  public ServiceResponse(ServiceRequestType type) {
-    this.type = type;
-  }
-
-  public void setResponseData(String key, Object data) {
-    responseData.put(key, data);
-  }
-
-  public Object getResponseData(String key) {
-    return responseData.get(key);
-  }
-
-  public List<MetarData> getMetarResponse() {
-    List<MetarData> dataList = (List<MetarData>) responseData.get(type.getResponseDataKey());
-    if (dataList == null) {
-      return new ArrayList<>();
+    public ServiceResponse(ServiceRequestType type) {
+        this.type = type;
     }
-    return dataList;
-  }
 
-  public HoroHolder getHoroResponse() {
-    return (HoroHolder) responseData.get(type.getResponseDataKey());
-  }
-
-  public List<KelikameratWeatherData> getWeatherResponse() {
-    List<KelikameratWeatherData> data = (List<KelikameratWeatherData>) responseData.get(type.getResponseDataKey());
-    if (data == null) {
-      return new ArrayList<>();
+    public void setResponseData(String key, Object data) {
+        responseData.put(key, data);
     }
-    return data;
-  }
 
-  public List<TelkkuProgram> getTvFindData() {
-    List<TelkkuProgram> data = (List<TelkkuProgram>) responseData.get(type.getResponseDataKey());
-    if (data == null) {
-      return new ArrayList<>();
+    public Object getResponseData(String key) {
+        return responseData.get(key);
     }
-    return data;
-  }
 
-  public TvNowData getTvNowData() {
-    TvNowData data = (TvNowData) responseData.get(type.getResponseDataKey());
-    if (data == null) {
-      return new TvNowData();
+    public List<MetarData> getMetarResponse() {
+        List<MetarData> dataList = (List<MetarData>) responseData.get(type.getResponseDataKey());
+        if (dataList == null) {
+            return new ArrayList<>();
+        }
+        return dataList;
     }
-    return data;
-  }
 
-  public TelkkuProgram getTvInfoData() {
-    return (TelkkuProgram) responseData.get(type.getResponseDataKey());
-  }
-
-  public List<TelkkuProgram> getTvDayData() {
-    List<TelkkuProgram> data = (List<TelkkuProgram>) responseData.get(type.getResponseDataKey());
-    if (data == null) {
-      return new ArrayList<>();
+    public HoroHolder getHoroResponse() {
+        return (HoroHolder) responseData.get(type.getResponseDataKey());
     }
-    return data;
-  }
 
-  public List<DataUpdaterModel> getUpdaterListData() {
-    List<DataUpdaterModel> data = (List<DataUpdaterModel>) responseData.get(type.getResponseDataKey());
-    if (data == null) {
-      return new ArrayList<>();
+    public List<KelikameratWeatherData> getWeatherResponse() {
+        List<KelikameratWeatherData> data = (List<KelikameratWeatherData>) responseData.get(type.getResponseDataKey());
+        if (data == null) {
+            return new ArrayList<>();
+        }
+        return data;
     }
-    return data;
-  }
 
-  public List<DataUpdaterModel> getStartUpdaterListData() {
-    List<DataUpdaterModel> data = (List<DataUpdaterModel>) responseData.get(type.getResponseDataKey());
-    if (data == null) {
-      return new ArrayList<>();
+    public List<TelkkuProgram> getTvFindData() {
+        List<TelkkuProgram> data = (List<TelkkuProgram>) responseData.get(type.getResponseDataKey());
+        if (data == null) {
+            return new ArrayList<>();
+        }
+        return data;
     }
-    return data;
-  }
 
-  public String getCurrencyConvertResponse() {
-    return (String) responseData.get(type.getResponseDataKey());
-  }
+    public TvNowData getTvNowData() {
+        TvNowData data = (TvNowData) responseData.get(type.getResponseDataKey());
+        if (data == null) {
+            return new TvNowData();
+        }
+        return data;
+    }
 
-  public List<GoogleCurrency> getCurrencyListResponse() {
-    return (List<GoogleCurrency>) responseData.get(type.getResponseDataKey());
-  }
+    public TelkkuProgram getTvInfoData() {
+        return (TelkkuProgram) responseData.get(type.getResponseDataKey());
+    }
 
-  public NimipaivaData getNimipaivaDayResponse() {
-    return (NimipaivaData) responseData.get(type.getResponseDataKey());
+    public List<TelkkuProgram> getTvDayData() {
+        List<TelkkuProgram> data = (List<TelkkuProgram>) responseData.get(type.getResponseDataKey());
+        if (data == null) {
+            return new ArrayList<>();
+        }
+        return data;
+    }
 
-  }
+    public List<DataUpdaterModel> getUpdaterListData() {
+        List<DataUpdaterModel> data = (List<DataUpdaterModel>) responseData.get(type.getResponseDataKey());
+        if (data == null) {
+            return new ArrayList<>();
+        }
+        return data;
+    }
 
-  public NimipaivaData getNimipaivaNameResponse() {
-    return (NimipaivaData) responseData.get(type.getResponseDataKey());
-  }
+    public List<DataUpdaterModel> getStartUpdaterListData() {
+        List<DataUpdaterModel> data = (List<DataUpdaterModel>) responseData.get(type.getResponseDataKey());
+        if (data == null) {
+            return new ArrayList<>();
+        }
+        return data;
+    }
 
-  public TranslateResponse getTranslateResponse() {
-    return (TranslateResponse) responseData.get(type.getResponseDataKey());
-  }
+    public String getCurrencyConvertResponse() {
+        return (String) responseData.get(type.getResponseDataKey());
+    }
 
-  public IMDBSearchResults getIMDBTitleData() {
-    return (IMDBSearchResults) responseData.get(type.getResponseDataKey());
-  }
+    public List<GoogleCurrency> getCurrencyListResponse() {
+        return (List<GoogleCurrency>) responseData.get(type.getResponseDataKey());
+    }
 
-  public IMDBDetails getIMDBDetails() {
-    return (IMDBDetails) responseData.get(type.getResponseDataKey());
-  }
+    public NimipaivaData getNimipaivaDayResponse() {
+        return (NimipaivaData) responseData.get(type.getResponseDataKey());
 
-  public List<LunchPlace> getLunchPlacesResponse() {
-    return (List<LunchPlace>) responseData.get(type.getResponseDataKey());
-  }
+    }
 
-  public LunchData getLunchResponse() {
-    return (LunchData) responseData.get(type.getResponseDataKey());
-  }
+    public NimipaivaData getNimipaivaNameResponse() {
+        return (NimipaivaData) responseData.get(type.getResponseDataKey());
+    }
 
-  public String[] getCharsetResponse() {
-    return (String[]) responseData.get(type.getResponseDataKey());
-  }
+    public TranslateResponse getTranslateResponse() {
+        return (TranslateResponse) responseData.get(type.getResponseDataKey());
+    }
 
-  public ScriptResult getScriptResult() {
-    return (ScriptResult) responseData.get(type.getResponseDataKey());
-  }
+    public IMDBSearchResults getIMDBTitleData() {
+        return (IMDBSearchResults) responseData.get(type.getResponseDataKey());
+    }
 
-  public String getEngineResponse() {
-    return (String) responseData.get(type.getResponseDataKey());
-  }
+    public IMDBDetails getIMDBDetails() {
+        return (IMDBDetails) responseData.get(type.getResponseDataKey());
+    }
 
-  public String getSunRiseResponse() {
-    return (String) responseData.get(type.getResponseDataKey());
-  }
+    public List<LunchPlace> getLunchPlacesResponse() {
+        return (List<LunchPlace>) responseData.get(type.getResponseDataKey());
+    }
 
-  public HourlyWeatherData getHourlyWeatherData() {
-    return (HourlyWeatherData) responseData.get(type.getResponseDataKey());
-  }
+    public LunchData getLunchResponse() {
+        return (LunchData) responseData.get(type.getResponseDataKey());
+    }
+
+    public String[] getCharsetResponse() {
+        return (String[]) responseData.get(type.getResponseDataKey());
+    }
+
+    public ScriptResult getScriptResult() {
+        return (ScriptResult) responseData.get(type.getResponseDataKey());
+    }
+
+    public String getEngineResponse() {
+        return (String) responseData.get(type.getResponseDataKey());
+    }
+
+    public String getSunRiseResponse() {
+        return (String) responseData.get(type.getResponseDataKey());
+    }
+
+    public HourlyWeatherData getHourlyWeatherData() {
+        return (HourlyWeatherData) responseData.get(type.getResponseDataKey());
+    }
 }

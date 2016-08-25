@@ -13,27 +13,27 @@ import java.util.Map;
  */
 public class LunchData implements Serializable {
 
-  private LunchPlace lunchPlace;
-  private Map<LunchDay, LunchMenu> menu = new HashMap<>();
+    private LunchPlace lunchPlace;
+    private Map<LunchDay, LunchMenu> menu = new HashMap<>();
 
-  public LunchData() {
-  }
+    public LunchData() {
+    }
 
-  public LunchPlace getLunchPlace() {
-    return lunchPlace;
-  }
+    public LunchPlace getLunchPlace() {
+        return lunchPlace;
+    }
 
-  public void setLunchPlace(LunchPlace lunchPlace) {
-    this.lunchPlace = lunchPlace;
-  }
+    public void setLunchPlace(LunchPlace lunchPlace) {
+        this.lunchPlace = lunchPlace;
+    }
 
-  public Map<LunchDay, LunchMenu> getMenu() {
-    return menu;
-  }
+    public Map<LunchDay, LunchMenu> getMenu() {
+        return menu;
+    }
 
-  @Override
-  public String toString() {
-    return lunchPlace.getName() + " :: " + menu;
-  }
+    @Override
+    public String toString() {
+        return lunchPlace.getName() + " :: " + menu;
+    }
 
 }

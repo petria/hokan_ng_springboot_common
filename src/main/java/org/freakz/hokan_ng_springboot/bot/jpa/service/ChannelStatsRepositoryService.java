@@ -14,24 +14,24 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class ChannelStatsRepositoryService implements ChannelStatsService {
 
-  @Autowired
-  private ChannelStatsRepository repository;
+    @Autowired
+    private ChannelStatsRepository repository;
 
-  @Override
-  public ChannelStats findFirstByChannel(Channel channel) {
-    return repository.findFirstByChannel(channel);
-  }
-
-  @Override
-  public ChannelStats save(ChannelStats channelStats) {
-    try {
-      ChannelStats saved = repository.save(channelStats);
-      return saved;
-    } catch (Exception e) {
-      log.error("Save failed...", e);
-      log.error("... Failed entity: {}", channelStats.toString());
+    @Override
+    public ChannelStats findFirstByChannel(Channel channel) {
+        return repository.findFirstByChannel(channel);
     }
-    return channelStats;
-  }
+
+    @Override
+    public ChannelStats save(ChannelStats channelStats) {
+        try {
+            ChannelStats saved = repository.save(channelStats);
+            return saved;
+        } catch (Exception e) {
+            log.error("Save failed...", e);
+            log.error("... Failed entity: {}", channelStats.toString());
+        }
+        return channelStats;
+    }
 
 }

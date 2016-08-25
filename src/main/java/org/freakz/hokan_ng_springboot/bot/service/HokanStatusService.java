@@ -8,8 +8,8 @@ import org.freakz.hokan_ng_springboot.bot.models.HokanStatusModel;
  */
 public interface HokanStatusService {
 
-  HokanStatusModel getHokanStatus(HokanModule module);
+    HokanStatusModel getHokanStatus(HokanModule module);
 
-  void setActivated(boolean activated);
+    void setActivated(boolean activated);
 
 }

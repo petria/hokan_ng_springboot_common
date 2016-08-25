@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface SearchReplaceRepository extends JpaRepository<SearchReplace, Long> {
 
-  List<SearchReplace> findByTheSearch(String search);
+    List<SearchReplace> findByTheSearch(String search);
 
 }

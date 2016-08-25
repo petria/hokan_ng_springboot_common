@@ -11,14 +11,14 @@ import java.util.List;
  */
 public interface IrcLogService {
 
-  IrcLog addIrcLog(Date timeStamp, String sender, String target, String message);
+    IrcLog addIrcLog(Date timeStamp, String sender, String target, String message);
 
-  List<IrcLog> findMatchingLogRows(String logPattern);
+    List<IrcLog> findMatchingLogRows(String logPattern);
 
-  List<IrcLog> findByTimeStampBetween(StartAndEndTime startAndEndTime);
+    List<IrcLog> findByTimeStampBetween(StartAndEndTime startAndEndTime);
 
-  List<IrcLog> findByTimeStampBetweenAndTargetContaining(StartAndEndTime startAndEndTime, String target);
+    List<IrcLog> findByTimeStampBetweenAndTargetContaining(StartAndEndTime startAndEndTime, String target);
 
-  List<IrcLog> findByTarget(String target);
+    List<IrcLog> findByTarget(String target);
 
 }

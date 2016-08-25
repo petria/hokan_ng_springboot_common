@@ -14,27 +14,27 @@ import java.util.List;
 @Service
 public class CommandHistoryRepositoryService implements CommandHistoryService {
 
-  @Autowired
-  private CommandHistoryRepository repository;
+    @Autowired
+    private CommandHistoryRepository repository;
 
-  @Override
-  public CommandHistory save(CommandHistory history) {
-    return repository.save(history);
-  }
+    @Override
+    public CommandHistory save(CommandHistory history) {
+        return repository.save(history);
+    }
 
-  @Override
-  public List<CommandHistory> findByHokanModule(String module) {
-    return repository.findByHokanModule(module);
-  }
+    @Override
+    public List<CommandHistory> findByHokanModule(String module) {
+        return repository.findByHokanModule(module);
+    }
 
-  @Override
-  public List<CommandHistory> findByHokanModuleAndSessionId(String module, long sessionId) {
-    return repository.findByHokanModuleAndSessionId(module, sessionId);
-  }
+    @Override
+    public List<CommandHistory> findByHokanModuleAndSessionId(String module, long sessionId) {
+        return repository.findByHokanModuleAndSessionId(module, sessionId);
+    }
 
-  @Override
-  public List<CommandHistory> findByHokanModuleAndSessionIdAndCommandStatus(String module, long sessionId, CommandStatus status) {
-    return repository.findByHokanModuleAndSessionIdAndCommandStatus(module, sessionId, status);
-  }
+    @Override
+    public List<CommandHistory> findByHokanModuleAndSessionIdAndCommandStatus(String module, long sessionId, CommandStatus status) {
+        return repository.findByHokanModuleAndSessionIdAndCommandStatus(module, sessionId, status);
+    }
 
 }

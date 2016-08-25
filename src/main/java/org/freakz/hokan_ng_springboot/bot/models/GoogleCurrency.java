@@ -7,30 +7,30 @@ import java.io.Serializable;
  */
 public class GoogleCurrency implements Serializable {
 
-  private String shortName;
-  private String longName;
+    private String shortName;
+    private String longName;
 
-  public GoogleCurrency() {
-  }
+    public GoogleCurrency() {
+    }
 
-  public GoogleCurrency(String shortName, String longName) {
-    this.shortName = shortName;
-    this.longName = longName;
-  }
+    public GoogleCurrency(String shortName, String longName) {
+        this.shortName = shortName;
+        this.longName = longName;
+    }
 
-  public String getShortName() {
-    return shortName;
-  }
+    public String getShortName() {
+        return shortName;
+    }
 
-  public void setShortName(String shortName) {
-    this.shortName = shortName;
-  }
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
 
-  public String getLongName() {
-    return longName;
-  }
+    public String getLongName() {
+        return longName;
+    }
 
-  public void setLongName(String longName) {
-    this.longName = longName;
-  }
+    public void setLongName(String longName) {
+        this.longName = longName;
+    }
 }

@@ -8,8 +8,8 @@ import org.joda.time.DateTime;
  */
 public interface StatsService {
 
-  StatsMapper getDailyStatsForChannel(DateTime day, String channel);
+    StatsMapper getDailyStatsForChannel(DateTime day, String channel);
 
-  StatsMapper getStatsForChannel(String channel);
+    StatsMapper getStatsForChannel(String channel);
 
 }

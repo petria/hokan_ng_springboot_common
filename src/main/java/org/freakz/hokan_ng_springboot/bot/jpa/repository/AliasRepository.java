@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface AliasRepository extends JpaRepository<Alias, Long> {
 
-  Alias findFirstByAlias(String alias);
+    Alias findFirstByAlias(String alias);
 
 }

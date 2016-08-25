@@ -13,108 +13,108 @@ import java.io.Serializable;
 @Table(name = "IRC_SERVER_CONFIG")
 public class IrcServerConfig implements Serializable {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long id;
 
-  @OneToOne
-  @JoinColumn(name = "NETWORK_ID_FK", referencedColumnName = "ID")
-  private Network network;
+    @OneToOne
+    @JoinColumn(name = "NETWORK_ID_FK", referencedColumnName = "ID")
+    private Network network;
 
-  @Column(name = "SERVER")
-  private String server;
+    @Column(name = "SERVER")
+    private String server;
 
-  @Column(name = "SERVER_PASSWORD")
-  private String serverPassword;
+    @Column(name = "SERVER_PASSWORD")
+    private String serverPassword;
 
-  @Column(name = "SERVER_PORT")
-  private int port;
+    @Column(name = "SERVER_PORT")
+    private int port;
 
-  @Column(name = "LOCAL_ADDRESS")
-  private String localAddress;
+    @Column(name = "LOCAL_ADDRESS")
+    private String localAddress;
 
-  @Column(name = "USE_THROTTLE")
-  private int useThrottle;
+    @Column(name = "USE_THROTTLE")
+    private int useThrottle;
 
-  @Column(name = "STATE", nullable = false)
-  @Enumerated(EnumType.STRING)
-  private IrcServerConfigState ircServerConfigState;
+    @Column(name = "STATE", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private IrcServerConfigState ircServerConfigState;
 
-  public IrcServerConfig() {
-    this.ircServerConfigState = IrcServerConfigState.DISCONNECTED;
-  }
+    public IrcServerConfig() {
+        this.ircServerConfigState = IrcServerConfigState.DISCONNECTED;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public Network getNetwork() {
-    return network;
-  }
+    public Network getNetwork() {
+        return network;
+    }
 
-  public void setNetwork(Network network) {
-    this.network = network;
-  }
+    public void setNetwork(Network network) {
+        this.network = network;
+    }
 
-  public String getServer() {
-    return server;
-  }
+    public String getServer() {
+        return server;
+    }
 
-  public void setServer(String server) {
-    this.server = server;
-  }
+    public void setServer(String server) {
+        this.server = server;
+    }
 
-  public String getServerPassword() {
-    return serverPassword;
-  }
+    public String getServerPassword() {
+        return serverPassword;
+    }
 
-  public void setServerPassword(String serverPassword) {
-    this.serverPassword = serverPassword;
-  }
+    public void setServerPassword(String serverPassword) {
+        this.serverPassword = serverPassword;
+    }
 
-  public int getPort() {
-    return port;
-  }
+    public int getPort() {
+        return port;
+    }
 
-  public void setPort(int port) {
-    this.port = port;
-  }
+    public void setPort(int port) {
+        this.port = port;
+    }
 
-  public String getLocalAddress() {
-    return localAddress;
-  }
+    public String getLocalAddress() {
+        return localAddress;
+    }
 
-  public void setLocalAddress(String localAddress) {
-    this.localAddress = localAddress;
-  }
+    public void setLocalAddress(String localAddress) {
+        this.localAddress = localAddress;
+    }
 
-  public int getUseThrottle() {
-    return useThrottle;
-  }
+    public int getUseThrottle() {
+        return useThrottle;
+    }
 
-  public void setUseThrottle(int useThrottle) {
-    this.useThrottle = useThrottle;
-  }
+    public void setUseThrottle(int useThrottle) {
+        this.useThrottle = useThrottle;
+    }
 
-  public boolean isThrottleInUse() {
-    return getUseThrottle() > 0;
-  }
+    public boolean isThrottleInUse() {
+        return getUseThrottle() > 0;
+    }
 
-  public IrcServerConfigState getIrcServerConfigState() {
-    return ircServerConfigState;
-  }
+    public IrcServerConfigState getIrcServerConfigState() {
+        return ircServerConfigState;
+    }
 
-  public void setIrcServerConfigState(IrcServerConfigState ircServerConfigState) {
-    this.ircServerConfigState = ircServerConfigState;
-  }
+    public void setIrcServerConfigState(IrcServerConfigState ircServerConfigState) {
+        this.ircServerConfigState = ircServerConfigState;
+    }
 
-  public String toString() {
-    return String.format("%s: [(%d) %s %s:%d(%s) throttle: %s]",
-        this.getClass().toString(), getId(), this.network, this.server, this.port, this.serverPassword, isThrottleInUse());
-  }
+    public String toString() {
+        return String.format("%s: [(%d) %s %s:%d(%s) throttle: %s]",
+                this.getClass().toString(), getId(), this.network, this.server, this.port, this.serverPassword, isThrottleInUse());
+    }
 
-  public long getId() {
-    return id;
-  }
+    public long getId() {
+        return id;
+    }
 }

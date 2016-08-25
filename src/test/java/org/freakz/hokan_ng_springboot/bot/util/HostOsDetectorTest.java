@@ -9,11 +9,11 @@ import org.junit.Test;
  */
 public class HostOsDetectorTest {
 
-  @Test
-  public void testOsDetector() {
-    HostOsDetector detector = new HostOsDetector();
-    HostOS hostOs = detector.detectHostOs();
-    int foo = 0;
-  }
+    @Test
+    public void testOsDetector() {
+        HostOsDetector detector = new HostOsDetector();
+        HostOS hostOs = detector.detectHostOs();
+        int foo = 0;
+    }
 
 }

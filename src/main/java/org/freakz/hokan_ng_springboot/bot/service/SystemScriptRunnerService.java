@@ -8,8 +8,8 @@ import org.freakz.hokan_ng_springboot.bot.models.SystemScriptResult;
  */
 public interface SystemScriptRunnerService {
 
-  String[] runScript(SystemScript systemScript, String... args);
+    String[] runScript(SystemScript systemScript, String... args);
 
-  SystemScriptResult runAndGetResult(SystemScript systemScript, String... args);
+    SystemScriptResult runAndGetResult(SystemScript systemScript, String... args);
 
 }

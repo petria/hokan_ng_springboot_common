@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface JoinedUserRepository extends JpaRepository<JoinedUser, Long> {
 
-  void deleteByChannel(Channel channel);
+    void deleteByChannel(Channel channel);
 
-  List<JoinedUser> findByChannel(Channel channel);
+    List<JoinedUser> findByChannel(Channel channel);
 
 }

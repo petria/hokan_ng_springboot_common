@@ -7,31 +7,31 @@ import java.io.Serializable;
  */
 public class KelikameratUrl implements Serializable {
 
-  private String areaUrl;
+    private String areaUrl;
 
-  private String stationUrl;
+    private String stationUrl;
 
-  public KelikameratUrl() {
-  }
+    public KelikameratUrl() {
+    }
 
-  public KelikameratUrl(String areaUrl, String stationUrl) {
-    this.areaUrl = areaUrl;
-    this.stationUrl = stationUrl;
-  }
+    public KelikameratUrl(String areaUrl, String stationUrl) {
+        this.areaUrl = areaUrl;
+        this.stationUrl = stationUrl;
+    }
 
-  public String getAreaUrl() {
-    return areaUrl;
-  }
+    public String getAreaUrl() {
+        return areaUrl;
+    }
 
-  public void setAreaUrl(String areaUrl) {
-    this.areaUrl = areaUrl;
-  }
+    public void setAreaUrl(String areaUrl) {
+        this.areaUrl = areaUrl;
+    }
 
-  public String getStationUrl() {
-    return stationUrl;
-  }
+    public String getStationUrl() {
+        return stationUrl;
+    }
 
-  public void setStationUrl(String stationUrl) {
-    this.stationUrl = stationUrl;
-  }
+    public void setStationUrl(String stationUrl) {
+        this.stationUrl = stationUrl;
+    }
 }

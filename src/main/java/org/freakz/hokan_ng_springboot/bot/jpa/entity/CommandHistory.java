@@ -10,131 +10,131 @@ import java.util.Date;
 @Table(name = "COMMAND_HISTORY")
 public class CommandHistory {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long id;
 
-  @Column(name = "SESSION_ID")
-  private long sessionId;
+    @Column(name = "SESSION_ID")
+    private long sessionId;
 
-  @Column(name = "START_TIME")
-  private Date startTime;
+    @Column(name = "START_TIME")
+    private Date startTime;
 
-  @Column(name = "END_TIME")
-  private Date endTime;
+    @Column(name = "END_TIME")
+    private Date endTime;
 
-  @Column(name = "HOKAN_MODULE")
-  private String hokanModule;
+    @Column(name = "HOKAN_MODULE")
+    private String hokanModule;
 
-  @Column(name = "PID")
-  private long pid;
+    @Column(name = "PID")
+    private long pid;
 
-  @Column(name = "ARGS")
-  private String args;
+    @Column(name = "ARGS")
+    private String args;
 
-  @Column(name = "RUNNABLE")
-  private String runnable;
+    @Column(name = "RUNNABLE")
+    private String runnable;
 
-  @Column(name = "COMMAND_STATUS", nullable = false)
-  @Enumerated(EnumType.STRING)
-  private CommandStatus commandStatus;
+    @Column(name = "COMMAND_STATUS", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CommandStatus commandStatus;
 
-  @Column(name = "STARTED_BY")
-  private String startedBy;
+    @Column(name = "STARTED_BY")
+    private String startedBy;
 
-  @Column(name = "ERROR_EXCEPTION")
-  private String errorException;
+    @Column(name = "ERROR_EXCEPTION")
+    private String errorException;
 
 
-  public CommandHistory() {
-  }
+    public CommandHistory() {
+    }
 
-  public long getId() {
-    return id;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public long getSessionId() {
-    return sessionId;
-  }
+    public long getSessionId() {
+        return sessionId;
+    }
 
-  public void setSessionId(long sessionId) {
-    this.sessionId = sessionId;
-  }
+    public void setSessionId(long sessionId) {
+        this.sessionId = sessionId;
+    }
 
-  public Date getStartTime() {
-    return startTime;
-  }
+    public Date getStartTime() {
+        return startTime;
+    }
 
-  public void setStartTime(Date startTime) {
-    this.startTime = startTime;
-  }
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
 
-  public Date getEndTime() {
-    return endTime;
-  }
+    public Date getEndTime() {
+        return endTime;
+    }
 
-  public void setEndTime(Date endTime) {
-    this.endTime = endTime;
-  }
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
 
-  public long getPid() {
-    return pid;
-  }
+    public long getPid() {
+        return pid;
+    }
 
-  public void setPid(long pid) {
-    this.pid = pid;
-  }
+    public void setPid(long pid) {
+        this.pid = pid;
+    }
 
-  public String getArgs() {
-    return args;
-  }
+    public String getArgs() {
+        return args;
+    }
 
-  public void setArgs(String args) {
-    this.args = args;
-  }
+    public void setArgs(String args) {
+        this.args = args;
+    }
 
-  public String getRunnable() {
-    return runnable;
-  }
+    public String getRunnable() {
+        return runnable;
+    }
 
-  public void setRunnable(String runnable) {
-    this.runnable = runnable;
-  }
+    public void setRunnable(String runnable) {
+        this.runnable = runnable;
+    }
 
-  public String getHokanModule() {
-    return hokanModule;
-  }
+    public String getHokanModule() {
+        return hokanModule;
+    }
 
-  public void setHokanModule(String hokanModule) {
-    this.hokanModule = hokanModule;
-  }
+    public void setHokanModule(String hokanModule) {
+        this.hokanModule = hokanModule;
+    }
 
-  public CommandStatus getStatus() {
-    return commandStatus;
-  }
+    public CommandStatus getStatus() {
+        return commandStatus;
+    }
 
-  public void setStatus(CommandStatus commandStatus) {
-    this.commandStatus = commandStatus;
-  }
+    public void setStatus(CommandStatus commandStatus) {
+        this.commandStatus = commandStatus;
+    }
 
-  public String getStartedBy() {
-    return startedBy;
-  }
+    public String getStartedBy() {
+        return startedBy;
+    }
 
-  public void setStartedBy(String startedBy) {
-    this.startedBy = startedBy;
-  }
+    public void setStartedBy(String startedBy) {
+        this.startedBy = startedBy;
+    }
 
-  public String getErrorException() {
-    return errorException;
-  }
+    public String getErrorException() {
+        return errorException;
+    }
 
-  public void setErrorException(String errorException) {
-    this.errorException = errorException;
-  }
+    public void setErrorException(String errorException) {
+        this.errorException = errorException;
+    }
 }

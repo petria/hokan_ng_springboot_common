@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public enum IrcServerConfigState implements Serializable {
 
-  DISCONNECTED,
-  CONNECTED
+    DISCONNECTED,
+    CONNECTED
 
 }

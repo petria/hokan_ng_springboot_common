@@ -10,30 +10,30 @@ import java.util.Map;
  */
 public class CommandLineArgsParser {
 
-  final private String[] args;
+    final private String[] args;
 
-  public CommandLineArgsParser(String[] args) {
-    this.args = args;
-  }
-
-  public Map<CommandLineArgs, String> parseArgs() {
-    Map<CommandLineArgs, String> parsedArgs = new HashMap<>();
-    if (args != null) {
-      for (String arg : this.args) {
-        if (arg.startsWith("--") && arg.contains("=")) {
-          String[] split = arg.split("=");
-          for (CommandLineArgs commandLineArgs : CommandLineArgs.values()) {
-            if (split[0].equalsIgnoreCase(commandLineArgs.getCommandLineArg())) {
-              if (split.length == 2) {
-                parsedArgs.put(commandLineArgs, split[1]);
-              }
-            }
-          }
-        }
-      }
+    public CommandLineArgsParser(String[] args) {
+        this.args = args;
     }
-    return parsedArgs;
-  }
+
+    public Map<CommandLineArgs, String> parseArgs() {
+        Map<CommandLineArgs, String> parsedArgs = new HashMap<>();
+        if (args != null) {
+            for (String arg : this.args) {
+                if (arg.startsWith("--") && arg.contains("=")) {
+                    String[] split = arg.split("=");
+                    for (CommandLineArgs commandLineArgs : CommandLineArgs.values()) {
+                        if (split[0].equalsIgnoreCase(commandLineArgs.getCommandLineArg())) {
+                            if (split.length == 2) {
+                                parsedArgs.put(commandLineArgs, split[1]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return parsedArgs;
+    }
 
 
 }

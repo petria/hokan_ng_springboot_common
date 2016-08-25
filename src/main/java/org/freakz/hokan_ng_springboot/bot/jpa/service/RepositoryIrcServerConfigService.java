@@ -16,24 +16,24 @@ import java.util.List;
 @Slf4j
 public class RepositoryIrcServerConfigService implements IrcServerConfigService {
 
-  @Autowired
-  private IrcServerConfigRepository repository;
+    @Autowired
+    private IrcServerConfigRepository repository;
 
-  @Override
-  @Transactional(readOnly = true)
-  public List<IrcServerConfig> findAll() {
-    return repository.findAll();
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public List<IrcServerConfig> findAll() {
+        return repository.findAll();
+    }
 
-  @Override
-  @Transactional
-  public IrcServerConfig save(IrcServerConfig configuredServer) {
-    return repository.save(configuredServer);
-  }
+    @Override
+    @Transactional
+    public IrcServerConfig save(IrcServerConfig configuredServer) {
+        return repository.save(configuredServer);
+    }
 
-  @Override
-  public void delete(IrcServerConfig object) {
-    repository.delete(object);
-  }
+    @Override
+    public void delete(IrcServerConfig object) {
+        repository.delete(object);
+    }
 
 }

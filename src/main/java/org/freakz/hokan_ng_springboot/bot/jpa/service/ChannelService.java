@@ -12,28 +12,28 @@ import java.util.List;
 public interface ChannelService {
 
 
-  Channel findOne(long id);
+    Channel findOne(long id);
 
-  List<Channel> findChannels(Network network, ChannelState joined);
+    List<Channel> findChannels(Network network, ChannelState joined);
 
-  List<Channel> findAll();
+    List<Channel> findAll();
 
-  List<Channel> findByChannelNameLike(String like);
+    List<Channel> findByChannelNameLike(String like);
 
-  List<Channel> findByNetwork(Network network);
+    List<Channel> findByNetwork(Network network);
 
-  Channel findByNetworkAndChannelName(Network network, String channelName);
+    Channel findByNetworkAndChannelName(Network network, String channelName);
 
-  Channel save(Channel object);
+    Channel save(Channel object);
 
-  void delete(Channel object);
+    void delete(Channel object);
 
-  Channel create(Channel newRow);
+    Channel create(Channel newRow);
 
-  Channel createChannel(Network network, String channelName);
+    Channel createChannel(Network network, String channelName);
 
-  void deleteAllByNetwork(Network object);
+    void deleteAllByNetwork(Network object);
 
-  void resetChannelStates();
+    void resetChannelStates();
 
 }

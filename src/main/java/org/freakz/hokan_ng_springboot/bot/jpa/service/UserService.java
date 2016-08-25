@@ -9,16 +9,16 @@ import java.util.List;
  */
 public interface UserService {
 
-  List<User> findAll();
+    List<User> findAll();
 
-  User findFirstByNick(String nick);
+    User findFirstByNick(String nick);
 
-  User findById(long id);
+    User findById(long id);
 
-  User save(User user);
+    User save(User user);
 
-  User getUserByMask(String mask);
+    User getUserByMask(String mask);
 
-  void setAllLoggedIn(int value);
+    void setAllLoggedIn(int value);
 
 }

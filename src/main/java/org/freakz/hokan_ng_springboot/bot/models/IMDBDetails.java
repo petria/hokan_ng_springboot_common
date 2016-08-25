@@ -10,20 +10,20 @@ import java.io.Serializable;
  */
 public class IMDBDetails implements Serializable {
 
-  private OmdbVideoFull details;
+    private OmdbVideoFull details;
 
-  public IMDBDetails() {
-  }
+    public IMDBDetails() {
+    }
 
-  public IMDBDetails(OmdbVideoFull details) {
-    this.details = details;
-  }
+    public IMDBDetails(OmdbVideoFull details) {
+        this.details = details;
+    }
 
-  public OmdbVideoFull getDetails() {
-    return details;
-  }
+    public OmdbVideoFull getDetails() {
+        return details;
+    }
 
-  public void setDetails(OmdbVideoFull details) {
-    this.details = details;
-  }
+    public void setDetails(OmdbVideoFull details) {
+        this.details = details;
+    }
 }

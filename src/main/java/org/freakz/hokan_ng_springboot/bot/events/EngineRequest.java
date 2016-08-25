@@ -11,58 +11,58 @@ import java.io.Serializable;
  */
 public class EngineRequest implements Serializable {
 
-  private static final long serialVersionUID = 1L;
-  private IrcMessageEvent ircEvent;
-  private String engineAddress;
-  private String outputPrefix;
-  private String outputPostfix;
+    private static final long serialVersionUID = 1L;
+    private IrcMessageEvent ircEvent;
+    private String engineAddress;
+    private String outputPrefix;
+    private String outputPostfix;
 
-  private long myPid;
+    private long myPid;
 
-  public EngineRequest() {
-  }
+    public EngineRequest() {
+    }
 
-  public EngineRequest(IrcMessageEvent ircEvent) {
-    this.ircEvent = ircEvent;
-  }
+    public EngineRequest(IrcMessageEvent ircEvent) {
+        this.ircEvent = ircEvent;
+    }
 
-  public IrcMessageEvent getIrcEvent() {
-    return ircEvent;
-  }
+    public IrcMessageEvent getIrcEvent() {
+        return ircEvent;
+    }
 
-  public void setIrcEvent(IrcMessageEvent ircEvent) {
-    this.ircEvent = ircEvent;
-  }
+    public void setIrcEvent(IrcMessageEvent ircEvent) {
+        this.ircEvent = ircEvent;
+    }
 
-  public long getMyPid() {
-    return myPid;
-  }
+    public long getMyPid() {
+        return myPid;
+    }
 
-  public void setMyPid(long myPid) {
-    this.myPid = myPid;
-  }
+    public void setMyPid(long myPid) {
+        this.myPid = myPid;
+    }
 
-  public String getEngineAddress() {
-    return engineAddress;
-  }
+    public String getEngineAddress() {
+        return engineAddress;
+    }
 
-  public void setEngineAddress(String engineAddress) {
-    this.engineAddress = engineAddress;
-  }
+    public void setEngineAddress(String engineAddress) {
+        this.engineAddress = engineAddress;
+    }
 
-  public String getOutputPrefix() {
-    return outputPrefix;
-  }
+    public String getOutputPrefix() {
+        return outputPrefix;
+    }
 
-  public void setOutputPrefix(String outputPrefix) {
-    this.outputPrefix = outputPrefix;
-  }
+    public void setOutputPrefix(String outputPrefix) {
+        this.outputPrefix = outputPrefix;
+    }
 
-  public String getOutputPostfix() {
-    return outputPostfix;
-  }
+    public String getOutputPostfix() {
+        return outputPostfix;
+    }
 
-  public void setOutputPostfix(String outputPostfix) {
-    this.outputPostfix = outputPostfix;
-  }
+    public void setOutputPostfix(String outputPostfix) {
+        this.outputPostfix = outputPostfix;
+    }
 }

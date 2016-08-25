@@ -19,38 +19,38 @@ import javax.jms.*;
 @Slf4j
 public abstract class SpringJmsReceiver implements JmsMessageHandler {
 
-  @Autowired
-  private ConnectionFactory connectionFactory;
+    @Autowired
+    private ConnectionFactory connectionFactory;
 
-  @Autowired
-  private UptimeService uptimeService;
+    @Autowired
+    private UptimeService uptimeService;
 
-  @Autowired
-  private JmsSender jmsSender;
+    @Autowired
+    private JmsSender jmsSender;
 
-  @Bean
-  public ScheduledAnnotationBeanPostProcessor scheduledAnnotationBeanPostProcessor() {
-    return new ScheduledAnnotationBeanPostProcessor();
-  }
+    @Bean
+    public ScheduledAnnotationBeanPostProcessor scheduledAnnotationBeanPostProcessor() {
+        return new ScheduledAnnotationBeanPostProcessor();
+    }
 
-  @Bean
-  public DefaultMessageListenerContainer messageListener() {
-    DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
-    container.setConnectionFactory(this.connectionFactory);
-    log.info("Setting Destination Name: {}", getDestinationName());
-    container.setDestinationName(getDestinationName());
-    container.setMessageListener((MessageListener) message -> {
-      try {
-        ObjectMessage objectMessage = (ObjectMessage) message;
-        JmsMessage messageIn = (JmsMessage) objectMessage.getObject();
-        JmsMessage messageOut = new JmsMessage();
-        JmsEnvelope envelope = new JmsEnvelope(objectMessage, messageIn, messageOut);
+    @Bean
+    public DefaultMessageListenerContainer messageListener() {
+        DefaultMessageListenerContainer container = new DefaultMessageListenerContainer();
+        container.setConnectionFactory(this.connectionFactory);
+        log.info("Setting Destination Name: {}", getDestinationName());
+        container.setDestinationName(getDestinationName());
+        container.setMessageListener((MessageListener) message -> {
+            try {
+                ObjectMessage objectMessage = (ObjectMessage) message;
+                JmsMessage messageIn = (JmsMessage) objectMessage.getObject();
+                JmsMessage messageOut = new JmsMessage();
+                JmsEnvelope envelope = new JmsEnvelope(objectMessage, messageIn, messageOut);
 
-        String command = messageIn.getCommand();
-        if (command.equals("PING")) {
+                String command = messageIn.getCommand();
+                if (command.equals("PING")) {
 
-          PingResponse pingResponse = new PingResponse();
-          pingResponse.setUptime(uptimeService.getUptime());
+                    PingResponse pingResponse = new PingResponse();
+                    pingResponse.setUptime(uptimeService.getUptime());
 
 //          JarNixScriptExecutor cmdExecutor = new JarNixScriptExecutor("/hostinfo.sh", "UTF-8");
 //          String[] hostinfo = cmdExecutor.executeJarScript();
@@ -60,26 +60,26 @@ public abstract class SpringJmsReceiver implements JmsMessageHandler {
 //            pingResponse.setHostinfo("N/A");
 //          }
 
-          messageOut.addPayLoadObject("PING_RESPONSE", pingResponse);
+                    messageOut.addPayLoadObject("PING_RESPONSE", pingResponse);
 
-        } else {
-          try {
-            handleJmsEnvelope(envelope);
-          } catch (Exception e) {
-            log.error("Exception", e);
-          }
-        }
-        Destination replyTo = message.getJMSReplyTo();
-        if (replyTo != null) {
-          jmsSender.sendJmsMessage(replyTo, messageOut);
-        }
+                } else {
+                    try {
+                        handleJmsEnvelope(envelope);
+                    } catch (Exception e) {
+                        log.error("Exception", e);
+                    }
+                }
+                Destination replyTo = message.getJMSReplyTo();
+                if (replyTo != null) {
+                    jmsSender.sendJmsMessage(replyTo, messageOut);
+                }
 
-      } catch (JMSException ex) {
-        log.error("Jms error", ex);
-      }
-    });
-    return container;
-  }
+            } catch (JMSException ex) {
+                log.error("Jms error", ex);
+            }
+        });
+        return container;
+    }
 
 
 }

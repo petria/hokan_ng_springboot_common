@@ -7,26 +7,26 @@ import java.io.Serializable;
  */
 public class NotifyRequest implements Serializable {
 
-  private long targetChannelId;
-  private String notifyMessage;
+    private long targetChannelId;
+    private String notifyMessage;
 
-  public NotifyRequest() {
-  }
+    public NotifyRequest() {
+    }
 
-  public long getTargetChannelId() {
-    return targetChannelId;
-  }
+    public long getTargetChannelId() {
+        return targetChannelId;
+    }
 
-  public String getNotifyMessage() {
-    return notifyMessage;
-  }
+    public String getNotifyMessage() {
+        return notifyMessage;
+    }
 
-  public void setTargetChannelId(long id) {
-    this.targetChannelId = id;
-  }
+    public void setTargetChannelId(long id) {
+        this.targetChannelId = id;
+    }
 
-  public void setNotifyMessage(String notifyMessage) {
-    this.notifyMessage = notifyMessage;
-  }
+    public void setNotifyMessage(String notifyMessage) {
+        this.notifyMessage = notifyMessage;
+    }
 
 }

@@ -9,8 +9,8 @@ public interface HokanModuleService {
 
 //  void setHokanModule(HokanModule module);
 
-  HokanModule getHokanModule();
+    HokanModule getHokanModule();
 
-  long getSessionId();
+    long getSessionId();
 
 }

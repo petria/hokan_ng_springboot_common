@@ -14,16 +14,16 @@ import java.util.List;
 @Service
 public class LoggedInUserRepositoryService implements LoggedInUserService {
 
-  @Autowired
-  private LoggedInUserRepository repository;
+    @Autowired
+    private LoggedInUserRepository repository;
 
-  @Override
-  public void invalidateAll() {
-    List<LoggedInUser> all = repository.findAll();
-    for (LoggedInUser user : all) {
-      user.setLoggedInState(LoggedInState.INVALID);
+    @Override
+    public void invalidateAll() {
+        List<LoggedInUser> all = repository.findAll();
+        for (LoggedInUser user : all) {
+            user.setLoggedInState(LoggedInState.INVALID);
+        }
+        repository.save(all);
     }
-    repository.save(all);
-  }
 
 }

@@ -12,12 +12,12 @@ import java.util.List;
  */
 public interface JoinedUserService {
 
-  void clearJoinedUsers(Channel channel);
+    void clearJoinedUsers(Channel channel);
 
-  JoinedUser createJoinedUser(Channel channel, User user, String userModes);
+    JoinedUser createJoinedUser(Channel channel, User user, String userModes);
 
-  List<JoinedUser> findJoinedUsers(Channel channel);
+    List<JoinedUser> findJoinedUsers(Channel channel);
 
-  List<JoinedUser> findJoinedUsersByNetwork(Network network);
+    List<JoinedUser> findJoinedUsersByNetwork(Network network);
 
 }

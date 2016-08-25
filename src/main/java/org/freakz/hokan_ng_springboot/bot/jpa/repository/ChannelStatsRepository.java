@@ -11,6 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ChannelStatsRepository extends JpaRepository<ChannelStats, Long> {
 
 
-  ChannelStats findFirstByChannel(Channel channel);
+    ChannelStats findFirstByChannel(Channel channel);
 
 }

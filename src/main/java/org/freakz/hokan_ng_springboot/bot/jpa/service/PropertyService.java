@@ -10,22 +10,22 @@ import java.util.List;
  */
 public interface PropertyService {
 
-  List<PropertyEntity> findAll();
+    List<PropertyEntity> findAll();
 
-  PropertyEntity save(PropertyEntity property);
+    PropertyEntity save(PropertyEntity property);
 
-  void delete(PropertyEntity object);
+    void delete(PropertyEntity object);
 
-  PropertyEntity findFirstByPropertyName(PropertyName propertyName);
+    PropertyEntity findFirstByPropertyName(PropertyName propertyName);
 
-  String getPropertyAsString(PropertyName propertyName, String defaultValue);
+    String getPropertyAsString(PropertyName propertyName, String defaultValue);
 
-  int getPropertyAsInt(PropertyName propertyName, int defaultValue);
+    int getPropertyAsInt(PropertyName propertyName, int defaultValue);
 
-  long getPropertyAsLong(PropertyName propertyName, long defaultValue);
+    long getPropertyAsLong(PropertyName propertyName, long defaultValue);
 
-  boolean getPropertyAsBoolean(PropertyName propertyName, boolean defaultValue);
+    boolean getPropertyAsBoolean(PropertyName propertyName, boolean defaultValue);
 
-  long getNextPid();
+    long getNextPid();
 
 }

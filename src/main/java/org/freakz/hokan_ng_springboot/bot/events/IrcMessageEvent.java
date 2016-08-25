@@ -11,100 +11,100 @@ import java.io.Serializable;
  */
 public class IrcMessageEvent extends IrcEvent implements Serializable, Cloneable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  private String message;
-  private boolean isPrivate;
-  private boolean isToMe;
-  private boolean isBotOp;
-  private boolean webMessage;
+    private String message;
+    private boolean isPrivate;
+    private boolean isToMe;
+    private boolean isBotOp;
+    private boolean webMessage;
 
-  private String outputPrefix;
-  private String outputPostfix;
+    private String outputPrefix;
+    private String outputPostfix;
 
-  public byte[] getOriginal() {
-    return original;
-  }
+    public byte[] getOriginal() {
+        return original;
+    }
 
-  public void setOriginal(byte[] original) {
-    this.original = original;
-  }
+    public void setOriginal(byte[] original) {
+        this.original = original;
+    }
 
-  private byte[] original;
+    private byte[] original;
 
-  public IrcMessageEvent() {
-    super();
-  }
+    public IrcMessageEvent() {
+        super();
+    }
 
-  public IrcMessageEvent(String botNick, String network, String channel, String sender, String login, String hostname, String message) {
-    super(botNick, network, channel, sender, login, hostname);
-    this.message = message;
-  }
+    public IrcMessageEvent(String botNick, String network, String channel, String sender, String login, String hostname, String message) {
+        super(botNick, network, channel, sender, login, hostname);
+        this.message = message;
+    }
 
-  public IrcMessageEvent(IrcMessageEvent toClone) {
-    super(toClone);
-    this.message = toClone.message;
-  }
+    public IrcMessageEvent(IrcMessageEvent toClone) {
+        super(toClone);
+        this.message = toClone.message;
+    }
 
-  @Override
-  public Object clone() {
-    IrcMessageEvent cloned = new IrcMessageEvent(this);
-    return cloned;
-  }
+    @Override
+    public Object clone() {
+        IrcMessageEvent cloned = new IrcMessageEvent(this);
+        return cloned;
+    }
 
-  public String getMessage() {
-    return message;
-  }
+    public String getMessage() {
+        return message;
+    }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-  public boolean isToMe() {
-    return isToMe;
-  }
+    public boolean isToMe() {
+        return isToMe;
+    }
 
-  public void setToMe(boolean toMe) {
-    isToMe = toMe;
-  }
+    public void setToMe(boolean toMe) {
+        isToMe = toMe;
+    }
 
-  public boolean isPrivate() {
-    return isPrivate;
-  }
+    public boolean isPrivate() {
+        return isPrivate;
+    }
 
-  public void setPrivate(boolean aPrivate) {
-    isPrivate = aPrivate;
-  }
+    public void setPrivate(boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
 
-  public boolean isBotOp() {
-    return isBotOp;
-  }
+    public boolean isBotOp() {
+        return isBotOp;
+    }
 
-  public void setBotOp(boolean isBotOp) {
-    this.isBotOp = isBotOp;
-  }
+    public void setBotOp(boolean isBotOp) {
+        this.isBotOp = isBotOp;
+    }
 
-  public String getOutputPrefix() {
-    return outputPrefix;
-  }
+    public String getOutputPrefix() {
+        return outputPrefix;
+    }
 
-  public void setOutputPrefix(String outputPrefix) {
-    this.outputPrefix = outputPrefix;
-  }
+    public void setOutputPrefix(String outputPrefix) {
+        this.outputPrefix = outputPrefix;
+    }
 
-  public String getOutputPostfix() {
-    return outputPostfix;
-  }
+    public String getOutputPostfix() {
+        return outputPostfix;
+    }
 
-  public void setOutputPostfix(String outputPostfix) {
-    this.outputPostfix = outputPostfix;
-  }
+    public void setOutputPostfix(String outputPostfix) {
+        this.outputPostfix = outputPostfix;
+    }
 
-  public boolean isWebMessage() {
-    return webMessage;
-  }
+    public boolean isWebMessage() {
+        return webMessage;
+    }
 
-  public void setWebMessage(boolean isWebMessage) {
-    this.webMessage = isWebMessage;
-  }
+    public void setWebMessage(boolean isWebMessage) {
+        this.webMessage = isWebMessage;
+    }
 }

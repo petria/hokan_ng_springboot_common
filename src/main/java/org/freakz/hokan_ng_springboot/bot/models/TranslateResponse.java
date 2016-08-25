@@ -12,19 +12,19 @@ import java.util.Map;
 public class TranslateResponse implements Serializable {
 
 
-  final private String originalText;
-  final private Map<String, List<TranslateData>> wordMap = new HashMap<>();
+    final private String originalText;
+    final private Map<String, List<TranslateData>> wordMap = new HashMap<>();
 
-  public TranslateResponse(String originalText) {
-    this.originalText = originalText;
-  }
+    public TranslateResponse(String originalText) {
+        this.originalText = originalText;
+    }
 
-  public String getOriginalText() {
-    return originalText;
-  }
+    public String getOriginalText() {
+        return originalText;
+    }
 
-  public Map<String, List<TranslateData>> getWordMap() {
-    return wordMap;
-  }
+    public Map<String, List<TranslateData>> getWordMap() {
+        return wordMap;
+    }
 
 }

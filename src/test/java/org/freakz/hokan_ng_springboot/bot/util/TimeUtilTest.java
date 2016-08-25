@@ -11,19 +11,19 @@ import org.junit.Test;
  */
 public class TimeUtilTest {
 
-  @Test
-  public void testTimeUtil() {
-    DateTime now = DateTime.now();
-    StartAndEndTime test = TimeUtil.getStartAndEndTimeForDay(now);
-    Assert.assertTrue(true);
-  }
+    @Test
+    public void testTimeUtil() {
+        DateTime now = DateTime.now();
+        StartAndEndTime test = TimeUtil.getStartAndEndTimeForDay(now);
+        Assert.assertTrue(true);
+    }
 
-  @Test
-  public void testParseDateTime() {
-    String dateString = "1.5";
-    DateTime parsed = TimeUtil.parseDateTime(dateString);
-    Assert.assertEquals("day of month", 1, parsed.getDayOfMonth());
-    Assert.assertEquals("month of year", 5, parsed.getMonthOfYear());
-  }
+    @Test
+    public void testParseDateTime() {
+        String dateString = "1.5";
+        DateTime parsed = TimeUtil.parseDateTime(dateString);
+        Assert.assertEquals("day of month", 1, parsed.getDayOfMonth());
+        Assert.assertEquals("month of year", 5, parsed.getMonthOfYear());
+    }
 
 }

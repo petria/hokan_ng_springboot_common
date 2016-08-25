@@ -5,6 +5,6 @@ package org.freakz.hokan_ng_springboot.bot.core;
  */
 public interface HokanCoreService {
 
-  void handleSendMessage(String channel, String message, boolean doSr, String prefix, String postfix);
+    void handleSendMessage(String channel, String message, boolean doSr, String prefix, String postfix);
 
 }

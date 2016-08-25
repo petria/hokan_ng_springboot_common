@@ -11,22 +11,22 @@ import java.util.Set;
  */
 public interface AccessControlService {
 
-  boolean isAdminUser(User user);
+    boolean isAdminUser(User user);
 
-  boolean isChannelOp(User user, Channel Channel);
+    boolean isChannelOp(User user, Channel Channel);
 
-  boolean isLoggedIn(User isLoggedIn);
+    boolean isLoggedIn(User isLoggedIn);
 
-  boolean authenticate(User user, String password);
+    boolean authenticate(User user, String password);
 
-  User loginUser(User user2);
+    User loginUser(User user2);
 
-  User logoffUser(User user2);
+    User logoffUser(User user2);
 
-  boolean hasUserFlag(User user, UserFlag flag);
+    boolean hasUserFlag(User user, UserFlag flag);
 
-  User addUserFlags(User user, Set<UserFlag> flagSet);
+    User addUserFlags(User user, Set<UserFlag> flagSet);
 
-  User removeUserFlags(User user, Set<UserFlag> flagSet);
+    User removeUserFlags(User user, Set<UserFlag> flagSet);
 
 }

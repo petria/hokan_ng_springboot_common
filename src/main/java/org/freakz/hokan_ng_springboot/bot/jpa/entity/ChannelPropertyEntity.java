@@ -20,29 +20,29 @@ import java.io.Serializable;
 @Table(name = "CHANNEL_PROPERTIES")
 public class ChannelPropertyEntity extends PropertyEntityBase implements Serializable {
 
-  @ManyToOne
-  @OnDelete(action = OnDeleteAction.CASCADE)
-  @JoinColumn(name = "CHANNEL", referencedColumnName = "ID", nullable = false)
-  private Channel channel;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "CHANNEL", referencedColumnName = "ID", nullable = false)
+    private Channel channel;
 
-  public ChannelPropertyEntity() {
-  }
+    public ChannelPropertyEntity() {
+    }
 
-  public ChannelPropertyEntity(Channel channel, PropertyName property, String value, String flags) {
-    super(property, value, flags);
-    this.channel = channel;
-  }
+    public ChannelPropertyEntity(Channel channel, PropertyName property, String value, String flags) {
+        super(property, value, flags);
+        this.channel = channel;
+    }
 
-  public Channel getChannel() {
-    return channel;
-  }
+    public Channel getChannel() {
+        return channel;
+    }
 
-  public void setChannel(Channel channel) {
-    this.channel = channel;
-  }
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
 
-  public String toString() {
-    return String.format("[%s] %s = %s", channel.getChannelName(), getPropertyName().toString(), getValue());
-  }
+    public String toString() {
+        return String.format("[%s] %s = %s", channel.getChannelName(), getPropertyName().toString(), getValue());
+    }
 
 }

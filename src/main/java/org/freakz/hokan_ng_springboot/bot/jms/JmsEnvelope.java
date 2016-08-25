@@ -8,27 +8,27 @@ import java.io.Serializable;
  */
 public class JmsEnvelope implements Serializable {
 
-  private final ObjectMessage originalMessage;
-  private final JmsMessage messageIn;
-  private final JmsMessage messageOut;
+    private final ObjectMessage originalMessage;
+    private final JmsMessage messageIn;
+    private final JmsMessage messageOut;
 
 
-  public JmsEnvelope(ObjectMessage originalMessage, JmsMessage messageIn, JmsMessage messageOut) {
-    this.originalMessage = originalMessage;
-    this.messageIn = messageIn;
-    this.messageOut = messageOut;
-  }
+    public JmsEnvelope(ObjectMessage originalMessage, JmsMessage messageIn, JmsMessage messageOut) {
+        this.originalMessage = originalMessage;
+        this.messageIn = messageIn;
+        this.messageOut = messageOut;
+    }
 
-  public ObjectMessage getOriginalMessage() {
-    return originalMessage;
-  }
+    public ObjectMessage getOriginalMessage() {
+        return originalMessage;
+    }
 
-  public JmsMessage getMessageIn() {
-    return messageIn;
-  }
+    public JmsMessage getMessageIn() {
+        return messageIn;
+    }
 
-  public JmsMessage getMessageOut() {
-    return messageOut;
-  }
+    public JmsMessage getMessageOut() {
+        return messageOut;
+    }
 
 }

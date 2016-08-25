@@ -11,11 +11,11 @@ import java.util.List;
  */
 public interface SanakirjaOrgTranslateService {
 
-  List<TranslateData> translateFiEng(String keyword);
+    List<TranslateData> translateFiEng(String keyword);
 
-  List<TranslateData> translateEngFi(String keyword);
+    List<TranslateData> translateEngFi(String keyword);
 
-  TranslateResponse translateText(String text);
+    TranslateResponse translateText(String text);
 
 
 }

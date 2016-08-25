@@ -16,41 +16,41 @@ import java.util.List;
 @Slf4j
 public class RepositoryTvNotifyService implements TvNotifyService {
 
-  @Autowired
-  private TvNotifyRepository repository;
+    @Autowired
+    private TvNotifyRepository repository;
 
-  @Override
-  public TvNotify addTvNotify(Channel channel, String pattern, String owner) {
-    TvNotify notify = new TvNotify(pattern, owner, channel, false);
-    notify.setNotifyDescription("");
-    return repository.save(notify);
-  }
+    @Override
+    public TvNotify addTvNotify(Channel channel, String pattern, String owner) {
+        TvNotify notify = new TvNotify(pattern, owner, channel, false);
+        notify.setNotifyDescription("");
+        return repository.save(notify);
+    }
 
-  @Override
-  public List<TvNotify> getTvNotifies(Channel channel) {
-    return repository.findByChannel(channel);
-  }
+    @Override
+    public List<TvNotify> getTvNotifies(Channel channel) {
+        return repository.findByChannel(channel);
+    }
 
-  @Override
-  public TvNotify getTvNotify(Channel channel, String notifyPattern) {
-    return repository.findFirstByChannelAndNotifyPattern(channel, notifyPattern);
-  }
+    @Override
+    public TvNotify getTvNotify(Channel channel, String notifyPattern) {
+        return repository.findFirstByChannelAndNotifyPattern(channel, notifyPattern);
+    }
 
-  @Override
-  public TvNotify getTvNotifyById(long id) {
-    return repository.findOne(id);
-  }
+    @Override
+    public TvNotify getTvNotifyById(long id) {
+        return repository.findOne(id);
+    }
 
-  @Override
-  public int delTvNotifies(Channel channel) {
-    repository.delete(getTvNotifies(channel));
-    return 0;
-  }
+    @Override
+    public int delTvNotifies(Channel channel) {
+        repository.delete(getTvNotifies(channel));
+        return 0;
+    }
 
-  @Override
-  public void delTvNotify(TvNotify notify) {
-    repository.delete(notify);
-  }
+    @Override
+    public void delTvNotify(TvNotify notify) {
+        repository.delete(notify);
+    }
 
 /*  @Override
   public List<TelkkuProgram> getChannelDailyNotifiedPrograms(Channel channel, Date day) {

@@ -10,12 +10,12 @@ import javax.jms.ObjectMessage;
  */
 public interface JmsSender {
 
-  ObjectMessage sendAndGetReply(String destination, String key, Object object, boolean deliveryPersistent);
+    ObjectMessage sendAndGetReply(String destination, String key, Object object, boolean deliveryPersistent);
 
-  void send(String destination, String key, Object object, boolean deliveryPersistent);
+    void send(String destination, String key, Object object, boolean deliveryPersistent);
 
-  void send(Destination destination, String key, Object object);
+    void send(Destination destination, String key, Object object);
 
-  void sendJmsMessage(Destination destination, JmsMessage jmsMessage);
+    void sendJmsMessage(Destination destination, JmsMessage jmsMessage);
 
 }

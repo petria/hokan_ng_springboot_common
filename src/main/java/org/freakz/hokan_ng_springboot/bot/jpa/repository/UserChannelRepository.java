@@ -12,8 +12,8 @@ import java.util.List;
  */
 public interface UserChannelRepository extends JpaRepository<UserChannel, Long> {
 
-  List<UserChannel> findByUser(User user);
+    List<UserChannel> findByUser(User user);
 
-  UserChannel findFirstByUserAndChannel(User user, Channel channel);
+    UserChannel findFirstByUserAndChannel(User user, Channel channel);
 
 }

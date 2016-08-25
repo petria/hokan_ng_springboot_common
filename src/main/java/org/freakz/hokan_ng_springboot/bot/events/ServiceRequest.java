@@ -10,32 +10,32 @@ import java.io.Serializable;
 public class ServiceRequest implements Serializable {
 
 
-  private final ServiceRequestType type;
-  private final IrcMessageEvent ircMessageEvent;
-  private final CommandArgs commandArgs;
-  private final Object[] parameters;
+    private final ServiceRequestType type;
+    private final IrcMessageEvent ircMessageEvent;
+    private final CommandArgs commandArgs;
+    private final Object[] parameters;
 
-  public ServiceRequest(ServiceRequestType type, IrcMessageEvent ircMessageEvent, CommandArgs commandArgs, Object... parameters) {
-    this.type = type;
-    this.ircMessageEvent = ircMessageEvent;
-    this.commandArgs = commandArgs;
-    this.parameters = parameters;
-  }
+    public ServiceRequest(ServiceRequestType type, IrcMessageEvent ircMessageEvent, CommandArgs commandArgs, Object... parameters) {
+        this.type = type;
+        this.ircMessageEvent = ircMessageEvent;
+        this.commandArgs = commandArgs;
+        this.parameters = parameters;
+    }
 
-  public ServiceRequestType getType() {
-    return type;
-  }
+    public ServiceRequestType getType() {
+        return type;
+    }
 
-  public IrcMessageEvent getIrcMessageEvent() {
-    return ircMessageEvent;
-  }
+    public IrcMessageEvent getIrcMessageEvent() {
+        return ircMessageEvent;
+    }
 
-  public CommandArgs getCommandArgs() {
-    return commandArgs;
-  }
+    public CommandArgs getCommandArgs() {
+        return commandArgs;
+    }
 
-  public Object[] getParameters() {
-    return parameters;
-  }
+    public Object[] getParameters() {
+        return parameters;
+    }
 
 }

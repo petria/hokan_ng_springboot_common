@@ -9,16 +9,16 @@ import java.util.List;
  */
 public interface NetworkService {
 
-  Network create(String networkName);
+    Network create(String networkName);
 
-  Network getNetwork(String networkName);
+    Network getNetwork(String networkName);
 
-  List<Network> findAll();
+    List<Network> findAll();
 
-  Network findOne(long id);
+    Network findOne(long id);
 
-  void delete(Network network);
+    void delete(Network network);
 
-  Network save(Network network);
+    Network save(Network network);
 
 }

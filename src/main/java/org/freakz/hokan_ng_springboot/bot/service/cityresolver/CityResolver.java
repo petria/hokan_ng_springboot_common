@@ -8,6 +8,6 @@ import org.freakz.hokan_ng_springboot.bot.models.CityData;
  */
 public interface CityResolver {
 
-  CityData resolveCityNames(String query);
+    CityData resolveCityNames(String query);
 
 }

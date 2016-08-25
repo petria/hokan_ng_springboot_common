@@ -12,75 +12,75 @@ import java.util.Set;
  */
 public enum UserFlag implements Serializable {
 
-  ACTIVATED("AC", "User is activated"),
-  ADMIN("AD", "User is admin"),
-  IGNORE_ON_CHANNEL("IG", "User is ignored on public channels"),
-  WEB_LOGIN("WL", "User can login via web ui");
+    ACTIVATED("AC", "User is activated"),
+    ADMIN("AD", "User is admin"),
+    IGNORE_ON_CHANNEL("IG", "User is ignored on public channels"),
+    WEB_LOGIN("WL", "User can login via web ui");
 
-  @Getter
-  private final String shortName;
-  @Getter
-  private final String description;
+    @Getter
+    private final String shortName;
+    @Getter
+    private final String description;
 
-  UserFlag(String shortName, String description) {
-    this.shortName = shortName;
-    this.description = description;
-  }
-
-  public static Set<UserFlag> getFlagSetFromString(String flagsString) {
-    Set<UserFlag> flagsSet = new HashSet<>();
-    if (flagsString == null || flagsString.length() == 0) {
-      return flagsSet;
+    UserFlag(String shortName, String description) {
+        this.shortName = shortName;
+        this.description = description;
     }
-    for (UserFlag flag : values()) {
-      if (flagsString.contains(flag.getShortName())) {
-        flagsSet.add(flag);
-      }
+
+    public static Set<UserFlag> getFlagSetFromString(String flagsString) {
+        Set<UserFlag> flagsSet = new HashSet<>();
+        if (flagsString == null || flagsString.length() == 0) {
+            return flagsSet;
+        }
+        for (UserFlag flag : values()) {
+            if (flagsString.contains(flag.getShortName())) {
+                flagsSet.add(flag);
+            }
+        }
+        return flagsSet;
     }
-    return flagsSet;
-  }
 
-  public static Set<UserFlag> getFlagSetFromUser(User user) {
-    return getFlagSetFromString(user.getFlags());
-  }
-
-  public static String getStringFromFlagSet(Set<UserFlag> set) {
-    String setString = "";
-    for (UserFlag flag : values()) {
-      if (set.contains(flag)) {
-        setString += String.format("%s:%s ", flag.getShortName(), flag.name());
-      }
+    public static Set<UserFlag> getFlagSetFromUser(User user) {
+        return getFlagSetFromString(user.getFlags());
     }
-    return setString.trim();
-  }
 
-  public static String getStringFromAllUserFlags() {
-    String setString = "";
-    for (UserFlag flag : values()) {
-      setString += String.format("%s:%s ", flag.getShortName(), flag.name());
+    public static String getStringFromFlagSet(Set<UserFlag> set) {
+        String setString = "";
+        for (UserFlag flag : values()) {
+            if (set.contains(flag)) {
+                setString += String.format("%s:%s ", flag.getShortName(), flag.name());
+            }
+        }
+        return setString.trim();
     }
-    return setString.trim();
-  }
 
-
-  public static String getStringFromFlagSet(User user) {
-    return getStringFromFlagSet(getFlagSetFromUser(user));
-  }
-
-  public static UserFlag getUserFlagFromString(String s) {
-    for (UserFlag flag : values()) {
-      if (s.equals(flag.getShortName())) {
-        return flag;
-      }
-      if (s.equals(flag.name())) {
-        return flag;
-      }
-      if (flag.name().toLowerCase().startsWith(s.toLowerCase())) {
-        return flag;
-      }
+    public static String getStringFromAllUserFlags() {
+        String setString = "";
+        for (UserFlag flag : values()) {
+            setString += String.format("%s:%s ", flag.getShortName(), flag.name());
+        }
+        return setString.trim();
     }
-    return null;
-  }
+
+
+    public static String getStringFromFlagSet(User user) {
+        return getStringFromFlagSet(getFlagSetFromUser(user));
+    }
+
+    public static UserFlag getUserFlagFromString(String s) {
+        for (UserFlag flag : values()) {
+            if (s.equals(flag.getShortName())) {
+                return flag;
+            }
+            if (s.equals(flag.name())) {
+                return flag;
+            }
+            if (flag.name().toLowerCase().startsWith(s.toLowerCase())) {
+                return flag;
+            }
+        }
+        return null;
+    }
 
 
 }

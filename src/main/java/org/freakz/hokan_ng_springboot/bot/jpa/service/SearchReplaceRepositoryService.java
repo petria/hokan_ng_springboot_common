@@ -15,44 +15,44 @@ import java.util.List;
 @Service
 public class SearchReplaceRepositoryService implements SearchReplaceService {
 
-  @Autowired
-  private SearchReplaceRepository repository;
+    @Autowired
+    private SearchReplaceRepository repository;
 
-  @Override
-  @Transactional(readOnly = false)
-  public SearchReplace addSearchReplace(String sender, String search, String replace) {
-    SearchReplace searchReplace = new SearchReplace(sender, search, replace);
-    return repository.save(searchReplace);
-  }
+    @Override
+    @Transactional(readOnly = false)
+    public SearchReplace addSearchReplace(String sender, String search, String replace) {
+        SearchReplace searchReplace = new SearchReplace(sender, search, replace);
+        return repository.save(searchReplace);
+    }
 
-  @Override
-  @Transactional(readOnly = false)
-  public List<SearchReplace> findAll() {
-    return repository.findAll();
-  }
+    @Override
+    @Transactional(readOnly = false)
+    public List<SearchReplace> findAll() {
+        return repository.findAll();
+    }
 
-  @Override
-  @Transactional(readOnly = false)
-  public void deleteAll() {
-    repository.deleteAll();
-  }
+    @Override
+    @Transactional(readOnly = false)
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 
-  @Override
-  @Transactional(readOnly = false)
-  public void delete(SearchReplace sr) {
-    repository.delete(sr);
-  }
+    @Override
+    @Transactional(readOnly = false)
+    public void delete(SearchReplace sr) {
+        repository.delete(sr);
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public List<SearchReplace> findByTheSearch(String search) {
-    return repository.findByTheSearch(search);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public List<SearchReplace> findByTheSearch(String search) {
+        return repository.findByTheSearch(search);
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public SearchReplace findOne(long id) {
-    return repository.findOne(id);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public SearchReplace findOne(long id) {
+        return repository.findOne(id);
+    }
 
 }

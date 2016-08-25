@@ -20,40 +20,40 @@ import java.util.List;
 @Slf4j
 public class JoinedUserRepositoryService implements JoinedUserService {
 
-  @Autowired
-  private JoinedUserRepository repository;
+    @Autowired
+    private JoinedUserRepository repository;
 
-  @Override
-  @Transactional(readOnly = false)
-  public void clearJoinedUsers(Channel channel) {
-    List<JoinedUser> joinedUsers = repository.findByChannel(channel);
-    log.debug("Deleting {} joined users from channel {}", joinedUsers.size(), channel.getChannelName());
-    repository.delete(joinedUsers);
-  }
-
-  @Override
-  @Transactional(readOnly = false)
-  public JoinedUser createJoinedUser(Channel channel, User user, String userModes) {
-    JoinedUser joinedUser = new JoinedUser(channel, user, userModes);
-    return repository.save(joinedUser);
-  }
-
-  @Override
-  @Transactional(readOnly = true)
-  public List<JoinedUser> findJoinedUsers(Channel channel) {
-    return repository.findByChannel(channel);
-  }
-
-  @Override
-  @Transactional(readOnly = true)
-  public List<JoinedUser> findJoinedUsersByNetwork(Network network) {
-    List<JoinedUser> all = repository.findAll();
-    List<JoinedUser> inNetwork = new ArrayList<>();
-    for (JoinedUser joinedUser : all) {
-      if (joinedUser.getChannel().getNetwork().getId() == network.getId()) {
-        inNetwork.add(joinedUser);
-      }
+    @Override
+    @Transactional(readOnly = false)
+    public void clearJoinedUsers(Channel channel) {
+        List<JoinedUser> joinedUsers = repository.findByChannel(channel);
+        log.debug("Deleting {} joined users from channel {}", joinedUsers.size(), channel.getChannelName());
+        repository.delete(joinedUsers);
     }
-    return inNetwork;
-  }
+
+    @Override
+    @Transactional(readOnly = false)
+    public JoinedUser createJoinedUser(Channel channel, User user, String userModes) {
+        JoinedUser joinedUser = new JoinedUser(channel, user, userModes);
+        return repository.save(joinedUser);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<JoinedUser> findJoinedUsers(Channel channel) {
+        return repository.findByChannel(channel);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<JoinedUser> findJoinedUsersByNetwork(Network network) {
+        List<JoinedUser> all = repository.findAll();
+        List<JoinedUser> inNetwork = new ArrayList<>();
+        for (JoinedUser joinedUser : all) {
+            if (joinedUser.getChannel().getNetwork().getId() == network.getId()) {
+                inNetwork.add(joinedUser);
+            }
+        }
+        return inNetwork;
+    }
 }

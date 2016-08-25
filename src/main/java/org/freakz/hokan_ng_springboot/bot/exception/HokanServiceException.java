@@ -9,16 +9,16 @@ package org.freakz.hokan_ng_springboot.bot.exception;
  */
 public class HokanServiceException extends HokanException {
 
-  public HokanServiceException(Exception t) {
-    super(t);
-  }
+    public HokanServiceException(Exception t) {
+        super(t);
+    }
 
-  public HokanServiceException(String message) {
-    super(message);
-  }
+    public HokanServiceException(String message) {
+        super(message);
+    }
 
-  public HokanServiceException(String message, Throwable cause) {
-    super(message, cause);
-  }
+    public HokanServiceException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
 }

@@ -9,30 +9,30 @@ import java.io.Serializable;
  */
 public class PingResponse implements Serializable {
 
-  private String reply = "<pong>";
-  private Uptime uptime;
-  private String hostinfo;
+    private String reply = "<pong>";
+    private Uptime uptime;
+    private String hostinfo;
 
-  public PingResponse() {
-  }
+    public PingResponse() {
+    }
 
-  public String getReply() {
-    return reply;
-  }
+    public String getReply() {
+        return reply;
+    }
 
-  public Uptime getUptime() {
-    return uptime;
-  }
+    public Uptime getUptime() {
+        return uptime;
+    }
 
-  public void setUptime(Uptime uptime) {
-    this.uptime = uptime;
-  }
+    public void setUptime(Uptime uptime) {
+        this.uptime = uptime;
+    }
 
-  public String getHostinfo() {
-    return hostinfo;
-  }
+    public String getHostinfo() {
+        return hostinfo;
+    }
 
-  public void setHostinfo(String hostinfo) {
-    this.hostinfo = hostinfo;
-  }
+    public void setHostinfo(String hostinfo) {
+        this.hostinfo = hostinfo;
+    }
 }

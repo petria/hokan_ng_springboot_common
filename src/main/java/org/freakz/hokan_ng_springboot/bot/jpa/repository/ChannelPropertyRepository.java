@@ -12,12 +12,12 @@ import java.util.List;
  */
 public interface ChannelPropertyRepository extends JpaRepository<ChannelPropertyEntity, Long> {
 
-  List<ChannelPropertyEntity> findByChannel(Channel channel);
+    List<ChannelPropertyEntity> findByChannel(Channel channel);
 
-  void deleteByChannel(Channel object);
+    void deleteByChannel(Channel object);
 
-  List<ChannelPropertyEntity> findByPropertyName(PropertyName propertyName);
+    List<ChannelPropertyEntity> findByPropertyName(PropertyName propertyName);
 
-  ChannelPropertyEntity findFirstByChannelAndPropertyName(Channel theChannel, PropertyName propertyName);
+    ChannelPropertyEntity findFirstByChannelAndPropertyName(Channel theChannel, PropertyName propertyName);
 
 }

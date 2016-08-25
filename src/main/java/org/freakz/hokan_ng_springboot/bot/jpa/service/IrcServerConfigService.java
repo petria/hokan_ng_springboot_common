@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface IrcServerConfigService {
 
-  List<IrcServerConfig> findAll();
+    List<IrcServerConfig> findAll();
 
-  void delete(IrcServerConfig object);
+    void delete(IrcServerConfig object);
 
-  IrcServerConfig save(IrcServerConfig object);
+    IrcServerConfig save(IrcServerConfig object);
 }

@@ -18,53 +18,53 @@ import java.util.*;
 @Slf4j
 public class IrcLogRepositoryService implements IrcLogService {
 
-  @Autowired
-  private IrcLogRepository repository;
+    @Autowired
+    private IrcLogRepository repository;
 
-  @Override
-  @Transactional(readOnly = false)
-  public IrcLog addIrcLog(Date timeStamp, String sender, String target, String message) {
-    IrcLog log = new IrcLog();
-    log.setTimeStamp(timeStamp);
-    log.setSender(sender);
-    log.setTarget(target);
-    log.setMessage(message);
-    return repository.save(log);
-  }
-
-  @Override
-  @Transactional(readOnly = true)
-  public List<IrcLog> findMatchingLogRows(String logPattern) {
-    List<IrcLog> allRows = repository.findAll();
-    List<IrcLog> matching = new ArrayList<>();
-    for (IrcLog log : allRows) {
-      String logString = log.toString();
-      if (StringStuff.match(logString, ".*" + logPattern + ".*", true)) {
-        matching.add(log);
-      }
+    @Override
+    @Transactional(readOnly = false)
+    public IrcLog addIrcLog(Date timeStamp, String sender, String target, String message) {
+        IrcLog log = new IrcLog();
+        log.setTimeStamp(timeStamp);
+        log.setSender(sender);
+        log.setTarget(target);
+        log.setMessage(message);
+        return repository.save(log);
     }
-    return sortLogs(matching);
-  }
 
-  @Override
-  @Transactional(readOnly = true)
-  public List<IrcLog> findByTimeStampBetween(StartAndEndTime saet) {
-    return repository.findByTimeStampBetween(saet.getStartTime().toDate(), saet.getEndTime().toDate());
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public List<IrcLog> findMatchingLogRows(String logPattern) {
+        List<IrcLog> allRows = repository.findAll();
+        List<IrcLog> matching = new ArrayList<>();
+        for (IrcLog log : allRows) {
+            String logString = log.toString();
+            if (StringStuff.match(logString, ".*" + logPattern + ".*", true)) {
+                matching.add(log);
+            }
+        }
+        return sortLogs(matching);
+    }
 
-  @Override
-  public List<IrcLog> findByTimeStampBetweenAndTargetContaining(StartAndEndTime saet, String target) {
-    return repository.findByTimeStampBetweenAndTargetContaining(saet.getStartTime().toDate(), saet.getEndTime().toDate(), target);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public List<IrcLog> findByTimeStampBetween(StartAndEndTime saet) {
+        return repository.findByTimeStampBetween(saet.getStartTime().toDate(), saet.getEndTime().toDate());
+    }
 
-  private List<IrcLog> sortLogs(List<IrcLog> allRows) {
-    Comparator<? super IrcLog> comparator = (o1, o2) -> o1.getTimeStamp().compareTo(o2.getTimeStamp());
-    Collections.sort(allRows, comparator);
-    return allRows;
-  }
+    @Override
+    public List<IrcLog> findByTimeStampBetweenAndTargetContaining(StartAndEndTime saet, String target) {
+        return repository.findByTimeStampBetweenAndTargetContaining(saet.getStartTime().toDate(), saet.getEndTime().toDate(), target);
+    }
 
-  @Override
-  public List<IrcLog> findByTarget(String target) {
-    return repository.findByTarget(target);
-  }
+    private List<IrcLog> sortLogs(List<IrcLog> allRows) {
+        Comparator<? super IrcLog> comparator = (o1, o2) -> o1.getTimeStamp().compareTo(o2.getTimeStamp());
+        Collections.sort(allRows, comparator);
+        return allRows;
+    }
+
+    @Override
+    public List<IrcLog> findByTarget(String target) {
+        return repository.findByTarget(target);
+    }
 }

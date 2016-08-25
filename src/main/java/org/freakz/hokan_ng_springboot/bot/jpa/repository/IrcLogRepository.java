@@ -11,10 +11,10 @@ import java.util.List;
  */
 public interface IrcLogRepository extends JpaRepository<IrcLog, Long> {
 
-  List<IrcLog> findByTimeStampBetween(Date start, Date end);
+    List<IrcLog> findByTimeStampBetween(Date start, Date end);
 
-  List<IrcLog> findByTimeStampBetweenAndTargetContaining(Date start, Date end, String target);
+    List<IrcLog> findByTimeStampBetweenAndTargetContaining(Date start, Date end, String target);
 
-  List<IrcLog> findByTarget(String target);
+    List<IrcLog> findByTarget(String target);
 
 }

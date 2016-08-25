@@ -10,12 +10,12 @@ import java.util.List;
  */
 public interface CommandHistoryService {
 
-  CommandHistory save(CommandHistory history);
+    CommandHistory save(CommandHistory history);
 
-  List<CommandHistory> findByHokanModule(String module);
+    List<CommandHistory> findByHokanModule(String module);
 
-  List<CommandHistory> findByHokanModuleAndSessionId(String module, long sessionId);
+    List<CommandHistory> findByHokanModuleAndSessionId(String module, long sessionId);
 
-  List<CommandHistory> findByHokanModuleAndSessionIdAndCommandStatus(String module, long sessionId, CommandStatus status);
+    List<CommandHistory> findByHokanModuleAndSessionIdAndCommandStatus(String module, long sessionId, CommandStatus status);
 
 }

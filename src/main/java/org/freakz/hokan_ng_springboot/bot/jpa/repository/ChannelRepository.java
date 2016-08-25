@@ -12,14 +12,14 @@ import java.util.List;
  */
 public interface ChannelRepository extends JpaRepository<Channel, Long> {
 
-  List<Channel> findByNetworkAndChannelState(Network network, ChannelState channelState);
+    List<Channel> findByNetworkAndChannelState(Network network, ChannelState channelState);
 
-  List<Channel> findByNetwork(Network network);
+    List<Channel> findByNetwork(Network network);
 
-  void deleteByNetwork(Network object);
+    void deleteByNetwork(Network object);
 
-  Channel findByNetworkAndChannelName(Network network, String channelName);
+    Channel findByNetworkAndChannelName(Network network, String channelName);
 
-  List<Channel> findByChannelNameLike(String like);
+    List<Channel> findByChannelNameLike(String like);
 
 }

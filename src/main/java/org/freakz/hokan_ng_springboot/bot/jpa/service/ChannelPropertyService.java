@@ -11,22 +11,22 @@ import java.util.List;
  */
 public interface ChannelPropertyService {
 
-  ChannelPropertyEntity findFirstByChannelAndPropertyName(Channel channel, PropertyName propertyName);
+    ChannelPropertyEntity findFirstByChannelAndPropertyName(Channel channel, PropertyName propertyName);
 
-  List<ChannelPropertyEntity> findByChannel(Channel channel);
+    List<ChannelPropertyEntity> findByChannel(Channel channel);
 
-  ChannelPropertyEntity save(ChannelPropertyEntity newRow);
+    ChannelPropertyEntity save(ChannelPropertyEntity newRow);
 
-  void delete(ChannelPropertyEntity object);
+    void delete(ChannelPropertyEntity object);
 
-  void deleteByChannel(Channel object);
+    void deleteByChannel(Channel object);
 
-  List<Channel> getChannelsWithProperty(PropertyName propChannelDoTvnotify, String valueMatcher);
+    List<Channel> getChannelsWithProperty(PropertyName propChannelDoTvnotify, String valueMatcher);
 
-  ChannelPropertyEntity setChannelProperty(Channel theChannel, PropertyName propertyName, String value);
+    ChannelPropertyEntity setChannelProperty(Channel theChannel, PropertyName propertyName, String value);
 
-  boolean getChannelPropertyAsBoolean(Channel channel, PropertyName propertyName, boolean b);
+    boolean getChannelPropertyAsBoolean(Channel channel, PropertyName propertyName, boolean b);
 
-  String getChannelPropertyAsString(Channel channel, PropertyName propertyName, String s);
+    String getChannelPropertyAsString(Channel channel, PropertyName propertyName, String s);
 
 }

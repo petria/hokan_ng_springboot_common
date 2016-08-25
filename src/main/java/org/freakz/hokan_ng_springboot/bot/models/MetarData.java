@@ -11,17 +11,17 @@ import java.io.Serializable;
  */
 public class MetarData implements Serializable {
 
-  private String metarData;
+    private String metarData;
 
-  public MetarData(String metarData) {
-    this.metarData = metarData;
-  }
+    public MetarData(String metarData) {
+        this.metarData = metarData;
+    }
 
-  public String getMetarData() {
-    return metarData;
-  }
+    public String getMetarData() {
+        return metarData;
+    }
 
-  public void setMetarData(String metarData) {
-    this.metarData = metarData;
-  }
+    public void setMetarData(String metarData) {
+        this.metarData = metarData;
+    }
 }

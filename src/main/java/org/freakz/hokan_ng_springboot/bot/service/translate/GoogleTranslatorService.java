@@ -7,6 +7,6 @@ import com.google.api.translate.Language;
  */
 public interface GoogleTranslatorService {
 
-  String getTranslation(Object[] text, Language from, Language to);
+    String getTranslation(Object[] text, Language from, Language to);
 
 }

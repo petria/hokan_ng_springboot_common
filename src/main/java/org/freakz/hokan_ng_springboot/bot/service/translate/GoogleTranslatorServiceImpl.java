@@ -19,31 +19,31 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class GoogleTranslatorServiceImpl implements GoogleTranslatorService {
 
-  @Autowired
-  private PropertyService propertyService;
+    @Autowired
+    private PropertyService propertyService;
 
-  @Override
-  public String getTranslation(Object[] text, Language from, Language to) {
-    GoogleAPI.setHttpReferrer("https://github.com/petria/hokan_ng_springboot/");
+    @Override
+    public String getTranslation(Object[] text, Language from, Language to) {
+        GoogleAPI.setHttpReferrer("https://github.com/petria/hokan_ng_springboot/");
 
-    PropertyEntity apikey = propertyService.findFirstByPropertyName(PropertyName.PROP_SYS_GOOGLE_API_KEY);
-    if (apikey == null) {
-      log.error("GoogleAPI key missing");
-      return "GoogleAPI key missing";
-    }
+        PropertyEntity apikey = propertyService.findFirstByPropertyName(PropertyName.PROP_SYS_GOOGLE_API_KEY);
+        if (apikey == null) {
+            log.error("GoogleAPI key missing");
+            return "GoogleAPI key missing";
+        }
 //    log.debug("GoogleAPI key: {}", apikey.getValue());
-    GoogleAPI.setKey(apikey.getValue());
+        GoogleAPI.setKey(apikey.getValue());
 
-    StringBuilder sb = new StringBuilder();
-    try {
-      for (Object textLine : text) {
-        String translatedText = Translate.DEFAULT.execute(textLine.toString(), from, to);
-        sb.append(translatedText);
-      }
-    } catch (GoogleAPIException e) {
-      log.error("GoogleAPI", e);
-      return e.getMessage();
+        StringBuilder sb = new StringBuilder();
+        try {
+            for (Object textLine : text) {
+                String translatedText = Translate.DEFAULT.execute(textLine.toString(), from, to);
+                sb.append(translatedText);
+            }
+        } catch (GoogleAPIException e) {
+            log.error("GoogleAPI", e);
+            return e.getMessage();
+        }
+        return sb.toString();
     }
-    return sb.toString();
-  }
 }

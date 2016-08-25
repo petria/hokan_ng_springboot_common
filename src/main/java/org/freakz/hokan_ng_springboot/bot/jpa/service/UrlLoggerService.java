@@ -10,21 +10,21 @@ import java.util.List;
  */
 public interface UrlLoggerService {
 
-  List<Url> findByUrl(String url);
+    List<Url> findByUrl(String url);
 
-  List<Url> findByUrlAndNicks(String url, String... nicks);
+    List<Url> findByUrlAndNicks(String url, String... nicks);
 
-  List<Url> findAll();
+    List<Url> findAll();
 
-  Url findOne(long id);
+    Url findOne(long id);
 
-  List findTopSender();
+    List findTopSender();
 
-  List findTopSenderByChannel(String channel);
+    List findTopSenderByChannel(String channel);
 
-  List findTopSenderByChannelAndCreatedBetween(String channel, StartAndEndTime saet);
+    List findTopSenderByChannelAndCreatedBetween(String channel, StartAndEndTime saet);
 
-  List<Url> findByCreatedBetweenAndChannel(StartAndEndTime saet, String channel);
+    List<Url> findByCreatedBetweenAndChannel(StartAndEndTime saet, String channel);
 
 
 }

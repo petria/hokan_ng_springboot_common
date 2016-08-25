@@ -11,10 +11,10 @@ import java.util.List;
  */
 public interface CommandHistoryRepository extends JpaRepository<CommandHistory, Long> {
 
-  List<CommandHistory> findByHokanModule(String module);
+    List<CommandHistory> findByHokanModule(String module);
 
-  List<CommandHistory> findByHokanModuleAndSessionId(String module, long sessionId);
+    List<CommandHistory> findByHokanModuleAndSessionId(String module, long sessionId);
 
-  List<CommandHistory> findByHokanModuleAndSessionIdAndCommandStatus(String module, long sessionId, CommandStatus status);
+    List<CommandHistory> findByHokanModuleAndSessionIdAndCommandStatus(String module, long sessionId, CommandStatus status);
 
 }

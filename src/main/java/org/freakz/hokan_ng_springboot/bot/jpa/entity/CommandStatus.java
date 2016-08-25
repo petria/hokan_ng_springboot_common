@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 public enum CommandStatus implements Serializable {
 
-  RUNNING,
-  FINISHED,
-  INTERRUPTED,
-  ERROR
+    RUNNING,
+    FINISHED,
+    INTERRUPTED,
+    ERROR
 
 }

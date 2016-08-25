@@ -6,7 +6,7 @@ package org.freakz.hokan_ng_springboot.bot.jpa.entity;
  */
 public enum ChannelStartupState {
 
-  NO_JOIN,
-  JOIN
+    NO_JOIN,
+    JOIN
 
 }

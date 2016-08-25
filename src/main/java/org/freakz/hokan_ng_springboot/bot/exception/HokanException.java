@@ -10,22 +10,22 @@ import java.io.Serializable;
  */
 public class HokanException extends Exception implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  public HokanException() {
-  }
+    public HokanException() {
+    }
 
-  public HokanException(Exception t) {
-    super(t);
-  }
+    public HokanException(Exception t) {
+        super(t);
+    }
 
-  public HokanException(String message) {
-    super(message);
-  }
+    public HokanException(String message) {
+        super(message);
+    }
 
-  public HokanException(String message, Throwable cause) {
-    super(message, cause);
-  }
+    public HokanException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
 
 }

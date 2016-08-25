@@ -12,25 +12,25 @@ import org.freakz.hokan_ng_springboot.bot.exception.HokanServiceException;
  */
 public interface ConnectionManagerService {
 
-  void joinChannels(String network) throws HokanServiceException;
+    void joinChannels(String network) throws HokanServiceException;
 
-  void connect(String network) throws HokanServiceException;
+    void connect(String network) throws HokanServiceException;
 
-  void disconnect(String network) throws HokanServiceException;
+    void disconnect(String network) throws HokanServiceException;
 
-  void disconnectAll();
+    void disconnectAll();
 
-  //  Collection<Connector> getConnectors();
+    //  Collection<Connector> getConnectors();
 
-  void updateServers();
+    void updateServers();
 
-  void handleEngineResponse(EngineResponse response);
+    void handleEngineResponse(EngineResponse response);
 
-  void handleTvNotifyRequest(NotifyRequest notifyRequest);
+    void handleTvNotifyRequest(NotifyRequest notifyRequest);
 
-  void handleStatsNotifyRequest(NotifyRequest notifyRequest);
+    void handleStatsNotifyRequest(NotifyRequest notifyRequest);
 
-  void handleNotifyRequest(NotifyRequest notifyRequest);
+    void handleNotifyRequest(NotifyRequest notifyRequest);
 
 
 }

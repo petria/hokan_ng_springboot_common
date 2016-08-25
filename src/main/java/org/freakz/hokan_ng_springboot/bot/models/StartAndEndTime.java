@@ -7,27 +7,27 @@ import org.joda.time.DateTime;
  */
 public class StartAndEndTime {
 
-  private DateTime startTime;
-  private DateTime endTime;
+    private DateTime startTime;
+    private DateTime endTime;
 
-  public StartAndEndTime(DateTime startTime, DateTime endTime) {
-    this.startTime = startTime;
-    this.endTime = endTime;
-  }
+    public StartAndEndTime(DateTime startTime, DateTime endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 
-  public DateTime getStartTime() {
-    return startTime;
-  }
+    public DateTime getStartTime() {
+        return startTime;
+    }
 
-  public void setStartTime(DateTime startTime) {
-    this.startTime = startTime;
-  }
+    public void setStartTime(DateTime startTime) {
+        this.startTime = startTime;
+    }
 
-  public DateTime getEndTime() {
-    return endTime;
-  }
+    public DateTime getEndTime() {
+        return endTime;
+    }
 
-  public void setEndTime(DateTime endTime) {
-    this.endTime = endTime;
-  }
+    public void setEndTime(DateTime endTime) {
+        this.endTime = endTime;
+    }
 }

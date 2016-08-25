@@ -6,6 +6,6 @@ package org.freakz.hokan_ng_springboot.bot.jpa.service;
 public interface LoggedInUserService {
 
 
-  void invalidateAll();
+    void invalidateAll();
 
 }

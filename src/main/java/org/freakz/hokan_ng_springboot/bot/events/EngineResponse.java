@@ -15,120 +15,120 @@ import java.util.List;
  */
 public class EngineResponse implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  private int responseStatus;
-  private String responseMessage = "";
-  private Throwable exception;
-  private String replyTo;
-  private String commandClass;
-  private boolean noSearchReplace;
-  private boolean isEngineRequest;
-  private JmsEnvelope jmsEnvelope;
+    private int responseStatus;
+    private String responseMessage = "";
+    private Throwable exception;
+    private String replyTo;
+    private String commandClass;
+    private boolean noSearchReplace;
+    private boolean isEngineRequest;
+    private JmsEnvelope jmsEnvelope;
 
-  private List<EngineMethodCall> engineMethodCalls = new ArrayList<>();
-  private IrcMessageEvent ircMessageEvent;
+    private List<EngineMethodCall> engineMethodCalls = new ArrayList<>();
+    private IrcMessageEvent ircMessageEvent;
 
-  public EngineResponse() {
-  }
-
-  public EngineResponse(IrcMessageEvent ircMessageEvent) {
-    this.ircMessageEvent = ircMessageEvent;
-    if (ircMessageEvent.isPrivate()) {
-      replyTo = ircMessageEvent.getSender();
-    } else {
-      replyTo = ircMessageEvent.getChannel();
+    public EngineResponse() {
     }
-  }
 
-  public int getResponseStatus() {
-    return responseStatus;
-  }
+    public EngineResponse(IrcMessageEvent ircMessageEvent) {
+        this.ircMessageEvent = ircMessageEvent;
+        if (ircMessageEvent.isPrivate()) {
+            replyTo = ircMessageEvent.getSender();
+        } else {
+            replyTo = ircMessageEvent.getChannel();
+        }
+    }
 
-  public void setResponseStatus(int responseStatus) {
-    this.responseStatus = responseStatus;
-  }
+    public int getResponseStatus() {
+        return responseStatus;
+    }
 
-  public String getResponseMessage() {
-    return responseMessage;
-  }
+    public void setResponseStatus(int responseStatus) {
+        this.responseStatus = responseStatus;
+    }
 
-  public void setResponseMessage(String responseMessage) {
-    this.responseMessage = responseMessage;
-  }
+    public String getResponseMessage() {
+        return responseMessage;
+    }
+
+    public void setResponseMessage(String responseMessage) {
+        this.responseMessage = responseMessage;
+    }
 
 
-  public void addEngineMethodCall(String methodName, String... methodArgs) {
-    this.engineMethodCalls.add(new EngineMethodCall(methodName, methodArgs));
-  }
+    public void addEngineMethodCall(String methodName, String... methodArgs) {
+        this.engineMethodCalls.add(new EngineMethodCall(methodName, methodArgs));
+    }
 
-  public List<EngineMethodCall> getEngineMethodCalls() {
-    return engineMethodCalls;
-  }
+    public List<EngineMethodCall> getEngineMethodCalls() {
+        return engineMethodCalls;
+    }
 
-  public void setEngineMethodCalls(List<EngineMethodCall> engineMethodCalls) {
-    this.engineMethodCalls = engineMethodCalls;
-  }
+    public void setEngineMethodCalls(List<EngineMethodCall> engineMethodCalls) {
+        this.engineMethodCalls = engineMethodCalls;
+    }
 
-  public Throwable getException() {
-    return exception;
-  }
+    public Throwable getException() {
+        return exception;
+    }
 
-  public void setException(Throwable exception) {
-    this.exception = exception;
-  }
+    public void setException(Throwable exception) {
+        this.exception = exception;
+    }
 
-  public String getReplyTo() {
-    return replyTo;
-  }
+    public String getReplyTo() {
+        return replyTo;
+    }
 
-  public void setReplyTo(String replyTo) {
-    this.replyTo = replyTo;
-  }
+    public void setReplyTo(String replyTo) {
+        this.replyTo = replyTo;
+    }
 
-  public void addResponse(String response) {
-    this.responseMessage += response;
-  }
+    public void addResponse(String response) {
+        this.responseMessage += response;
+    }
 
-  public void addResponse(String response, Object... args) {
-    this.responseMessage += String.format(response, (Object[]) args);
-  }
+    public void addResponse(String response, Object... args) {
+        this.responseMessage += String.format(response, (Object[]) args);
+    }
 
-  public void addResponse(StringBuilder sb, Object... args) {
-    addResponse(sb.toString(), args);
-  }
+    public void addResponse(StringBuilder sb, Object... args) {
+        addResponse(sb.toString(), args);
+    }
 
-  public String getCommandClass() {
-    return commandClass;
-  }
+    public String getCommandClass() {
+        return commandClass;
+    }
 
-  public void setCommandClass(String commandClass) {
-    this.commandClass = commandClass;
-  }
+    public void setCommandClass(String commandClass) {
+        this.commandClass = commandClass;
+    }
 
-  public boolean isNoSearchReplace() {
-    return noSearchReplace;
-  }
+    public boolean isNoSearchReplace() {
+        return noSearchReplace;
+    }
 
-  public void setNoSearchReplace(boolean noSearchReplace) {
-    this.noSearchReplace = noSearchReplace;
-  }
+    public void setNoSearchReplace(boolean noSearchReplace) {
+        this.noSearchReplace = noSearchReplace;
+    }
 
-  public boolean isEngineRequest() {
-    return isEngineRequest;
-  }
+    public boolean isEngineRequest() {
+        return isEngineRequest;
+    }
 
-  public void setIsEngineRequest(boolean isEngineRequest) {
-    this.isEngineRequest = isEngineRequest;
-  }
+    public void setIsEngineRequest(boolean isEngineRequest) {
+        this.isEngineRequest = isEngineRequest;
+    }
 
-  public IrcMessageEvent getIrcMessageEvent() {
-    return this.ircMessageEvent;
-  }
+    public IrcMessageEvent getIrcMessageEvent() {
+        return this.ircMessageEvent;
+    }
 
-  @Override
-  public String toString() {
-    return String.format("\nreplyTo: %s\nresponseMessage: %s", replyTo, responseMessage);
-  }
+    @Override
+    public String toString() {
+        return String.format("\nreplyTo: %s\nresponseMessage: %s", replyTo, responseMessage);
+    }
 
 }

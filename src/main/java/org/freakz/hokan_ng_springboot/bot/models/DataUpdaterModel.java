@@ -8,99 +8,99 @@ import java.util.Date;
  */
 public class DataUpdaterModel implements Serializable {
 
-  private String name;
-  private UpdaterStatus status;
-  private long count;
-  protected long dataFetched = 0;
-  protected long itemsFetched = 0;
-  protected long itemCount = 0;
+    private String name;
+    private UpdaterStatus status;
+    private long count;
+    protected long dataFetched = 0;
+    protected long itemsFetched = 0;
+    protected long itemCount = 0;
 
-  protected long lastUpdateRuntime = 0;
-  protected long totalUpdateRuntime = 0;
+    protected long lastUpdateRuntime = 0;
+    protected long totalUpdateRuntime = 0;
 
-  private Date nextUpdate;
-  private Date LastUpdate;
+    private Date nextUpdate;
+    private Date LastUpdate;
 
-  public DataUpdaterModel() {
-  }
+    public DataUpdaterModel() {
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public UpdaterStatus getStatus() {
-    return status;
-  }
+    public UpdaterStatus getStatus() {
+        return status;
+    }
 
-  public void setStatus(UpdaterStatus status) {
-    this.status = status;
-  }
+    public void setStatus(UpdaterStatus status) {
+        this.status = status;
+    }
 
-  public long getCount() {
-    return count;
-  }
+    public long getCount() {
+        return count;
+    }
 
-  public void setCount(long count) {
-    this.count = count;
-  }
+    public void setCount(long count) {
+        this.count = count;
+    }
 
-  public long getDataFetched() {
-    return dataFetched;
-  }
+    public long getDataFetched() {
+        return dataFetched;
+    }
 
-  public void setDataFetched(long dataFetched) {
-    this.dataFetched = dataFetched;
-  }
+    public void setDataFetched(long dataFetched) {
+        this.dataFetched = dataFetched;
+    }
 
-  public long getItemsFetched() {
-    return itemsFetched;
-  }
+    public long getItemsFetched() {
+        return itemsFetched;
+    }
 
-  public void setItemsFetched(long itemsFetched) {
-    this.itemsFetched = itemsFetched;
-  }
+    public void setItemsFetched(long itemsFetched) {
+        this.itemsFetched = itemsFetched;
+    }
 
-  public long getItemCount() {
-    return itemCount;
-  }
+    public long getItemCount() {
+        return itemCount;
+    }
 
-  public void setItemCount(long itemCount) {
-    this.itemCount = itemCount;
-  }
+    public void setItemCount(long itemCount) {
+        this.itemCount = itemCount;
+    }
 
-  public long getLastUpdateRuntime() {
-    return lastUpdateRuntime;
-  }
+    public long getLastUpdateRuntime() {
+        return lastUpdateRuntime;
+    }
 
-  public void setLastUpdateRuntime(long lastUpdateRuntime) {
-    this.lastUpdateRuntime = lastUpdateRuntime;
-  }
+    public void setLastUpdateRuntime(long lastUpdateRuntime) {
+        this.lastUpdateRuntime = lastUpdateRuntime;
+    }
 
-  public long getTotalUpdateRuntime() {
-    return totalUpdateRuntime;
-  }
+    public long getTotalUpdateRuntime() {
+        return totalUpdateRuntime;
+    }
 
-  public void setTotalUpdateRuntime(long totalUpdateRuntime) {
-    this.totalUpdateRuntime = totalUpdateRuntime;
-  }
+    public void setTotalUpdateRuntime(long totalUpdateRuntime) {
+        this.totalUpdateRuntime = totalUpdateRuntime;
+    }
 
-  public Date getNextUpdate() {
-    return nextUpdate;
-  }
+    public Date getNextUpdate() {
+        return nextUpdate;
+    }
 
-  public void setNextUpdate(Date nextUpdate) {
-    this.nextUpdate = nextUpdate;
-  }
+    public void setNextUpdate(Date nextUpdate) {
+        this.nextUpdate = nextUpdate;
+    }
 
-  public Date getLastUpdate() {
-    return LastUpdate;
-  }
+    public Date getLastUpdate() {
+        return LastUpdate;
+    }
 
-  public void setLastUpdate(Date lastUpdate) {
-    LastUpdate = lastUpdate;
-  }
+    public void setLastUpdate(Date lastUpdate) {
+        LastUpdate = lastUpdate;
+    }
 }

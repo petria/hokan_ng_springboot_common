@@ -7,9 +7,9 @@ import org.freakz.hokan_ng_springboot.bot.jms.JmsEnvelope;
  */
 public interface JmsMessageHandler {
 
-  String getDestinationName();
+    String getDestinationName();
 
-  void handleJmsEnvelope(JmsEnvelope envelope) throws Exception;
+    void handleJmsEnvelope(JmsEnvelope envelope) throws Exception;
 
 
 }

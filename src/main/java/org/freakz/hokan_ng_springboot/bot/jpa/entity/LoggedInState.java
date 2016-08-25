@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public enum LoggedInState implements Serializable {
 
-  VALID,
-  INVALID
+    VALID,
+    INVALID
 
 }

@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 @Scope("singleton")
 public class UptimeServiceImpl implements UptimeService {
 
-  private static Uptime uptime = new Uptime(System.currentTimeMillis());
+    private static Uptime uptime = new Uptime(System.currentTimeMillis());
 
-  @Override
-  public Uptime getUptime() {
-    return uptime;
-  }
+    @Override
+    public Uptime getUptime() {
+        return uptime;
+    }
 
 }

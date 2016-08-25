@@ -13,69 +13,69 @@ import java.util.Date;
 @Table(name = "IRC_LOG")
 public class IrcLog implements Serializable {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long id;
 
-  @Column(name = "TIME_STAMP")
-  private Date timeStamp;
+    @Column(name = "TIME_STAMP")
+    private Date timeStamp;
 
-  @Column(name = "SENDER")
-  private String sender;
+    @Column(name = "SENDER")
+    private String sender;
 
-  @Column(name = "TARGET")
-  private String target;
+    @Column(name = "TARGET")
+    private String target;
 
-  @Column(name = "MESSAGE", length = 1024)
-  private String message;
+    @Column(name = "MESSAGE", length = 1024)
+    private String message;
 
-  public IrcLog() {
-  }
+    public IrcLog() {
+    }
 
-  public long getId() {
-    return id;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public Date getTimeStamp() {
-    return timeStamp;
-  }
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
 
-  public void setTimeStamp(Date timeStamp) {
-    this.timeStamp = timeStamp;
-  }
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
-  public String getSender() {
-    return sender;
-  }
+    public String getSender() {
+        return sender;
+    }
 
-  public void setSender(String sender) {
-    this.sender = sender;
-  }
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
 
-  public String getTarget() {
-    return target;
-  }
+    public String getTarget() {
+        return target;
+    }
 
-  public void setTarget(String target) {
-    this.target = target;
-  }
+    public void setTarget(String target) {
+        this.target = target;
+    }
 
-  public String getMessage() {
-    return message;
-  }
+    public String getMessage() {
+        return message;
+    }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-  public String toString() {
-    String date = StringStuff.formatTime(this.timeStamp, StringStuff.STRING_STUFF_DF_DDMMYYYYHHMM);
-    return String.format("%d: [%s] %s -> %-10s: %s", id, date, sender, target, message);
-  }
+    public String toString() {
+        String date = StringStuff.formatTime(this.timeStamp, StringStuff.STRING_STUFF_DF_DDMMYYYYHHMM);
+        return String.format("%d: [%s] %s -> %-10s: %s", id, date, sender, target, message);
+    }
 
 }

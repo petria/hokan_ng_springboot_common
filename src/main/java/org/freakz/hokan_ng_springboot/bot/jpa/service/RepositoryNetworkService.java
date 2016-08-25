@@ -16,43 +16,43 @@ import java.util.List;
 @Slf4j
 public class RepositoryNetworkService implements NetworkService {
 
-  @Resource
-  private NetworkRepository networkRepository;
+    @Resource
+    private NetworkRepository networkRepository;
 
-  @Override
-  @Transactional
-  public Network create(String networkName) {
-    Network network = new Network(networkName);
-    return networkRepository.save(network);
-  }
+    @Override
+    @Transactional
+    public Network create(String networkName) {
+        Network network = new Network(networkName);
+        return networkRepository.save(network);
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public Network getNetwork(String networkName) {
-    return networkRepository.findByNetworkName(networkName);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public Network getNetwork(String networkName) {
+        return networkRepository.findByNetworkName(networkName);
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public List<Network> findAll() {
-    return networkRepository.findAll();
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public List<Network> findAll() {
+        return networkRepository.findAll();
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public Network findOne(long id) {
-    return networkRepository.findOne(id);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public Network findOne(long id) {
+        return networkRepository.findOne(id);
+    }
 
-  @Override
-  @Transactional
-  public void delete(Network network) {
-    this.networkRepository.delete(network);
-  }
+    @Override
+    @Transactional
+    public void delete(Network network) {
+        this.networkRepository.delete(network);
+    }
 
-  @Override
-  @Transactional
-  public Network save(Network network) {
-    return this.networkRepository.save(network);
-  }
+    @Override
+    @Transactional
+    public Network save(Network network) {
+        return this.networkRepository.save(network);
+    }
 }

@@ -14,118 +14,118 @@ import java.util.Date;
 @Table(name = "NETWORK")
 public class Network implements Serializable {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long id;
 
-  @Column(name = "NETWORK_NAME")
-  private String networkName;
+    @Column(name = "NETWORK_NAME")
+    private String networkName;
 
-  @Column(name = "FIRST_CONNECTED")
-  private Date firstConnected;
+    @Column(name = "FIRST_CONNECTED")
+    private Date firstConnected;
 
-  @Column(name = "CONNECT_COUNT")
-  private int connectCount;
+    @Column(name = "CONNECT_COUNT")
+    private int connectCount;
 
-  @Column(name = "LINES_SENT")
-  private int linesSent;
+    @Column(name = "LINES_SENT")
+    private int linesSent;
 
-  @Column(name = "LINES_RECEIVED")
-  private int linesReceived;
+    @Column(name = "LINES_RECEIVED")
+    private int linesReceived;
 
-  @Column(name = "CHANNELS_JOINED")
-  private int channelsJoined;
+    @Column(name = "CHANNELS_JOINED")
+    private int channelsJoined;
 
-  public Network() {
-    this("<NEW_NETWORK>");
-  }
+    public Network() {
+        this("<NEW_NETWORK>");
+    }
 
-  public Network(String name) {
-    this.networkName = name;
-    this.firstConnected = new Date();
-    this.connectCount = 0;
-    this.linesSent = 0;
-    this.linesReceived = 0;
-    this.channelsJoined = 0;
-  }
-
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
+    public Network(String name) {
+        this.networkName = name;
+        this.firstConnected = new Date();
+        this.connectCount = 0;
+        this.linesSent = 0;
+        this.linesReceived = 0;
+        this.channelsJoined = 0;
+    }
 
 
-  public String getName() {
-    return networkName;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setName(String name) {
-    this.networkName = name;
-  }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-  public Date getFirstConnected() {
-    return firstConnected;
-  }
 
-  public void setFirstConnected(Date firstConnected) {
-    this.firstConnected = firstConnected;
-  }
+    public String getName() {
+        return networkName;
+    }
 
-  public int getConnectCount() {
-    return connectCount;
-  }
+    public void setName(String name) {
+        this.networkName = name;
+    }
 
-  public void setConnectCount(int connectCount) {
-    this.connectCount = connectCount;
-  }
+    public Date getFirstConnected() {
+        return firstConnected;
+    }
 
-  public void addToConnectCount(int delta) {
-    this.connectCount += delta;
-  }
+    public void setFirstConnected(Date firstConnected) {
+        this.firstConnected = firstConnected;
+    }
 
-  public int getLinesSent() {
-    return linesSent;
-  }
+    public int getConnectCount() {
+        return connectCount;
+    }
 
-  public void setLinesSent(int linesSent) {
-    this.linesSent = linesSent;
-  }
+    public void setConnectCount(int connectCount) {
+        this.connectCount = connectCount;
+    }
 
-  public void addToLinesSent(int delta) {
-    this.linesSent += delta;
-  }
+    public void addToConnectCount(int delta) {
+        this.connectCount += delta;
+    }
 
-  public int getLinesReceived() {
-    return linesReceived;
-  }
+    public int getLinesSent() {
+        return linesSent;
+    }
 
-  public void setLinesReceived(int linesReceived) {
-    this.linesReceived = linesReceived;
-  }
+    public void setLinesSent(int linesSent) {
+        this.linesSent = linesSent;
+    }
 
-  public void addToLinesReceived(int delta) {
-    this.linesReceived += delta;
-  }
+    public void addToLinesSent(int delta) {
+        this.linesSent += delta;
+    }
 
-  public int getChannelsJoined() {
-    return channelsJoined;
-  }
+    public int getLinesReceived() {
+        return linesReceived;
+    }
 
-  public void setChannelsJoined(int channelsJoined) {
-    this.channelsJoined = channelsJoined;
-  }
+    public void setLinesReceived(int linesReceived) {
+        this.linesReceived = linesReceived;
+    }
 
-  public void addToChannelsJoined(int delta) {
-    this.channelsJoined += delta;
-  }
+    public void addToLinesReceived(int delta) {
+        this.linesReceived += delta;
+    }
 
-  public String toString() {
-    return String.format("[%02d] - %s", this.id, this.networkName);
-  }
+    public int getChannelsJoined() {
+        return channelsJoined;
+    }
+
+    public void setChannelsJoined(int channelsJoined) {
+        this.channelsJoined = channelsJoined;
+    }
+
+    public void addToChannelsJoined(int delta) {
+        this.channelsJoined += delta;
+    }
+
+    public String toString() {
+        return String.format("[%02d] - %s", this.id, this.networkName);
+    }
 
 }

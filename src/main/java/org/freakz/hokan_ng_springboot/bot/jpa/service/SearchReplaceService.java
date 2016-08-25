@@ -9,16 +9,16 @@ import java.util.List;
  */
 public interface SearchReplaceService {
 
-  SearchReplace addSearchReplace(String sender, String search, String replace);
+    SearchReplace addSearchReplace(String sender, String search, String replace);
 
-  List<SearchReplace> findAll();
+    List<SearchReplace> findAll();
 
-  void deleteAll();
+    void deleteAll();
 
-  void delete(SearchReplace sr);
+    void delete(SearchReplace sr);
 
-  List<SearchReplace> findByTheSearch(String search);
+    List<SearchReplace> findByTheSearch(String search);
 
-  SearchReplace findOne(long id);
+    SearchReplace findOne(long id);
 
 }

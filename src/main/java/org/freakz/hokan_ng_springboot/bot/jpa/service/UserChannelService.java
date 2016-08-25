@@ -13,12 +13,12 @@ import java.util.List;
  */
 public interface UserChannelService {
 
-  UserChannel createUserChannel(User user, Channel channel, IrcLog ircLog);
+    UserChannel createUserChannel(User user, Channel channel, IrcLog ircLog);
 
-  UserChannel getUserChannel(User user, Channel channel);
+    UserChannel getUserChannel(User user, Channel channel);
 
-  List<UserChannel> findByUser(User user);
+    List<UserChannel> findByUser(User user);
 
-  UserChannel save(UserChannel userChannel);
+    UserChannel save(UserChannel userChannel);
 
 }

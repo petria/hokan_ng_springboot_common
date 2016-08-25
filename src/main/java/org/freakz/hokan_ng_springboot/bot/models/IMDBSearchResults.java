@@ -12,20 +12,20 @@ import java.util.List;
 public class IMDBSearchResults implements Serializable {
 
 
-  private List<OmdbVideoBasic> searchResults;
+    private List<OmdbVideoBasic> searchResults;
 
-  public IMDBSearchResults() {
-  }
+    public IMDBSearchResults() {
+    }
 
-  public IMDBSearchResults(List<OmdbVideoBasic> searchResults) {
-    this.searchResults = searchResults;
-  }
+    public IMDBSearchResults(List<OmdbVideoBasic> searchResults) {
+        this.searchResults = searchResults;
+    }
 
-  public List<OmdbVideoBasic> getSearchResults() {
-    return searchResults;
-  }
+    public List<OmdbVideoBasic> getSearchResults() {
+        return searchResults;
+    }
 
-  public void setSearchResults(List<OmdbVideoBasic> searchResults) {
-    this.searchResults = searchResults;
-  }
+    public void setSearchResults(List<OmdbVideoBasic> searchResults) {
+        this.searchResults = searchResults;
+    }
 }

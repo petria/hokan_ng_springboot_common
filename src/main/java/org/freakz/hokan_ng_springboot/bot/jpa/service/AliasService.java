@@ -9,12 +9,12 @@ import java.util.List;
  */
 public interface AliasService {
 
-  List<Alias> findAll();
+    List<Alias> findAll();
 
-  Alias findFirstByAlias(String alias);
+    Alias findFirstByAlias(String alias);
 
-  Alias save(Alias a);
+    Alias save(Alias a);
 
-  int delete(Alias a);
+    int delete(Alias a);
 
 }

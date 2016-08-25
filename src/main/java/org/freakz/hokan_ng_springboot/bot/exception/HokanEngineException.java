@@ -11,34 +11,34 @@ import java.io.Serializable;
  */
 public class HokanEngineException extends HokanException implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  private String exceptionClassName;
+    private String exceptionClassName;
 
-  public HokanEngineException() {
-    super();
-  }
+    public HokanEngineException() {
+        super();
+    }
 
-  public HokanEngineException(Exception t, String exceptionClassName) {
-    super(t);
-    this.exceptionClassName = exceptionClassName;
-  }
+    public HokanEngineException(Exception t, String exceptionClassName) {
+        super(t);
+        this.exceptionClassName = exceptionClassName;
+    }
 
-  public HokanEngineException(String message, String exceptionClassName) {
-    super(message);
-    this.exceptionClassName = exceptionClassName;
-  }
+    public HokanEngineException(String message, String exceptionClassName) {
+        super(message);
+        this.exceptionClassName = exceptionClassName;
+    }
 
-  public HokanEngineException(String message, Throwable cause, String exceptionClassName) {
-    super(message, cause);
-    this.exceptionClassName = exceptionClassName;
-  }
+    public HokanEngineException(String message, Throwable cause, String exceptionClassName) {
+        super(message, cause);
+        this.exceptionClassName = exceptionClassName;
+    }
 
-  public String getExceptionClassName() {
-    return exceptionClassName;
-  }
+    public String getExceptionClassName() {
+        return exceptionClassName;
+    }
 
-  public void setExceptionClassName(String exceptionClassName) {
-    this.exceptionClassName = exceptionClassName;
-  }
+    public void setExceptionClassName(String exceptionClassName) {
+        this.exceptionClassName = exceptionClassName;
+    }
 }

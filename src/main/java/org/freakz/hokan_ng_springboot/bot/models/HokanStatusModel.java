@@ -9,26 +9,26 @@ import java.io.Serializable;
  */
 public class HokanStatusModel implements Serializable {
 
-  private String status;
-  private PingResponse pingResponse;
+    private String status;
+    private PingResponse pingResponse;
 
-  public HokanStatusModel(String status) {
-    this.status = status;
-  }
+    public HokanStatusModel(String status) {
+        this.status = status;
+    }
 
-  public String getStatus() {
-    return status;
-  }
+    public String getStatus() {
+        return status;
+    }
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public PingResponse getPingResponse() {
-    return pingResponse;
-  }
+    public PingResponse getPingResponse() {
+        return pingResponse;
+    }
 
-  public void setPingResponse(PingResponse pingResponse) {
-    this.pingResponse = pingResponse;
-  }
+    public void setPingResponse(PingResponse pingResponse) {
+        this.pingResponse = pingResponse;
+    }
 }

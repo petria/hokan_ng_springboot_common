@@ -27,87 +27,87 @@ import java.util.Map;
 @Slf4j
 public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnable {
 
-  @Autowired
-  private CommandPool commandPool;
+    @Autowired
+    private CommandPool commandPool;
 
-  @Autowired
-  private JmsSender jmsSender;
+    @Autowired
+    private JmsSender jmsSender;
 
-  @Autowired
-  private HokanModuleService hokanModuleService;
+    @Autowired
+    private HokanModuleService hokanModuleService;
 
-  @Autowired
-  private UptimeService uptimeService;
+    @Autowired
+    private UptimeService uptimeService;
 
-  private Map<HokanModule, HokanStatusModel> statusModelMap = new HashMap<>();
-  private boolean activated = true;
-  private boolean doRun;
-  private HokanModule thisModule;
+    private Map<HokanModule, HokanStatusModel> statusModelMap = new HashMap<>();
+    private boolean activated = true;
+    private boolean doRun;
+    private HokanModule thisModule;
 
-  @PostConstruct
-  public void start() {
-    for (HokanModule module : HokanModule.values()) {
-      statusModelMap.put(module, new HokanStatusModel("<unknown>"));
+    @PostConstruct
+    public void start() {
+        for (HokanModule module : HokanModule.values()) {
+            statusModelMap.put(module, new HokanStatusModel("<unknown>"));
+        }
+        doRun = true;
+        thisModule = hokanModuleService.getHokanModule();
+        commandPool.startRunnable(this, "<system>");
     }
-    doRun = true;
-    thisModule = hokanModuleService.getHokanModule();
-    commandPool.startRunnable(this, "<system>");
-  }
 
-  @Override
-  public HokanStatusModel getHokanStatus(HokanModule module) {
-    return statusModelMap.get(module);
-  }
+    @Override
+    public HokanStatusModel getHokanStatus(HokanModule module) {
+        return statusModelMap.get(module);
+    }
 
-  @Override
-  public void setActivated(boolean activated) {
-    this.activated = activated;
-  }
+    @Override
+    public void setActivated(boolean activated) {
+        this.activated = activated;
+    }
 
 
-  private void updateStatuses() {
+    private void updateStatuses() {
 //    log.debug("thisModule: {}", thisModule);
-    if (activated) {
-      for (HokanModule module : HokanModule.values()) {
-        if (module == HokanModule.HokanUi) {
-          continue;
+        if (activated) {
+            for (HokanModule module : HokanModule.values()) {
+                if (module == HokanModule.HokanUi) {
+                    continue;
+                }
+                if (module == thisModule) {
+                    HokanStatusModel status = new HokanStatusModel("<online>");
+                    PingResponse pingResponse = new PingResponse();
+                    pingResponse.setUptime(uptimeService.getUptime());
+                    status.setPingResponse(pingResponse);
+                    statusModelMap.put(module, status);
+                    continue;
+                }
+                ObjectMessage objectMessage = jmsSender.sendAndGetReply(module.getQueueName(), "COMMAND", "PING", false);
+                if (objectMessage == null) {
+                    statusModelMap.put(module, new HokanStatusModel("<offline>"));
+                    continue;
+                }
+                try {
+                    JmsMessage jmsMessage = (JmsMessage) objectMessage.getObject();
+                    PingResponse pingResponse = (PingResponse) jmsMessage.getPayLoadObject("PING_RESPONSE");
+                    HokanStatusModel status = new HokanStatusModel("<online>");
+                    status.setPingResponse(pingResponse);
+                    statusModelMap.put(module, status);
+                } catch (JMSException e) {
+                    log.error("jms", e);
+                }
+            }
         }
-        if (module == thisModule) {
-          HokanStatusModel status = new HokanStatusModel("<online>");
-          PingResponse pingResponse = new PingResponse();
-          pingResponse.setUptime(uptimeService.getUptime());
-          status.setPingResponse(pingResponse);
-          statusModelMap.put(module, status);
-          continue;
-        }
-        ObjectMessage objectMessage = jmsSender.sendAndGetReply(module.getQueueName(), "COMMAND", "PING", false);
-        if (objectMessage == null) {
-          statusModelMap.put(module, new HokanStatusModel("<offline>"));
-          continue;
-        }
-        try {
-          JmsMessage jmsMessage = (JmsMessage) objectMessage.getObject();
-          PingResponse pingResponse = (PingResponse) jmsMessage.getPayLoadObject("PING_RESPONSE");
-          HokanStatusModel status = new HokanStatusModel("<online>");
-          status.setPingResponse(pingResponse);
-          statusModelMap.put(module, status);
-        } catch (JMSException e) {
-          log.error("jms", e);
-        }
-      }
     }
-  }
 
-  @Override
-  public void handleRun(long myPid, Object args) throws HokanException {
-    while (doRun) {
-      updateStatuses();
-      try {
-        Thread.sleep(1000 * 3);
-      } catch (InterruptedException e) {
-        // ignore
-      }
+    @Override
+    public void handleRun(long myPid, Object args) throws HokanException {
+        while (doRun) {
+            updateStatuses();
+            try {
+                Thread.sleep(1000 * 3);
+            } catch (InterruptedException e) {
+                // ignore
+            }
 
+        }
     }
-  }
 }

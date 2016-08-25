@@ -14,76 +14,76 @@ import java.util.Date;
 @Table(name = "ALIAS")
 public class Alias implements Serializable {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private long aliasId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long aliasId;
 
-  @Column(name = "ALIAS")
-  private String alias;
+    @Column(name = "ALIAS")
+    private String alias;
 
-  @Column(name = "ALIAS_TYPE")
-  @Enumerated(EnumType.STRING)
-  private AliasType aliasType;
+    @Column(name = "ALIAS_TYPE")
+    @Enumerated(EnumType.STRING)
+    private AliasType aliasType;
 
-  @Column(name = "COMMAND")
-  private String command;
+    @Column(name = "COMMAND")
+    private String command;
 
-  @Column(name = "CREATED_BY")
-  private String createdBy;
+    @Column(name = "CREATED_BY")
+    private String createdBy;
 
-  @Column(name = "CREATED")
-  private Date created;
+    @Column(name = "CREATED")
+    private Date created;
 
 
-  public Alias() {
-  }
+    public Alias() {
+    }
 
-  public long getAliasId() {
-    return aliasId;
-  }
+    public long getAliasId() {
+        return aliasId;
+    }
 
-  public void setAliasId(long aliasId) {
-    this.aliasId = aliasId;
-  }
+    public void setAliasId(long aliasId) {
+        this.aliasId = aliasId;
+    }
 
-  public String getAlias() {
-    return alias;
-  }
+    public String getAlias() {
+        return alias;
+    }
 
-  public void setAlias(String alias) {
-    this.alias = alias;
-  }
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 
-  public String getCommand() {
-    return command;
-  }
+    public String getCommand() {
+        return command;
+    }
 
-  public void setCommand(String command) {
-    this.command = command;
-  }
+    public void setCommand(String command) {
+        this.command = command;
+    }
 
-  public String getCreatedBy() {
-    return createdBy;
-  }
+    public String getCreatedBy() {
+        return createdBy;
+    }
 
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
-  }
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 
-  public Date getCreated() {
-    return created;
-  }
+    public Date getCreated() {
+        return created;
+    }
 
-  public void setCreated(Date created) {
-    this.created = created;
-  }
+    public void setCreated(Date created) {
+        this.created = created;
+    }
 
-  public AliasType getAliasType() {
-    return aliasType;
-  }
+    public AliasType getAliasType() {
+        return aliasType;
+    }
 
-  public void setAliasType(AliasType aliasType) {
-    this.aliasType = aliasType;
-  }
+    public void setAliasType(AliasType aliasType) {
+        this.aliasType = aliasType;
+    }
 }

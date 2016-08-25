@@ -12,37 +12,37 @@ import java.util.List;
  */
 public class TelkkuData {
 
-  private List<String> channelNames;
-  private List<TelkkuProgram> programs;
-  private Calendar lastUpdate;
+    private List<String> channelNames;
+    private List<TelkkuProgram> programs;
+    private Calendar lastUpdate;
 
-  public TelkkuData(List<String> channelNames, List<TelkkuProgram> programs, Calendar lastUpdate) {
-    this.channelNames = channelNames;
-    this.programs = programs;
-    this.lastUpdate = lastUpdate;
-  }
+    public TelkkuData(List<String> channelNames, List<TelkkuProgram> programs, Calendar lastUpdate) {
+        this.channelNames = channelNames;
+        this.programs = programs;
+        this.lastUpdate = lastUpdate;
+    }
 
-  public List<String> getChannelNames() {
-    return channelNames;
-  }
+    public List<String> getChannelNames() {
+        return channelNames;
+    }
 
-  public void setChannelNames(List<String> channelNames) {
-    this.channelNames = channelNames;
-  }
+    public void setChannelNames(List<String> channelNames) {
+        this.channelNames = channelNames;
+    }
 
-  public List<TelkkuProgram> getPrograms() {
-    return programs;
-  }
+    public List<TelkkuProgram> getPrograms() {
+        return programs;
+    }
 
-  public void setPrograms(List<TelkkuProgram> programs) {
-    this.programs = programs;
-  }
+    public void setPrograms(List<TelkkuProgram> programs) {
+        this.programs = programs;
+    }
 
-  public Calendar getLastUpdate() {
-    return lastUpdate;
-  }
+    public Calendar getLastUpdate() {
+        return lastUpdate;
+    }
 
-  public void setLastUpdate(Calendar lastUpdate) {
-    this.lastUpdate = lastUpdate;
-  }
+    public void setLastUpdate(Calendar lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
 }

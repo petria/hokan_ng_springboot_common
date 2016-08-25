@@ -16,39 +16,39 @@ import java.util.List;
 @Slf4j
 public class PropertyRepositoryService extends PropertyBase implements PropertyService {
 
-  @Autowired
-  private PropertyRepository repository;
+    @Autowired
+    private PropertyRepository repository;
 
-  @Override
-  public List<PropertyEntity> findAll() {
-    return repository.findAll();
-  }
-
-  @Override
-  public PropertyEntity save(PropertyEntity property) {
-    return repository.save(property);
-  }
-
-  @Override
-  public void delete(PropertyEntity object) {
-    repository.delete(object);
-  }
-
-  @Override
-  public PropertyEntity findFirstByPropertyName(PropertyName propertyName) {
-    return repository.findFirstByPropertyName(propertyName);
-  }
-
-  @Override
-  public long getNextPid() {
-    PropertyEntity property = repository.findFirstByPropertyName(PropertyName.PROP_SYS_PID_COUNTER);
-    if (property == null) {
-      property = new PropertyEntity(PropertyName.PROP_SYS_PID_COUNTER, "1", "");
+    @Override
+    public List<PropertyEntity> findAll() {
+        return repository.findAll();
     }
-    long pid = Long.parseLong(property.getValue());
-    property.setValue("" + (pid + 1));
-    repository.save(property);
-    return pid;
-  }
+
+    @Override
+    public PropertyEntity save(PropertyEntity property) {
+        return repository.save(property);
+    }
+
+    @Override
+    public void delete(PropertyEntity object) {
+        repository.delete(object);
+    }
+
+    @Override
+    public PropertyEntity findFirstByPropertyName(PropertyName propertyName) {
+        return repository.findFirstByPropertyName(propertyName);
+    }
+
+    @Override
+    public long getNextPid() {
+        PropertyEntity property = repository.findFirstByPropertyName(PropertyName.PROP_SYS_PID_COUNTER);
+        if (property == null) {
+            property = new PropertyEntity(PropertyName.PROP_SYS_PID_COUNTER, "1", "");
+        }
+        long pid = Long.parseLong(property.getValue());
+        property.setValue("" + (pid + 1));
+        repository.save(property);
+        return pid;
+    }
 
 }

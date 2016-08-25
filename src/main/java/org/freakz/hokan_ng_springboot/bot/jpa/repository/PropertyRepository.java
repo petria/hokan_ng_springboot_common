@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface PropertyRepository extends JpaRepository<PropertyEntity, Long> {
 
-  PropertyEntity findFirstByPropertyName(PropertyName propertyName);
+    PropertyEntity findFirstByPropertyName(PropertyName propertyName);
 
 }

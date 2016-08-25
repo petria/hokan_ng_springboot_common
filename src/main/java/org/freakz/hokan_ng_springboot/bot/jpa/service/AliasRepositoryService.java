@@ -14,31 +14,31 @@ import java.util.List;
 @Service
 public class AliasRepositoryService implements AliasService {
 
-  @Autowired
-  private AliasRepository repository;
+    @Autowired
+    private AliasRepository repository;
 
-  @Override
-  @Transactional(readOnly = true)
-  public List<Alias> findAll() {
-    return repository.findAll();
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public List<Alias> findAll() {
+        return repository.findAll();
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public Alias findFirstByAlias(String alias) {
-    return repository.findFirstByAlias(alias);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public Alias findFirstByAlias(String alias) {
+        return repository.findFirstByAlias(alias);
+    }
 
-  @Override
-  @Transactional(readOnly = false)
-  public Alias save(Alias a) {
-    return repository.save(a);
-  }
+    @Override
+    @Transactional(readOnly = false)
+    public Alias save(Alias a) {
+        return repository.save(a);
+    }
 
-  @Override
-  @Transactional(readOnly = false)
-  public int delete(Alias a) {
-    repository.delete(a);
-    return 1;
-  }
+    @Override
+    @Transactional(readOnly = false)
+    public int delete(Alias a) {
+        repository.delete(a);
+        return 1;
+    }
 }

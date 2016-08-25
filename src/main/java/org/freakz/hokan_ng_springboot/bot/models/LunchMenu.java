@@ -8,13 +8,13 @@ import java.io.Serializable;
  */
 public class LunchMenu implements Serializable {
 
-  private final String menu;
+    private final String menu;
 
-  public LunchMenu(String menu) {
-    this.menu = menu;
-  }
+    public LunchMenu(String menu) {
+        this.menu = menu;
+    }
 
-  public String getMenu() {
-    return menu;
-  }
+    public String getMenu() {
+        return menu;
+    }
 }

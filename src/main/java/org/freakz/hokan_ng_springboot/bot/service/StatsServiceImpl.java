@@ -20,41 +20,41 @@ import java.util.List;
 @Slf4j
 public class StatsServiceImpl implements StatsService {
 
-  @Autowired
-  private IrcLogService ircLogService;
+    @Autowired
+    private IrcLogService ircLogService;
 
-  @Override
-  public StatsMapper getDailyStatsForChannel(DateTime day, String channel) {
-    List<IrcLog> logs = ircLogService.findByTimeStampBetweenAndTargetContaining(TimeUtil.getStartAndEndTimeForDay(day), channel);
-    StatsMapper statsMapper = new StatsMapper();
-    if (logs.size() == 0) {
-      statsMapper.setError("No stats for day " + StringStuff.formatTime(day.toDate(), StringStuff.STRING_STUFF_DF_DDMMYYYY)
-          + " and channel "
-          + channel);
-    } else {
-      processLogs(statsMapper, logs);
+    @Override
+    public StatsMapper getDailyStatsForChannel(DateTime day, String channel) {
+        List<IrcLog> logs = ircLogService.findByTimeStampBetweenAndTargetContaining(TimeUtil.getStartAndEndTimeForDay(day), channel);
+        StatsMapper statsMapper = new StatsMapper();
+        if (logs.size() == 0) {
+            statsMapper.setError("No stats for day " + StringStuff.formatTime(day.toDate(), StringStuff.STRING_STUFF_DF_DDMMYYYY)
+                    + " and channel "
+                    + channel);
+        } else {
+            processLogs(statsMapper, logs);
+        }
+        return statsMapper;
     }
-    return statsMapper;
-  }
 
-  private void processLogs(StatsMapper statsMapper, List<IrcLog> logsForDay) {
-    for (IrcLog ircLog : logsForDay) {
-      String sender = ircLog.getSender();
-      String[] words = ircLog.getMessage().split(" ");
-      StatsData statsData = statsMapper.getStatsDataForNick(sender);
-      statsData.addToLines(1);
-      statsData.addToWords(words.length);
+    private void processLogs(StatsMapper statsMapper, List<IrcLog> logsForDay) {
+        for (IrcLog ircLog : logsForDay) {
+            String sender = ircLog.getSender();
+            String[] words = ircLog.getMessage().split(" ");
+            StatsData statsData = statsMapper.getStatsDataForNick(sender);
+            statsData.addToLines(1);
+            statsData.addToWords(words.length);
+        }
     }
-  }
 
-  public StatsMapper getStatsForChannel(String channel) {
-    List<IrcLog> logs = ircLogService.findByTarget(channel);
-    StatsMapper statsMapper = new StatsMapper();
-    if (logs.size() == 0) {
-      statsMapper.setError("No stats for channel: " + channel);
-    } else {
-      processLogs(statsMapper, logs);
+    public StatsMapper getStatsForChannel(String channel) {
+        List<IrcLog> logs = ircLogService.findByTarget(channel);
+        StatsMapper statsMapper = new StatsMapper();
+        if (logs.size() == 0) {
+            statsMapper.setError("No stats for channel: " + channel);
+        } else {
+            processLogs(statsMapper, logs);
+        }
+        return statsMapper;
     }
-    return statsMapper;
-  }
 }

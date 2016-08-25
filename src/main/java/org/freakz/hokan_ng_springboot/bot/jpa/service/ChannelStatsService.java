@@ -9,7 +9,7 @@ import org.freakz.hokan_ng_springboot.bot.jpa.entity.ChannelStats;
  */
 public interface ChannelStatsService {
 
-  ChannelStats findFirstByChannel(Channel channel);
+    ChannelStats findFirstByChannel(Channel channel);
 
-  ChannelStats save(ChannelStats channelStats);
+    ChannelStats save(ChannelStats channelStats);
 }

@@ -10,31 +10,31 @@ import java.util.List;
  */
 public class NimipaivaData implements Serializable {
 
-  private DateTime day;
-  private List<String> names;
+    private DateTime day;
+    private List<String> names;
 
-  public NimipaivaData() {
-  }
+    public NimipaivaData() {
+    }
 
-  public NimipaivaData(DateTime day, List<String> names) {
-    this.day = day;
-    this.names = names;
-  }
+    public NimipaivaData(DateTime day, List<String> names) {
+        this.day = day;
+        this.names = names;
+    }
 
 
-  public DateTime getDay() {
-    return day;
-  }
+    public DateTime getDay() {
+        return day;
+    }
 
-  public void setDay(DateTime day) {
-    this.day = day;
-  }
+    public void setDay(DateTime day) {
+        this.day = day;
+    }
 
-  public List<String> getNames() {
-    return names;
-  }
+    public List<String> getNames() {
+        return names;
+    }
 
-  public void setNames(List<String> names) {
-    this.names = names;
-  }
+    public void setNames(List<String> names) {
+        this.names = names;
+    }
 }

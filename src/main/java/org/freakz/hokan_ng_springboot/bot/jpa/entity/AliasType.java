@@ -5,7 +5,7 @@ package org.freakz.hokan_ng_springboot.bot.jpa.entity;
  */
 public enum AliasType {
 
-  ALIAS_PUBLIC,
-  ALIAS_PERSONAL
+    ALIAS_PUBLIC,
+    ALIAS_PERSONAL
 
 }

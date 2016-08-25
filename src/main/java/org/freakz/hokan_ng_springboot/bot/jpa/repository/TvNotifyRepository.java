@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface TvNotifyRepository extends JpaRepository<TvNotify, Long> {
 
-  List<TvNotify> findByChannel(Channel channel);
+    List<TvNotify> findByChannel(Channel channel);
 
-  TvNotify findFirstByChannelAndNotifyPattern(Channel channel, String notifyPattern);
+    TvNotify findFirstByChannelAndNotifyPattern(Channel channel, String notifyPattern);
 
 }

@@ -8,21 +8,21 @@ import java.io.Serializable;
  */
 public class ScriptResult implements Serializable {
 
-  private String scriptOutput;
+    private String scriptOutput;
 
-  public ScriptResult() {
-  }
+    public ScriptResult() {
+    }
 
-  public ScriptResult(String scriptOutput) {
-    this.scriptOutput = scriptOutput;
-  }
+    public ScriptResult(String scriptOutput) {
+        this.scriptOutput = scriptOutput;
+    }
 
-  public String getScriptOutput() {
-    return scriptOutput;
-  }
+    public String getScriptOutput() {
+        return scriptOutput;
+    }
 
-  public void setScriptOutput(String scriptOutput) {
-    this.scriptOutput = scriptOutput;
-  }
+    public void setScriptOutput(String scriptOutput) {
+        this.scriptOutput = scriptOutput;
+    }
 
 }

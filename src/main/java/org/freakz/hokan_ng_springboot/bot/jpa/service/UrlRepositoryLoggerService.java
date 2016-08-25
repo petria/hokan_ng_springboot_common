@@ -17,51 +17,51 @@ import java.util.List;
 @Slf4j
 public class UrlRepositoryLoggerService implements UrlLoggerService {
 
-  @Autowired
-  private UrlRepository repository;
+    @Autowired
+    private UrlRepository repository;
 
-  @Override
-  public List<Url> findByUrl(String url) {
-    String likeUrl = "%" + url + "%";
-    return repository.findByUrlLikeOrUrlTitleLikeOrderByCreatedDesc(likeUrl, likeUrl);
-  }
+    @Override
+    public List<Url> findByUrl(String url) {
+        String likeUrl = "%" + url + "%";
+        return repository.findByUrlLikeOrUrlTitleLikeOrderByCreatedDesc(likeUrl, likeUrl);
+    }
 
-  @Override
-  public List<Url> findByUrlAndNicks(String url, String... nicks) {
-    List<String> nickList = Arrays.asList(nicks);
-    String likeUrl = "%" + url + "%";
-    return repository.findByUrlLikeOrUrlTitleLikeAndSenderInOrderByCreatedDesc(likeUrl, likeUrl, nickList);
-  }
+    @Override
+    public List<Url> findByUrlAndNicks(String url, String... nicks) {
+        List<String> nickList = Arrays.asList(nicks);
+        String likeUrl = "%" + url + "%";
+        return repository.findByUrlLikeOrUrlTitleLikeAndSenderInOrderByCreatedDesc(likeUrl, likeUrl, nickList);
+    }
 
-  @Override
-  public List<Url> findAll() {
-    return repository.findAll();
-  }
+    @Override
+    public List<Url> findAll() {
+        return repository.findAll();
+    }
 
-  @Override
-  public Url findOne(long id) {
-    return repository.findOne(id);
-  }
+    @Override
+    public Url findOne(long id) {
+        return repository.findOne(id);
+    }
 
-  @Override
-  public List findTopSender() {
-    return repository.findTopSender();
-  }
+    @Override
+    public List findTopSender() {
+        return repository.findTopSender();
+    }
 
-  @Override
-  public List findTopSenderByChannel(String channel) {
-    return repository.findTopSenderByChannel(channel);
-  }
+    @Override
+    public List findTopSenderByChannel(String channel) {
+        return repository.findTopSenderByChannel(channel);
+    }
 
-  @Override
-  public List findTopSenderByChannelAndCreatedBetween(String channel, StartAndEndTime saet) {
-    return repository.findTopSenderByChannelAndCreatedBetween(channel, saet.getStartTime().toDate(), saet.getEndTime().toDate());
-  }
+    @Override
+    public List findTopSenderByChannelAndCreatedBetween(String channel, StartAndEndTime saet) {
+        return repository.findTopSenderByChannelAndCreatedBetween(channel, saet.getStartTime().toDate(), saet.getEndTime().toDate());
+    }
 
-  @Override
-  public List<Url> findByCreatedBetweenAndChannel(StartAndEndTime saet, String channel) {
-    return repository.findByCreatedBetweenAndChannel(saet.getStartTime().toDate(), saet.getEndTime().toDate(), channel);
-  }
+    @Override
+    public List<Url> findByCreatedBetweenAndChannel(StartAndEndTime saet, String channel) {
+        return repository.findByCreatedBetweenAndChannel(saet.getStartTime().toDate(), saet.getEndTime().toDate(), channel);
+    }
 
 
 }

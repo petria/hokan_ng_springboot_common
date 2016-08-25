@@ -7,9 +7,9 @@ import java.io.Serializable;
  * -
  */
 public enum HostOS implements Serializable {
-  BSD,
-  LINUX,
-  OSX,
-  WINDOWS,
-  UNKNOWN_OS
+    BSD,
+    LINUX,
+    OSX,
+    WINDOWS,
+    UNKNOWN_OS
 }

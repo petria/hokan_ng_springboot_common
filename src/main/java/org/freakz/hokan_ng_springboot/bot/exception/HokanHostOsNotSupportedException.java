@@ -7,7 +7,7 @@ package org.freakz.hokan_ng_springboot.bot.exception;
 public class HokanHostOsNotSupportedException extends Exception {
 
 
-  public HokanHostOsNotSupportedException(String s) {
-    super(s);
-  }
+    public HokanHostOsNotSupportedException(String s) {
+        super(s);
+    }
 }

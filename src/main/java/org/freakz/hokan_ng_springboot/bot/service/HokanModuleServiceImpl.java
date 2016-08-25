@@ -20,38 +20,38 @@ import java.util.Date;
 @Slf4j
 public class HokanModuleServiceImpl implements HokanModuleService {
 
-  @Autowired
-  private PropertyService propertyService;
+    @Autowired
+    private PropertyService propertyService;
 
-  private long sessionId;
+    private long sessionId;
 
-  @Value("${hokan.module}")
-  private String hokanModule;
+    @Value("${hokan.module}")
+    private String hokanModule;
 
-  private HokanModule module;
+    private HokanModule module;
 
-  @PostConstruct
-  public void setHokanModule() {
-    log.debug("hokanModule: {}", hokanModule);
-    this.module = HokanModule.valueOf(hokanModule);
-    this.sessionId = new Date().getTime();
-    log.info("Module set to {}", module.toString());
-    PropertyEntity property = propertyService.findFirstByPropertyName(module.getModuleProperty());
-    if (property == null) {
-      property = new PropertyEntity(module.getModuleProperty(), "", "");
+    @PostConstruct
+    public void setHokanModule() {
+        log.debug("hokanModule: {}", hokanModule);
+        this.module = HokanModule.valueOf(hokanModule);
+        this.sessionId = new Date().getTime();
+        log.info("Module set to {}", module.toString());
+        PropertyEntity property = propertyService.findFirstByPropertyName(module.getModuleProperty());
+        if (property == null) {
+            property = new PropertyEntity(module.getModuleProperty(), "", "");
+        }
+        property.setValue(this.sessionId + "");
+        propertyService.save(property);
     }
-    property.setValue(this.sessionId + "");
-    propertyService.save(property);
-  }
 
-  @Override
-  public HokanModule getHokanModule() {
-    return this.module;
-  }
+    @Override
+    public HokanModule getHokanModule() {
+        return this.module;
+    }
 
-  @Override
-  public long getSessionId() {
-    return this.sessionId;
-  }
+    @Override
+    public long getSessionId() {
+        return this.sessionId;
+    }
 
 }

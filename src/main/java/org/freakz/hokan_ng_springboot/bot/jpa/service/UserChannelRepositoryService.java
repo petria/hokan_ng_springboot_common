@@ -20,32 +20,32 @@ import java.util.List;
 @Slf4j
 public class UserChannelRepositoryService implements UserChannelService {
 
-  @Autowired
-  private UserChannelRepository repository;
+    @Autowired
+    private UserChannelRepository repository;
 
-  @Override
-  @Transactional
-  public UserChannel createUserChannel(User user, Channel channel, IrcLog irclog) {
-    UserChannel userChannel = new UserChannel(user, channel);
-    userChannel.setLastIrcLogID(irclog.getId() + "");
-    return repository.save(userChannel);
-  }
+    @Override
+    @Transactional
+    public UserChannel createUserChannel(User user, Channel channel, IrcLog irclog) {
+        UserChannel userChannel = new UserChannel(user, channel);
+        userChannel.setLastIrcLogID(irclog.getId() + "");
+        return repository.save(userChannel);
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public UserChannel getUserChannel(User user, Channel channel) {
-    return repository.findFirstByUserAndChannel(user, channel);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public UserChannel getUserChannel(User user, Channel channel) {
+        return repository.findFirstByUserAndChannel(user, channel);
+    }
 
-  @Override
-  @Transactional(readOnly = true)
-  public List<UserChannel> findByUser(User user) {
-    return repository.findByUser(user);
-  }
+    @Override
+    @Transactional(readOnly = true)
+    public List<UserChannel> findByUser(User user) {
+        return repository.findByUser(user);
+    }
 
-  @Override
-  @Transactional
-  public UserChannel save(UserChannel userChannel) {
-    return repository.save(userChannel);
-  }
+    @Override
+    @Transactional
+    public UserChannel save(UserChannel userChannel) {
+        return repository.save(userChannel);
+    }
 }

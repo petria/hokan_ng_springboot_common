@@ -23,98 +23,98 @@ import java.io.Serializable;
 @Scope("prototype")
 public class InternalRequest implements Serializable {
 
-  @Autowired
-  private NetworkService networkService;
+    @Autowired
+    private NetworkService networkService;
 
-  @Autowired
-  private ChannelService channelService;
+    @Autowired
+    private ChannelService channelService;
 
-  @Autowired
-  private ChannelStatsService channelStatsService;
+    @Autowired
+    private ChannelStatsService channelStatsService;
 
-  @Autowired
-  private UserChannelService userChannelService;
+    @Autowired
+    private UserChannelService userChannelService;
 
-  @Autowired
-  private UserService userService;
-
-
-  private Network network;
-  private Channel channel;
-  private User user;
-  private UserChannel userChannel;
-  private ChannelStats channelStats;
-
-  private IrcMessageEvent ircMessageEvent;
-  private JmsEnvelope envelope;
-
-  public InternalRequest() {
-  }
-
-  public void init(IrcMessageEvent ircMessageEvent) throws HokanException {
-    this.ircMessageEvent = ircMessageEvent;
-    this.network = networkService.getNetwork(ircMessageEvent.getNetwork());
-    this.user = getUser(ircMessageEvent);
-    this.channel = channelService.findByNetworkAndChannelName(network, ircMessageEvent.getChannel());
-    this.userChannel = userChannelService.getUserChannel(this.user, this.channel);
-    this.channelStats = channelStatsService.findFirstByChannel(channel);
-
-  }
+    @Autowired
+    private UserService userService;
 
 
-  public IrcMessageEvent getIrcEvent() {
-    return this.ircMessageEvent;
-  }
+    private Network network;
+    private Channel channel;
+    private User user;
+    private UserChannel userChannel;
+    private ChannelStats channelStats;
 
-  public Network getNetwork() {
-    return network;
-  }
+    private IrcMessageEvent ircMessageEvent;
+    private JmsEnvelope envelope;
 
-  public Channel getChannel() {
-    return channel;
-  }
+    public InternalRequest() {
+    }
 
-  public User getUser() {
-    return user;
-  }
-
-  public UserChannel getUserChannel() {
-    return userChannel;
-  }
-
-  public void saveUserChannel() {
-    this.userChannel = userChannelService.save(this.userChannel);
-  }
-
-  public void saveChannelStats() {
-    this.channelStats = channelStatsService.save(this.channelStats);
-  }
-
-  private User getUser(IrcEvent ircEvent) {
-    User user;
-    User maskUser = this.userService.getUserByMask(ircEvent.getMask());
-    if (maskUser != null) {
-      user = maskUser;
-    } else {
-      user = this.userService.findFirstByNick(ircEvent.getSender());
-      if (user == null) {
-        user = new User(ircEvent.getSender());
-        user = userService.save(user);
-      }
+    public void init(IrcMessageEvent ircMessageEvent) throws HokanException {
+        this.ircMessageEvent = ircMessageEvent;
+        this.network = networkService.getNetwork(ircMessageEvent.getNetwork());
+        this.user = getUser(ircMessageEvent);
+        this.channel = channelService.findByNetworkAndChannelName(network, ircMessageEvent.getChannel());
+        this.userChannel = userChannelService.getUserChannel(this.user, this.channel);
+        this.channelStats = channelStatsService.findFirstByChannel(channel);
 
     }
-    return user;
-  }
 
-  public ChannelStats getChannelStats() {
-    return channelStats;
-  }
 
-  public void setJmsEnvelope(JmsEnvelope envelope) {
-    this.envelope = envelope;
-  }
+    public IrcMessageEvent getIrcEvent() {
+        return this.ircMessageEvent;
+    }
 
-  public JmsEnvelope getJmsEnvelope() {
-    return envelope;
-  }
+    public Network getNetwork() {
+        return network;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public UserChannel getUserChannel() {
+        return userChannel;
+    }
+
+    public void saveUserChannel() {
+        this.userChannel = userChannelService.save(this.userChannel);
+    }
+
+    public void saveChannelStats() {
+        this.channelStats = channelStatsService.save(this.channelStats);
+    }
+
+    private User getUser(IrcEvent ircEvent) {
+        User user;
+        User maskUser = this.userService.getUserByMask(ircEvent.getMask());
+        if (maskUser != null) {
+            user = maskUser;
+        } else {
+            user = this.userService.findFirstByNick(ircEvent.getSender());
+            if (user == null) {
+                user = new User(ircEvent.getSender());
+                user = userService.save(user);
+            }
+
+        }
+        return user;
+    }
+
+    public ChannelStats getChannelStats() {
+        return channelStats;
+    }
+
+    public void setJmsEnvelope(JmsEnvelope envelope) {
+        this.envelope = envelope;
+    }
+
+    public JmsEnvelope getJmsEnvelope() {
+        return envelope;
+    }
 }

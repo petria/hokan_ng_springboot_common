@@ -10,17 +10,17 @@ import java.util.List;
  */
 public interface TvNotifyService {
 
-  TvNotify addTvNotify(Channel channel, String pattern, String owner);
+    TvNotify addTvNotify(Channel channel, String pattern, String owner);
 
-  List<TvNotify> getTvNotifies(Channel channel);
+    List<TvNotify> getTvNotifies(Channel channel);
 
-  TvNotify getTvNotify(Channel channel, String pattern);
+    TvNotify getTvNotify(Channel channel, String pattern);
 
-  TvNotify getTvNotifyById(long id);
+    TvNotify getTvNotifyById(long id);
 
-  int delTvNotifies(Channel channel);
+    int delTvNotifies(Channel channel);
 
-  void delTvNotify(TvNotify notify);
+    void delTvNotify(TvNotify notify);
 
 //  List<TelkkuProgram> getChannelDailyNotifiedPrograms(Channel channel, Date day);
 

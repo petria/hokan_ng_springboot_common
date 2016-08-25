@@ -13,79 +13,79 @@ import javax.persistence.*;
 @Table(name = "JOINED_USER")
 public class JoinedUser {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private long id;
 
-  @ManyToOne
-  @JoinColumn(name = "CHANNEL", referencedColumnName = "ID", nullable = false)
-  private Channel channel;
+    @ManyToOne
+    @JoinColumn(name = "CHANNEL", referencedColumnName = "ID", nullable = false)
+    private Channel channel;
 
-  @ManyToOne
-  @JoinColumn(name = "USER", referencedColumnName = "ID", nullable = false)
-  private User user;
+    @ManyToOne
+    @JoinColumn(name = "USER", referencedColumnName = "ID", nullable = false)
+    private User user;
 
-  @Column(name = "USER_MODES")
-  private String userModes;
+    @Column(name = "USER_MODES")
+    private String userModes;
 
-  public JoinedUser(Channel channel, User user, String userModes) {
-    this(channel, user);
-    this.userModes = userModes;
-  }
-
-  public JoinedUser(Channel channel, User user) {
-    this.channel = channel;
-    this.user = user;
-  }
-
-  public JoinedUser() {
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public Channel getChannel() {
-    return channel;
-  }
-
-  public void setChannel(Channel channel) {
-    this.channel = channel;
-  }
-
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  public String getUserModes() {
-    return userModes;
-  }
-
-  public void setUserModes(String userModes) {
-    this.userModes = userModes;
-  }
-
-  public boolean isOp() {
-    if (this.userModes != null) {
-      return this.userModes.contains("@");
+    public JoinedUser(Channel channel, User user, String userModes) {
+        this(channel, user);
+        this.userModes = userModes;
     }
-    return false;
-  }
 
-  public boolean hasVoice() {
-    if (this.userModes != null) {
-      return this.userModes.contains("+");
+    public JoinedUser(Channel channel, User user) {
+        this.channel = channel;
+        this.user = user;
     }
-    return false;
-  }
+
+    public JoinedUser() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getUserModes() {
+        return userModes;
+    }
+
+    public void setUserModes(String userModes) {
+        this.userModes = userModes;
+    }
+
+    public boolean isOp() {
+        if (this.userModes != null) {
+            return this.userModes.contains("@");
+        }
+        return false;
+    }
+
+    public boolean hasVoice() {
+        if (this.userModes != null) {
+            return this.userModes.contains("+");
+        }
+        return false;
+    }
 
 }

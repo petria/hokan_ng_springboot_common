@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface TranslateService {
 
-  List<String> translateFiEng(String keyword);
+    List<String> translateFiEng(String keyword);
 
-  List<String> translateEngFi(String keyword);
+    List<String> translateEngFi(String keyword);
 
 }
