@@ -3,6 +3,7 @@ package org.freakz.hokan_ng_springboot.bot.jms;
 import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.jms.api.JmsSender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jms.InvalidDestinationException;
 import org.springframework.jms.UncategorizedJmsException;
 import org.springframework.jms.core.JmsTemplate;
@@ -14,8 +15,10 @@ import javax.jms.ObjectMessage;
 
 /**
  * Created by petria on 6.2.2015.
+ *
  */
 @Component
+@Profile("default")
 @Slf4j
 public class SpringJmsSender implements JmsSender {
 

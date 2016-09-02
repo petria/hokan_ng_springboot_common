@@ -10,6 +10,7 @@ import org.freakz.hokan_ng_springboot.bot.jms.PingResponse;
 import org.freakz.hokan_ng_springboot.bot.jms.api.JmsSender;
 import org.freakz.hokan_ng_springboot.bot.models.HokanStatusModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +22,11 @@ import java.util.Map;
 
 /**
  * Created by Petri Airio on 9.4.2015.
+ * -
  */
 @Service
 @Scope("singleton")
+@Profile("default")
 @Slf4j
 public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnable {
 

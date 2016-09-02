@@ -4,12 +4,14 @@ import org.freakz.hokan_ng_springboot.bot.jpa.entity.PropertyName;
 
 /**
  * Created by Petri Airio on 9.4.2015.
+ * -
  */
 public enum HokanModule {
 
     HokanIo("HokanNGIoQueue", PropertyName.PROP_SYS_SESSION_ID_IO),
     HokanEngine("HokanNGEngineQueue", PropertyName.PROP_SYS_SESSION_ID_ENGINE),
     HokanServices("HokanNGServicesQueue", PropertyName.PROP_SYS_SESSION_ID_SERVICES),
+    HokanTestApp("HokanTestAppQueue", PropertyName.PROP_SYS_SESSION_ID_TEST),
     HokanUi("HokanNGUiQueue", PropertyName.PROP_SYS_SESSION_ID_UI);
 
 
