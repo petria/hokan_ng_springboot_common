@@ -1,22 +1,23 @@
 package org.freakz.hokan_ng_springboot.bot.jpa.service;
 
+import org.freakz.hokan_ng_springboot.bot.exception.HokanRuntimeException;
 import org.freakz.hokan_ng_springboot.bot.jpa.entity.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by Petri Airio on 26.5.2015.
+ * -
  */
-public abstract class PropertyBase {
+abstract class PropertyBase {
 
     protected PropertyEntity findFirstByPropertyName(PropertyName propertyName) {
-        throw new NotImplementedException();
+        throw new HokanRuntimeException("Not implemented!");
     }
 
     protected ChannelPropertyEntity findFirstByChannelAndPropertyName(Channel channel, PropertyName propertyName) {
-        throw new NotImplementedException();
+        throw new HokanRuntimeException("Not implemented!");
     }
 
-    public String getPropertyAsString(PropertyEntityBase property, String defaultValue) {
+    private String getPropertyAsString(PropertyEntityBase property, String defaultValue) {
         if (property == null) {
             return defaultValue;
         }
@@ -34,7 +35,7 @@ public abstract class PropertyBase {
 
     // ----
 
-    public int getPropertyAsInt(PropertyEntityBase property, int defaultValue) {
+    private int getPropertyAsInt(PropertyEntityBase property, int defaultValue) {
         if (property == null) {
             return defaultValue;
         }
@@ -51,7 +52,7 @@ public abstract class PropertyBase {
 
     // ----
 
-    public long getPropertyAsLong(PropertyEntityBase property, long defaultValue) {
+    private long getPropertyAsLong(PropertyEntityBase property, long defaultValue) {
         if (property == null) {
             return defaultValue;
         }
@@ -68,7 +69,7 @@ public abstract class PropertyBase {
 
     // ----
 
-    public boolean getPropertyAsBoolean(PropertyEntityBase property, boolean defValue) {
+    private boolean getPropertyAsBoolean(PropertyEntityBase property, boolean defValue) {
         if (property == null) {
             return defValue;
         }

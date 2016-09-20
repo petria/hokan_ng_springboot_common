@@ -2,6 +2,7 @@ package org.freakz.hokan_ng_springboot.bot.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.api.DirectoryChangedHandler;
+import org.freakz.hokan_ng_springboot.bot.api.DirectoryWatcher;
 import org.springframework.stereotype.Component;
 
 import java.nio.file.Path;
@@ -12,15 +13,15 @@ import java.nio.file.Paths;
  */
 @Component
 @Slf4j
-public class DirectoryWatcher {
+public class DirectoryWatcherImpl implements DirectoryWatcher {
 
     private final String watchFolder;
 
-    public DirectoryWatcher() {
+    public DirectoryWatcherImpl() {
         this.watchFolder = "/tmp/";
     }
 
-    public DirectoryWatcher(String watchFolder) {
+    public DirectoryWatcherImpl(String watchFolder) {
         this.watchFolder = watchFolder;
     }
 
