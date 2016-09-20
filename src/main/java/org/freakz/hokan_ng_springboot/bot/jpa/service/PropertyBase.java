@@ -46,9 +46,9 @@ abstract class PropertyBase {
         return getPropertyAsInt(findFirstByPropertyName(propertyName), defaultValue);
     }
 
-    public int getChannelPropertyAsInt(Channel channel, PropertyName propertyName, int defaultValue) {
+/*    public int getChannelPropertyAsInt(Channel channel, PropertyName propertyName, int defaultValue) {
         return getPropertyAsInt(findFirstByChannelAndPropertyName(channel, propertyName), defaultValue);
-    }
+    }*/
 
     // ----
 
@@ -63,9 +63,9 @@ abstract class PropertyBase {
         return getPropertyAsLong(findFirstByPropertyName(propertyName), defaultValue);
     }
 
-    public long getChannelPropertyAsLong(Channel channel, PropertyName propertyName, long defaultValue) {
+/*    public long getChannelPropertyAsLong(Channel channel, PropertyName propertyName, long defaultValue) {
         return getPropertyAsLong(findFirstByChannelAndPropertyName(channel, propertyName), defaultValue);
-    }
+    }*/
 
     // ----
 
@@ -74,14 +74,8 @@ abstract class PropertyBase {
             return defValue;
         }
         String value = property.getValue();
-        if (value == null) {
-            return false;
-        }
-        if (value.toLowerCase().matches("1|true|on")) {
-            return true;
-        }
-        ;
-        return false;
+        return value != null && value.toLowerCase().matches("1|true|on");
+
     }
 
     public boolean getPropertyAsBoolean(PropertyName propertyName, boolean defValue) {
