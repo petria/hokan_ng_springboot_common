@@ -42,8 +42,8 @@ public class ChannelStats {
     @Column(name = "LAST_ACTIVE")
     private Date lastActive;
 
-    @Column(name = "LAST_MESSAGE", length = 1024)
-    private String lastMessage;
+//    @Column(name = "LAST_MESSAGE", length = 1024)
+//    private String lastMessage;
 
     @Column(name = "LAST_WRITER")
     private String lastWriter;
@@ -60,11 +60,11 @@ public class ChannelStats {
     @Column(name = "COMMANDS_HANDLED")
     private int commandsHandled;
 
-    @Column(name = "TOPIC_KEEP", length = 1024)
-    private String topicKeep;
+//    @Column(name = "TOPIC_KEEP", length = 1024)
+//    private String topicKeep;
 
-    @Column(name = "TOPIC_SET", length = 1024)
-    private String topicSet;
+//    @Column(name = "TOPIC_SET", length = 1024)
+//    private String topicSet;
 
     @Column(name = "TOPIC_SET_BY")
     private String topicSetBy;
@@ -76,7 +76,7 @@ public class ChannelStats {
     public String toString() {
         String ret = "";
         ret += String.format("ID: %d\n", this.id);
-        ret += String.format("%s\n", this.lastMessage);
+//        ret += String.format("%s\n", this.lastMessage);
         ret += String.format("%s\n", this.lastWriter);
         return ret;
     }
@@ -89,16 +89,12 @@ public class ChannelStats {
         this.linesSent = 0;
         this.linesReceived = 0;
         this.lastActive = d;
-        this.lastMessage = "";
         this.lastWriter = "";
         this.lastWriterSpree = 0;
         this.writerSpreeRecord = 0;
         this.commandsHandled = 0;
-        this.topicKeep = "";
-        this.topicSet = "";
         this.topicSetBy = "";
         this.topicSetDate = d;
-
     }
 
     public ChannelStats(Channel channel) {
@@ -170,14 +166,6 @@ public class ChannelStats {
         this.lastActive = lastActive;
     }
 
-    public String getLastMessage() {
-        return lastMessage;
-    }
-
-    public void setLastMessage(String lastMessage) {
-        this.lastMessage = lastMessage;
-    }
-
     public String getLastWriter() {
         return lastWriter;
     }
@@ -216,22 +204,6 @@ public class ChannelStats {
 
     public void setCommandsHandled(int commandsHandled) {
         this.commandsHandled = commandsHandled;
-    }
-
-    public String getTopicKeep() {
-        return topicKeep;
-    }
-
-    public void setTopicKeep(String topicKeep) {
-        this.topicKeep = topicKeep;
-    }
-
-    public String getTopicSet() {
-        return topicSet;
-    }
-
-    public void setTopicSet(String topicSet) {
-        this.topicSet = topicSet;
     }
 
     public String getTopicSetBy() {
