@@ -5,6 +5,7 @@ import org.freakz.hokan_ng_springboot.bot.models.HokanStatusModel;
 
 /**
  * Created by Petri Airio on 9.4.2015.
+ * -
  */
 public interface HokanStatusService {
 

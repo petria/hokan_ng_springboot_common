@@ -7,6 +7,7 @@ import org.freakz.hokan_ng_springboot.bot.cmdpool.CommandPool;
 import org.freakz.hokan_ng_springboot.bot.cmdpool.CommandRunnable;
 import org.freakz.hokan_ng_springboot.bot.exception.HokanException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.nio.file.*;
@@ -18,6 +19,7 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
  * Created by Petri Airio (petri.airio@gmail.com) 01/09/16 / 14:18
  */
 @Component
+@Scope("prototype")
 @Slf4j
 public class DirectoryWatcherImpl implements DirectoryWatcher {
 

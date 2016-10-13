@@ -72,7 +72,7 @@ public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnab
 //    log.debug("thisModule: {}", thisModule);
         if (activated) {
             for (HokanModule module : HokanModule.values()) {
-                if (module == HokanModule.HokanUi) {
+                if (module == HokanModule.HokanUi || module == HokanModule.HokanTestApp) {
                     continue;
                 }
                 if (module == thisModule) {
