@@ -25,6 +25,9 @@ public class SpringJmsSender implements JmsSender {
     @Autowired
     private JmsTemplate jmsTemplate;
 
+    @Autowired
+    private JmsStatsHandler jmsStatsHandler;
+
     public ObjectMessage sendAndGetReply(String destination, String key, Object object, boolean deliveryPersistent) {
 //    log.debug("{}: {} -> {}", destination, key, object);
         this.jmsTemplate.setReceiveTimeout(60 * 1000);
@@ -37,11 +40,13 @@ public class SpringJmsSender implements JmsSender {
                     return objectMessage;
                 }
         );
+        jmsStatsHandler.messageSent(destination);
         return (ObjectMessage) reply;
     }
 
     public void send(String destination, String key, Object object, boolean deliveryPersistent) {
 //    log.debug("{}: {} -> {}", destination, key, object);
+        jmsStatsHandler.messageSent(destination);
         this.jmsTemplate.setDeliveryPersistent(deliveryPersistent);
         this.jmsTemplate.send(destination, session -> {
                     ObjectMessage objectMessage = session.createObjectMessage();
@@ -55,6 +60,7 @@ public class SpringJmsSender implements JmsSender {
 
     public void send(Destination destination, String key, Object object) {
 //    log.debug("{}: {} -> {}", destination, key, object);
+        jmsStatsHandler.messageSent(destination.toString());
         this.jmsTemplate.send(destination, session -> {
             ObjectMessage objectMessage = session.createObjectMessage();
             JmsMessage jmsMessage = new JmsMessage();
@@ -66,6 +72,7 @@ public class SpringJmsSender implements JmsSender {
 
     public void sendJmsMessage(Destination destination, JmsMessage jmsMessage) {
 //    log.debug("{}: ", destination);
+        jmsStatsHandler.messageSent(destination.toString());
         try {
             this.jmsTemplate.send(destination, session -> {
                 ObjectMessage objectMessage = session.createObjectMessage();

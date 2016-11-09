@@ -22,6 +22,8 @@ public class IrcMessageEvent extends IrcEvent implements Serializable, Cloneable
     private String outputPrefix;
     private String outputPostfix;
 
+    private long timestamp;
+
     public byte[] getOriginal() {
         return original;
     }
@@ -106,5 +108,13 @@ public class IrcMessageEvent extends IrcEvent implements Serializable, Cloneable
 
     public void setWebMessage(boolean isWebMessage) {
         this.webMessage = isWebMessage;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }

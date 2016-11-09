@@ -14,6 +14,7 @@ import javax.jms.*;
 
 /**
  * Created by petria on 6.2.2015.
+ * -
  */
 @Component
 @Slf4j
@@ -27,6 +28,9 @@ public abstract class SpringJmsReceiver implements JmsMessageHandler {
 
     @Autowired
     private JmsSender jmsSender;
+
+    @Autowired
+    private JmsStatsHandler jmsStatsHandler;
 
     @Bean
     public ScheduledAnnotationBeanPostProcessor scheduledAnnotationBeanPostProcessor() {
@@ -46,19 +50,13 @@ public abstract class SpringJmsReceiver implements JmsMessageHandler {
                 JmsMessage messageOut = new JmsMessage();
                 JmsEnvelope envelope = new JmsEnvelope(objectMessage, messageIn, messageOut);
 
+                jmsStatsHandler.messageReceived(getDestinationName());
+
                 String command = messageIn.getCommand();
                 if (command.equals("PING")) {
 
                     PingResponse pingResponse = new PingResponse();
                     pingResponse.setUptime(uptimeService.getUptime());
-
-//          JarNixScriptExecutor cmdExecutor = new JarNixScriptExecutor("/hostinfo.sh", "UTF-8");
-//          String[] hostinfo = cmdExecutor.executeJarScript();
-//          if (hostinfo != null && hostinfo.length > 0) {
-//            pingResponse.setHostinfo(hostinfo[0]);
-//          } else {
-//            pingResponse.setHostinfo("N/A");
-//          }
 
                     messageOut.addPayLoadObject("PING_RESPONSE", pingResponse);
 

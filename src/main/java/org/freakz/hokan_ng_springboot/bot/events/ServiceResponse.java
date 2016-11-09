@@ -151,4 +151,9 @@ public class ServiceResponse implements Serializable {
     public HourlyWeatherData getHourlyWeatherData() {
         return (HourlyWeatherData) responseData.get(type.getResponseDataKey());
     }
+
+    public ChannelSetTopic getChannelSetTopic() {
+        return (ChannelSetTopic) responseData.get(type.getResponseDataKey());
+    }
+
 }
