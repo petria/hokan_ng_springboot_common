@@ -21,12 +21,13 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
 @Component
 @Scope("prototype")
 @Slf4j
+@SuppressWarnings("unchecked")
 public class DirectoryWatcherImpl implements DirectoryWatcher {
 
     @Autowired
     private CommandPool commandPool;
 
-    private final Object sync = new String("Sync");
+    private final Object sync = "Sync";
 
     private boolean waitingForChange = false;
 
