@@ -11,6 +11,7 @@ public class HourlyWeatherData implements Serializable {
     private String[] times;
     private String[] symbols;
     private String[] temperatures;
+    private int longestTemp;
 
     public HourlyWeatherData() {
     }
@@ -36,6 +37,17 @@ public class HourlyWeatherData implements Serializable {
     }
 
     public void setTemperatures(String[] temperatures) {
+        this.longestTemp = -1;
+        for (String temp : temperatures) {
+            if (temp.length() > this.longestTemp) {
+                this.longestTemp = temp.length();
+            }
+        }
         this.temperatures = temperatures;
     }
+
+    public int getLongestTemp() {
+        return longestTemp;
+    }
+
 }
