@@ -1,7 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.models;
 
-import com.omertron.omdbapi.model.OmdbVideoFull;
-
 import java.io.Serializable;
 
 /**
@@ -10,7 +8,7 @@ import java.io.Serializable;
  */
 public class IMDBDetails implements Serializable {
 
-    private OmdbVideoFull details;
+/*    private OmdbVideoFull details;
 
     public IMDBDetails() {
     }
@@ -25,5 +23,5 @@ public class IMDBDetails implements Serializable {
 
     public void setDetails(OmdbVideoFull details) {
         this.details = details;
-    }
+    }*/
 }
