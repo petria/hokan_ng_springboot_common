@@ -156,4 +156,8 @@ public class ServiceResponse implements Serializable {
         return (ChannelSetTopic) responseData.get(type.getResponseDataKey());
     }
 
+    public AlkoSearchResults getAlkoSearchResults() {
+        return (AlkoSearchResults) responseData.get(type.getResponseDataKey());
+    }
+
 }
