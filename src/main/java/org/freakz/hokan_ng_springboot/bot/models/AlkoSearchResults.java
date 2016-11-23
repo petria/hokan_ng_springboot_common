@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Petri Airio (petri.airio@gmail.com) 22/11/2016 / 8.53
+ * Created by Petri Airio (petri.j.airio@gmail.com) 22/11/2016 / 8.53
  */
 public class AlkoSearchResults implements Serializable {
 

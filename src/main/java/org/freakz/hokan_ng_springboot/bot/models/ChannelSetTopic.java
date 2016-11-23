@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by Petri Airio (petri.airio@gmail.com) 09/11/2016 / 13.15
+ * Created by Petri Airio (petri.j.airio@gmail.com) 09/11/2016 / 13.15
  */
 public class ChannelSetTopic implements Serializable {
 

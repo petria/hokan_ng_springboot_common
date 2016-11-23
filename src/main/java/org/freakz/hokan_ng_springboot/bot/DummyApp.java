@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Created by Petri Airio (petri.airio@soikea.com) 02/09/16 / 12:20
+ * Created by Petri Airio (petri.j.airio@gmail.com) 02/09/16 / 12:20
  */
 @SpringBootApplication
 public class DummyApp {

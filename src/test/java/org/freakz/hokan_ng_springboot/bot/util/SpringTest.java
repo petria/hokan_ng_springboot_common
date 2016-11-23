@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 /**
- * Created by Petri Airio (petri.airio@gmail.com) 02/09/16 / 10:42
+ * Created by Petri Airio (petri.j.airio@gmail.com) 02/09/16 / 10:42
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

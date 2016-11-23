@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Petri Airio (petri.airio@gmail.com) 14/10/2016 / 12.10
+ * Created by Petri Airio (petri.j.airio@gmail.com) 14/10/2016 / 12.10
  */
 @Component
 @Scope("singleton")

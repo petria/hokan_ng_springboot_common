@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
 
 /**
- * Created by Petri Airio (petri.airio@gmail.com) 01/09/16 / 14:18
+ * Created by Petri Airio (petri.j.airio@gmail.com) 01/09/16 / 14:18
  */
 @Component
 @Scope("prototype")
