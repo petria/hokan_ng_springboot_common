@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 
 /**
  * Created by Petri Airio on 8.4.2015.
+ * -
  */
 @Service
 @Slf4j
 public class ChannelStatsRepositoryService implements ChannelStatsService {
 
+    private final ChannelStatsRepository repository;
+
     @Autowired
-    private ChannelStatsRepository repository;
+    public ChannelStatsRepositoryService(ChannelStatsRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public ChannelStats findFirstByChannel(Channel channel) {
