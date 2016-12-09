@@ -1,5 +1,6 @@
 package org.freakz.hokan_ng_springboot.bot.common.events;
 
+import org.freakz.hokan_ng_springboot.bot.common.exception.HokanEngineException;
 import org.freakz.hokan_ng_springboot.bot.common.jms.JmsEnvelope;
 
 import java.io.Serializable;
@@ -13,9 +14,43 @@ import java.util.List;
  *
  * @author Petri Airio <petri.j.airio@gmail.com>
  */
-public class EngineResponse implements Serializable {
+public interface EngineResponse  {
 
-    private static final long serialVersionUID = 1L;
+//    void setCommandClass(String clazz);
+
+    List<IrcMessage> getResponseMessages();
+
+    void setResponseMessage(String message);
+
+    void setException(HokanEngineException engineException);
+
+    boolean isEngineRequest();
+
+    void setIsEngineRequest(boolean isEngineRequest);
+
+    void setReplyTo(String name);
+
+    void addResponse(String response, Object... args);
+
+    void addResponse(StringBuilder sb, Object... args);
+
+    String getResponseMessage();
+
+    IrcMessageEvent getIrcMessageEvent();
+
+    void addEngineMethodCall(String methodName, String... methodArgs);
+
+    boolean isNoSearchReplace();
+
+    void setNoSearchReplace(boolean noSR);
+
+    Throwable getException();
+
+    String getReplyTo();
+
+
+
+/*    private static final long serialVersionUID = 1L;
 
     private int responseStatus;
     private String responseMessage = "";
@@ -130,5 +165,6 @@ public class EngineResponse implements Serializable {
     public String toString() {
         return String.format("\nreplyTo: %s\nresponseMessage: %s", replyTo, responseMessage);
     }
+*/
 
 }
