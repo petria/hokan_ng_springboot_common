@@ -7,7 +7,10 @@ import org.freakz.hokan_ng_springboot.bot.common.models.StartAndEndTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -55,12 +58,24 @@ public class UrlRepositoryLoggerService implements UrlLoggerService {
 
     @Override
     public List findTopSenderByChannelAndCreatedBetween(String channel, StartAndEndTime saet) {
-        return repository.findTopSenderByChannelAndCreatedBetween(channel, saet.getStartTime().toDate(), saet.getEndTime().toDate());
+        ZonedDateTime zdtStart = ZonedDateTime.of(saet.getStartTime(), ZoneId.systemDefault());
+        GregorianCalendar calStart = GregorianCalendar.from(zdtStart);
+
+        ZonedDateTime zdtEnd = ZonedDateTime.of(saet.getEndTime(), ZoneId.systemDefault());
+        GregorianCalendar calEnd = GregorianCalendar.from(zdtEnd);
+
+        return repository.findTopSenderByChannelAndCreatedBetween(channel, calStart.getTime(), calEnd.getTime());
     }
 
     @Override
     public List<Url> findByCreatedBetweenAndChannel(StartAndEndTime saet, String channel) {
-        return repository.findByCreatedBetweenAndChannel(saet.getStartTime().toDate(), saet.getEndTime().toDate(), channel);
+        ZonedDateTime zdtStart = ZonedDateTime.of(saet.getStartTime(), ZoneId.systemDefault());
+        GregorianCalendar calStart = GregorianCalendar.from(zdtStart);
+
+        ZonedDateTime zdtEnd = ZonedDateTime.of(saet.getEndTime(), ZoneId.systemDefault());
+        GregorianCalendar calEnd = GregorianCalendar.from(zdtEnd);
+
+        return repository.findByCreatedBetweenAndChannel(calStart.getTime(), calEnd.getTime(), channel);
     }
 
 

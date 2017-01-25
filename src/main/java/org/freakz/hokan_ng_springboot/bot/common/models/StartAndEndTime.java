@@ -1,33 +1,33 @@
 package org.freakz.hokan_ng_springboot.bot.common.models;
 
-import org.joda.time.DateTime;
+import java.time.LocalDateTime;
 
 /**
  * Created by Petri Airio on 21.8.2015.
  */
 public class StartAndEndTime {
 
-    private DateTime startTime;
-    private DateTime endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
-    public StartAndEndTime(DateTime startTime, DateTime endTime) {
+    public StartAndEndTime(LocalDateTime startTime, LocalDateTime endTime) {
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
-    public DateTime getStartTime() {
+    public LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(DateTime startTime) {
+    public void setStartTime(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public DateTime getEndTime() {
+    public LocalDateTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(DateTime endTime) {
+    public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
 }

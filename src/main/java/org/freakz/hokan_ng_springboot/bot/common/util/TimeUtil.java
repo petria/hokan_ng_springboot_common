@@ -1,40 +1,35 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
 import org.freakz.hokan_ng_springboot.bot.common.models.StartAndEndTime;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Petri Airio on 21.8.2015.
  */
 public class TimeUtil {
 
-    public static StartAndEndTime getStartAndEndTimeForDay(DateTime day) {
-        DateTime todayStart = day.withTimeAtStartOfDay();
-        DateTime tomorrowStart = day.plusDays(1).withTimeAtStartOfDay();
+    public static StartAndEndTime getStartAndEndTimeForDay(LocalDateTime day) {
+        LocalDateTime todayStart = day.toLocalDate().atStartOfDay();
+        LocalDateTime tomorrowStart = day.with(LocalDateTime.MAX);
         return new StartAndEndTime(todayStart, tomorrowStart);
     }
 
-    public static DateTime parseDateTime(String string) {
-        DateTime parsed = null;
-        DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.");
-        try {
-            parsed = formatter.parseDateTime(string);
-            return parsed;
-        } catch (IllegalArgumentException e) {
-            //
-        }
-        formatter = DateTimeFormat.forPattern("dd.MM");
-        try {
-            parsed = formatter.parseDateTime(string);
-            return parsed;
-        } catch (IllegalArgumentException e) {
-            //
-        }
-
+    public static LocalDateTime parseDateTime(String string) {
+        String[] parts = string.split("\\.");
+        int dd = Integer.parseInt(parts[0]);
+        int mm = Integer.parseInt(parts[1]);
+        LocalDateTime parsed = LocalDateTime.now().withDayOfMonth(dd).withMonth(mm);
         return parsed;
     }
 
-
+    public static Date localDateTimeToDate(LocalDateTime localDateTime) {
+        ZonedDateTime zdt = ZonedDateTime.of(localDateTime, ZoneId.systemDefault());
+        GregorianCalendar cal = GregorianCalendar.from(zdt);
+        return cal.getTime();
+    }
 }

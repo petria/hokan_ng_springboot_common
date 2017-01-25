@@ -6,7 +6,7 @@
     <name>hokan_ng_springboot-common</name>
     <artifactId>hokan_ng_springboot-common</artifactId>
     <groupId>org.freakz</groupId>
-    <version>1.0.0-final</version>
+    <version>1.0.1-final</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -16,7 +16,6 @@
 
         <logback.version>1.1.9</logback.version>
         <lombok.version>1.16.12</lombok.version>
-        <joda-time.version>2.9.2</joda-time.version>
         <jsoup.version>1.9.2</jsoup.version>
         <junit.version>4.12</junit.version>
 
@@ -35,7 +34,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.2.RELEASE</version>
+        <version>1.4.3.RELEASE</version>
     </parent>
 
     <dependencies>
@@ -56,12 +55,6 @@
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>${jsoup.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>${joda-time.version}</version>
         </dependency>
 
         <dependency>

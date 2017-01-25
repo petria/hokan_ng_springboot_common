@@ -1,8 +1,8 @@
 package org.freakz.hokan_ng_springboot.bot.common.models;
 
-import org.joda.time.DateTime;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * Created by Petri Airio on 23.6.2015.
@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 public class KelikameratWeatherData implements Comparable, Serializable {
 
-    private DateTime time;
+    private LocalDateTime time;
 
     private KelikameratUrl url;
 
@@ -38,11 +38,11 @@ public class KelikameratWeatherData implements Comparable, Serializable {
         this.place = place;
     }
 
-    public DateTime getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(DateTime time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 

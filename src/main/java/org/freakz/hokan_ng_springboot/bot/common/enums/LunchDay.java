@@ -1,6 +1,7 @@
 package org.freakz.hokan_ng_springboot.bot.common.enums;
 
-import org.joda.time.DateTime;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by Petri Airio on 28.1.2016.
@@ -24,17 +25,17 @@ public enum LunchDay {
         this.dayEng = dayEng;
     }
 
-    public static LunchDay getFromDateTime(DateTime day) {
+    public static LunchDay getFromDateTime(LocalDateTime day) {
         switch (day.getDayOfWeek()) {
-            case 1:
+            case MONDAY:
                 return LunchDay.MONDAY;
-            case 2:
+            case TUESDAY:
                 return LunchDay.TUESDAY;
-            case 3:
+            case WEDNESDAY:
                 return LunchDay.WEDNESDAY;
-            case 4:
+            case THURSDAY:
                 return LunchDay.THURSDAY;
-            case 5:
+            case FRIDAY:
                 return LunchDay.FRIDAY;
         }
         return null;

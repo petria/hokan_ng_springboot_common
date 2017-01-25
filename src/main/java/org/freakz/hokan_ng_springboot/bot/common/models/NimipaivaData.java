@@ -1,8 +1,8 @@
 package org.freakz.hokan_ng_springboot.bot.common.models;
 
-import org.joda.time.DateTime;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -10,23 +10,23 @@ import java.util.List;
  */
 public class NimipaivaData implements Serializable {
 
-    private DateTime day;
+    private LocalDateTime day;
     private List<String> names;
 
     public NimipaivaData() {
     }
 
-    public NimipaivaData(DateTime day, List<String> names) {
+    public NimipaivaData(LocalDateTime day, List<String> names) {
         this.day = day;
         this.names = names;
     }
 
 
-    public DateTime getDay() {
+    public LocalDateTime getDay() {
         return day;
     }
 
-    public void setDay(DateTime day) {
+    public void setDay(LocalDateTime day) {
         this.day = day;
     }
 

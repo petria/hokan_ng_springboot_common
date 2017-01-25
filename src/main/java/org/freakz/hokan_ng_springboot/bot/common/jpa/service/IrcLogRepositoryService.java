@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
@@ -49,17 +51,29 @@ public class IrcLogRepositoryService implements IrcLogService {
     @Override
     @Transactional(readOnly = true)
     public List<IrcLog> findByTimeStampBetween(StartAndEndTime saet) {
-        return repository.findByTimeStampBetween(saet.getStartTime().toDate(), saet.getEndTime().toDate());
+        ZonedDateTime zdtStart = ZonedDateTime.of(saet.getStartTime(), ZoneId.systemDefault());
+        GregorianCalendar calStart = GregorianCalendar.from(zdtStart);
+
+        ZonedDateTime zdtEnd = ZonedDateTime.of(saet.getEndTime(), ZoneId.systemDefault());
+        GregorianCalendar calEnd = GregorianCalendar.from(zdtEnd);
+
+        return repository.findByTimeStampBetween(calStart.getTime(), calEnd.getTime());
     }
 
     @Override
     public List<IrcLog> findByTimeStampBetweenAndTargetContaining(StartAndEndTime saet, String target) {
-        return repository.findByTimeStampBetweenAndTargetContaining(saet.getStartTime().toDate(), saet.getEndTime().toDate(), target);
+        ZonedDateTime zdtStart = ZonedDateTime.of(saet.getStartTime(), ZoneId.systemDefault());
+        GregorianCalendar calStart = GregorianCalendar.from(zdtStart);
+
+        ZonedDateTime zdtEnd = ZonedDateTime.of(saet.getEndTime(), ZoneId.systemDefault());
+        GregorianCalendar calEnd = GregorianCalendar.from(zdtEnd);
+
+        return repository.findByTimeStampBetweenAndTargetContaining(calStart.getTime(), calEnd.getTime(), target);
     }
 
     private List<IrcLog> sortLogs(List<IrcLog> allRows) {
         Comparator<? super IrcLog> comparator = (o1, o2) -> o1.getTimeStamp().compareTo(o2.getTimeStamp());
-        Collections.sort(allRows, comparator);
+        allRows.sort(comparator);
         return allRows;
     }
 

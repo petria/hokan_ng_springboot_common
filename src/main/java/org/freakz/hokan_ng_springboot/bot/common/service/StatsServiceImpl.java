@@ -7,10 +7,13 @@ import org.freakz.hokan_ng_springboot.bot.common.models.StatsData;
 import org.freakz.hokan_ng_springboot.bot.common.models.StatsMapper;
 import org.freakz.hokan_ng_springboot.bot.common.util.StringStuff;
 import org.freakz.hokan_ng_springboot.bot.common.util.TimeUtil;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -24,11 +27,13 @@ public class StatsServiceImpl implements StatsService {
     private IrcLogService ircLogService;
 
     @Override
-    public StatsMapper getDailyStatsForChannel(DateTime day, String channel) {
+    public StatsMapper getDailyStatsForChannel(LocalDateTime day, String channel) {
         List<IrcLog> logs = ircLogService.findByTimeStampBetweenAndTargetContaining(TimeUtil.getStartAndEndTimeForDay(day), channel);
         StatsMapper statsMapper = new StatsMapper();
         if (logs.size() == 0) {
-            statsMapper.setError("No stats for day " + StringStuff.formatTime(day.toDate(), StringStuff.STRING_STUFF_DF_DDMMYYYY)
+            ZonedDateTime zdt = ZonedDateTime.of(day, ZoneId.systemDefault());
+            GregorianCalendar cal = GregorianCalendar.from(zdt);
+            statsMapper.setError("No stats for day " + StringStuff.formatTime(cal.getTime(), StringStuff.STRING_STUFF_DF_DDMMYYYY)
                     + " and channel "
                     + channel);
         } else {
