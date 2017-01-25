@@ -15,7 +15,7 @@ public class TimeUtil {
 
     public static StartAndEndTime getStartAndEndTimeForDay(LocalDateTime day) {
         LocalDateTime todayStart = day.toLocalDate().atStartOfDay();
-        LocalDateTime tomorrowStart = day.with(LocalDateTime.MAX);
+        LocalDateTime tomorrowStart = day.plusDays(1).toLocalDate().atStartOfDay();
         return new StartAndEndTime(todayStart, tomorrowStart);
     }
 
