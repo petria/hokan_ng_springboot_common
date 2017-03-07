@@ -106,8 +106,8 @@ public class IrcServerConfig implements Serializable {
     }
 
     public String toString() {
-        return String.format("%s: [(%d) %s %s:%d(%s) throttle: %s]",
-                this.getClass().toString(), getId(), this.network, this.server, this.port, this.serverPassword, isThrottleInUse());
+        return String.format("[(%d) %s %s:%d(%s) throttle: %s]",
+                getId(), this.network, this.server, this.port, this.serverPassword, isThrottleInUse());
     }
 
     public long getId() {
