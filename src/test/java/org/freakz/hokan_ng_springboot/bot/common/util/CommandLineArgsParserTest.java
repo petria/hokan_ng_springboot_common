@@ -51,4 +51,12 @@ public class CommandLineArgsParserTest {
         Assert.assertEquals("value", parsed.get(CommandLineArgs.JMS_BROKER_URL));
     }
 
+    @Test
+    public void testParseArgWithoutValue() {
+        String[] args = {"--ConfigInit"};
+        CommandLineArgsParser parser = new CommandLineArgsParser(args);
+        Map<CommandLineArgs, String> parsed = parser.parseArgs();
+        Assert.assertEquals(1, parsed.size());
+    }
+
 }
