@@ -6,12 +6,13 @@ package org.freakz.hokan_ng_springboot.bot.common.enums;
  */
 public enum CommandLineArgs {
 
+    CONFIG_INIT("--ConfigInit"),
     JMS_BROKER_URL("--JmsBrokerUrl");
 
     private String commandLineArg;
 
-    CommandLineArgs(String ommandLineArg) {
-        this.commandLineArg = ommandLineArg;
+    CommandLineArgs(String commandLineArg) {
+        this.commandLineArg = commandLineArg;
     }
 
     public String getCommandLineArg() {
