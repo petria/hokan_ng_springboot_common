@@ -9,6 +9,7 @@ import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.PropertyName;
 public enum HokanModule {
 
     HokanIo("HokanNGIoQueue", PropertyName.PROP_SYS_SESSION_ID_IO, false),
+    HokanIoXMPP("HokanNGIoXMPPQueue", PropertyName.PROP_SYS_SESSION_ID_IO, false),
     HokanEngine("HokanNGEngineQueue", PropertyName.PROP_SYS_SESSION_ID_ENGINE, false),
     HokanServices("HokanNGServicesQueue", PropertyName.PROP_SYS_SESSION_ID_SERVICES, false),
     HokanTestApp("HokanTestAppQueue", PropertyName.PROP_SYS_SESSION_ID_TEST, true),
