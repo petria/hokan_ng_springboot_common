@@ -1,5 +1,6 @@
 package org.freakz.hokan_ng_springboot.bot.common.jms.api;
 
+import org.freakz.hokan_ng_springboot.bot.common.enums.HokanModule;
 import org.freakz.hokan_ng_springboot.bot.common.jms.JmsMessage;
 
 import javax.jms.Destination;
@@ -13,7 +14,7 @@ public interface JmsSender {
 
     ObjectMessage sendAndGetReply(String destination, String key, Object object, boolean deliveryPersistent);
 
-    void send(String destination, String key, Object object, boolean deliveryPersistent);
+    void send(HokanModule hokanModule, String destination, String key, Object object, boolean deliveryPersistent);
 
     void send(Destination destination, String key, Object object);
 

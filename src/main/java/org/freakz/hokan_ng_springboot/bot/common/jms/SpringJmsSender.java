@@ -1,6 +1,7 @@
 package org.freakz.hokan_ng_springboot.bot.common.jms;
 
 import lombok.extern.slf4j.Slf4j;
+import org.freakz.hokan_ng_springboot.bot.common.enums.HokanModule;
 import org.freakz.hokan_ng_springboot.bot.common.jms.api.JmsSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -44,13 +45,15 @@ public class SpringJmsSender implements JmsSender {
         return (ObjectMessage) reply;
     }
 
-    public void send(String destination, String key, Object object, boolean deliveryPersistent) {
+
+    public void send(HokanModule hokanModule, String destination, String key, Object object, boolean deliveryPersistent) {
 //    log.debug("{}: {} -> {}", destination, key, object);
         jmsStatsHandler.messageSent(destination);
         this.jmsTemplate.setDeliveryPersistent(deliveryPersistent);
         this.jmsTemplate.send(destination, session -> {
                     ObjectMessage objectMessage = session.createObjectMessage();
                     JmsMessage jmsMessage = new JmsMessage();
+            jmsMessage.setSender(hokanModule);
                     jmsMessage.addPayLoadObject(key, object);
                     objectMessage.setObject(jmsMessage);
                     return objectMessage;
