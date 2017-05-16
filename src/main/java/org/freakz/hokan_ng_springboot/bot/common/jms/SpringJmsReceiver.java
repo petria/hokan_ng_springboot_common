@@ -10,7 +10,11 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor;
 import org.springframework.stereotype.Component;
 
-import javax.jms.*;
+import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.MessageListener;
+import javax.jms.ObjectMessage;
 
 /**
  * Created by petria on 6.2.2015.
@@ -67,6 +71,7 @@ public abstract class SpringJmsReceiver implements JmsMessageHandler {
                         log.error("Exception", e);
                     }
                 }
+
                 Destination replyTo = message.getJMSReplyTo();
                 if (replyTo != null) {
                     jmsSender.sendJmsMessage(replyTo, messageOut);
