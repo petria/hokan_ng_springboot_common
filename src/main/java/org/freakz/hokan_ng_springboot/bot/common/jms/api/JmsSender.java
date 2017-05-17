@@ -16,8 +16,6 @@ public interface JmsSender {
 
     void send(HokanModule hokanModule, String destination, String key, Object object, boolean deliveryPersistent);
 
-    void send(Destination destination, String key, Object object);
-
     void sendJmsMessage(Destination destination, JmsMessage jmsMessage);
 
 }

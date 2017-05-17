@@ -16,7 +16,6 @@ import javax.jms.ObjectMessage;
 
 /**
  * Created by petria on 6.2.2015.
- *
  */
 @Component
 @Profile("default")
@@ -52,6 +51,7 @@ public class SpringJmsSender implements JmsSender {
         this.jmsTemplate.setDeliveryPersistent(deliveryPersistent);
         this.jmsTemplate.send(destination, session -> {
                     ObjectMessage objectMessage = session.createObjectMessage();
+
                     JmsMessage jmsMessage = new JmsMessage();
             jmsMessage.setSender(hokanModule);
                     jmsMessage.addPayLoadObject(key, object);
@@ -59,18 +59,6 @@ public class SpringJmsSender implements JmsSender {
                     return objectMessage;
                 }
         );
-    }
-
-    public void send(Destination destination, String key, Object object) {
-//    log.debug("{}: {} -> {}", destination, key, object);
-        jmsStatsHandler.messageSent(destination.toString());
-        this.jmsTemplate.send(destination, session -> {
-            ObjectMessage objectMessage = session.createObjectMessage();
-            JmsMessage jmsMessage = new JmsMessage();
-            jmsMessage.addPayLoadObject(key, object);
-            objectMessage.setObject(jmsMessage);
-            return objectMessage;
-        });
     }
 
     public void sendJmsMessage(Destination destination, JmsMessage jmsMessage) {
