@@ -7,6 +7,7 @@ package org.freakz.hokan_ng_springboot.bot.common.enums;
 public enum LunchPlace {
 
     LOUNAS_INFO_ALVARI("AlvariMuseo", "http://fi-fi.facebook.com/Cafe-Alvar-278892385487649/"),
+    LOUNAS_INFO_ANTELL("Antell ylistönmäki", "http://www.antell.fi/lounaslistat/lounaslista.html?owner=74"),
     LOUNAS_INFO_HARMOONI("Harmooni", "https://www.harmooni.fi/ravintola/lounas/"),
     LOUNAS_INFO_HERKKUPISTE("Herkkupiste", "http://www.herkkupiste.fi/lounaslista.html"),
     LOUNAS_INFO_HKI_TERMINAALI2("Terminaali2", "http://www.sspfinland.fi/fi/helsinki-vantaan-lentoaseman-ravintolat-kahvilat-ja-lounget/terminaali-2/ravintolat/cesars-pizza-and-food-court/"),
