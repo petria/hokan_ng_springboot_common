@@ -13,8 +13,8 @@ public class HoroHolder implements Serializable {
     private String horoscopeText;
 
     public HoroHolder(int horoscope, String horoscopeText) {
-        horoscope = horoscope;
-        horoscopeText = horoscopeText;
+        this.horoscope = horoscope;
+        this.horoscopeText = horoscopeText;
     }
 
     public int getHoroscope() {
@@ -31,7 +31,7 @@ public class HoroHolder implements Serializable {
         sb.append(" (");
         sb.append(HORO_DATES[getHoroscope()]);
         sb.append("): ");*/
-        sb.append(getHoroscopeText());
+        sb.append(this.horoscopeText);
         return sb.toString();
     }
 
