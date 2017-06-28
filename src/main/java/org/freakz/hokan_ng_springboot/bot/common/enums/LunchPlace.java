@@ -1,5 +1,10 @@
 package org.freakz.hokan_ng_springboot.bot.common.enums;
 
+import org.freakz.hokan_ng_springboot.bot.common.util.StringStuff;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by Petri Airio on 21.1.2016.
  * -
@@ -27,6 +32,16 @@ public enum LunchPlace {
             }
         }
         return null;
+    }
+
+    public static Set<LunchPlace> getMatchingLunchPlaces(String argLunchPlace) {
+        Set<LunchPlace> matching = new HashSet<>();
+        for (LunchPlace lunchPlace : values()) {
+            if (StringStuff.match(lunchPlace.getName(), ".*" + argLunchPlace + ".*", true)) {
+                matching.add(lunchPlace);
+            }
+        }
+        return matching;
     }
 
     public String getName() {
