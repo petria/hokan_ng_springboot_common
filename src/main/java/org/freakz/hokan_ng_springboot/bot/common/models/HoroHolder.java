@@ -9,16 +9,10 @@ import java.io.Serializable;
  */
 public class HoroHolder implements Serializable {
 
-    private int horoscope;
     private String horoscopeText;
 
-    public HoroHolder(int horoscope, String horoscopeText) {
-        this.horoscope = horoscope;
+    public HoroHolder(String horoscopeText) {
         this.horoscopeText = horoscopeText;
-    }
-
-    public int getHoroscope() {
-        return horoscope;
     }
 
     public String getHoroscopeText() {
