@@ -24,6 +24,8 @@ public class IrcMessageEvent extends IrcEvent implements Serializable, Cloneable
     private long timestamp;
     private byte[] original;
 
+    private String parameter;
+
     public IrcMessageEvent() {
         super();
     }
@@ -106,5 +108,13 @@ public class IrcMessageEvent extends IrcEvent implements Serializable, Cloneable
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getParameter() {
+        return parameter;
+    }
+
+    public void setParameter(String parameter) {
+        this.parameter = parameter;
     }
 }
