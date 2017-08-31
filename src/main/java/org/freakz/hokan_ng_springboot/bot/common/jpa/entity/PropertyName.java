@@ -30,6 +30,8 @@ public enum PropertyName {
     PROP_SYS_RAWLOG("sys.RawLog"),
     PROP_SYS_SESSION_ID_ENGINE("sys.SessionIdEngine"),
     PROP_SYS_SESSION_ID_IO("sys.SessionIdIo"),
+    PROP_SYS_SESSION_ID_IO_XMPP("sys.SessionIdIoXmpp"),
+    PROP_SYS_SESSION_ID_IO_TELEGRAM("sys.SessionIdIoTelegram"),
     PROP_SYS_SESSION_ID_SERVICES("sys.SessionIdServices"),
     PROP_SYS_SESSION_ID_TEST("sys.SessionIdTest"),
     PROP_SYS_SESSION_ID_UI("sys.SessionIdUi"),
@@ -37,6 +39,7 @@ public enum PropertyName {
     PROP_SYS_DO_WEB_COMMANDS("sys.DoWebCommands"),
 
     PROP_CHANNEL_BB_MODE("channel.BBMode"),
+    PROP_CHANNEL_TELEGRAM_LINK("channel.TelegramLink"),
     PROP_CHANNEL_DO_DAY_CHANGED("channel.DoDayChanged"),
     PROP_CHANNEL_DO_JOIN_MESSAGE("channel.DoJoinMessage"),
     PROP_CHANNEL_DO_KICK_REJOIN("channel.DoKickRejoin"),
