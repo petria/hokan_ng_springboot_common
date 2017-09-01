@@ -9,6 +9,7 @@ public class NotifyRequest implements Serializable {
 
     private long targetChannelId;
     private String notifyMessage;
+    private String notifyType;
 
     public NotifyRequest() {
     }
@@ -29,4 +30,11 @@ public class NotifyRequest implements Serializable {
         this.notifyMessage = notifyMessage;
     }
 
+    public String getNotifyType() {
+        return notifyType;
+    }
+
+    public void setNotifyType(String notifyType) {
+        this.notifyType = notifyType;
+    }
 }
