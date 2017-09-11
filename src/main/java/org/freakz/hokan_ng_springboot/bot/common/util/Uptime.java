@@ -60,6 +60,8 @@ public class Uptime implements Serializable, Cloneable {
         sb.append("up %3 day");
         if (ut[3] > 1) {
             sb.append("s");
+        } else {
+            sb.append(" ");
         }
         sb.append(" %2:%1:%0");
         return StringStuff.fillTemplate(sb.toString(), ut, format);
