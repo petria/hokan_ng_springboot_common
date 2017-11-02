@@ -10,7 +10,6 @@ public enum HokanModule {
 
     HokanIo("HokanNGIoQueue", PropertyName.PROP_SYS_SESSION_ID_IO, false),
     HokanIoXMPP("HokanNGIoXMPPQueue", PropertyName.PROP_SYS_SESSION_ID_IO_XMPP, false),
-    HokanIoSkype("HokanNGIoSkypeQueue", PropertyName.PROP_SYS_SESSION_ID_IO_SKYPE, false),
     HokanIoTelegram("HokanNGIoTelegramQueue", PropertyName.PROP_SYS_SESSION_ID_IO_TELEGRAM, false),
     HokanEngine("HokanNGEngineQueue", PropertyName.PROP_SYS_SESSION_ID_ENGINE, false),
     HokanServices("HokanNGServicesQueue", PropertyName.PROP_SYS_SESSION_ID_SERVICES, false),
