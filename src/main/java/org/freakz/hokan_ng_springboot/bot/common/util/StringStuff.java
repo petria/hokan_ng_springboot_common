@@ -11,7 +11,14 @@ import java.security.MessageDigest;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -152,7 +159,7 @@ public class StringStuff {
             if (format != null && format[xx] != null) {
                 DecimalFormat df = new DecimalFormat(format[xx]);
                 rplc = df.format(values[xx]);
-//        LOG.info(values[xx] + " --> " + rplc);
+
             } else {
                 rplc = values[xx] + "";
             }
