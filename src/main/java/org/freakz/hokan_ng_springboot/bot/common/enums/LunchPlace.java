@@ -16,6 +16,7 @@ public enum LunchPlace {
     LOUNAS_INFO_HERKKUPISTE("Turku/Herkkupiste", "http://www.herkkupiste.fi/lounaslista.html"),
     LOUNAS_INFO_HKI_TERMINAALI2("Helsinki/Terminaali2", "http://www.sspfinland.fi/fi/helsinki-vantaan-lentoaseman-ravintolat-kahvilat-ja-lounget/terminaali-2/ravintolat/cesars-pizza-and-food-court/"),
     LOUNAS_INFO_HOX("Jyväskylä/Ravintola HOX", "http://ravintolahox.fi/lounas/"),
+    LOUNAS_INFO_SHALIMAR("Jyväskylä/Shalimar", "http://www.ravintolashalimar.fi/index.php?page=lounasjkl"),
     LOUNAS_INFO_TAIKURI_RUOKALISTA("Jyväskylä/Taikuri Street Food", "http://www.ravintolataikuri.fi/taikurin-street-food-buffet/"),
     LOUNAS_INFO_QULKURI("Jyväskylä/Qulkuri", "http://www.qulkuri.fi/#lutakko-lounaslista");
 
