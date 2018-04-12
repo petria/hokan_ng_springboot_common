@@ -9,7 +9,8 @@ public enum SystemScript {
     CAL_SCRIPT("/cal.sh", "/cal.bat"),
     FILE_SCRIPT("/file.sh", "/file.bat"),
     HOST_INFO_SCRIPT("/hostinfo.sh", "/hostinfo.bat"),
-    UPTIME_SCRIPT("/uptime.sh", "/uptime.bat");
+    UPTIME_SCRIPT("/uptime.sh", "/uptime.bat"),
+    VPENIS_SCRIPT("/vpenis.sh", "/vpenis.bat");
 
     private final String nixScript;
     private final String windowsScript;
