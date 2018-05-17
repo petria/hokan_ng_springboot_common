@@ -1,11 +1,12 @@
 package org.freakz.hokan_ng_springboot.bot.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.enums.HostOS;
 import org.freakz.hokan_ng_springboot.bot.common.models.SystemScriptResult;
 import org.freakz.hokan_ng_springboot.bot.common.util.HostOsDetector;
 import org.freakz.hokan_ng_springboot.bot.common.util.JarNixScriptExecutor;
 import org.freakz.hokan_ng_springboot.bot.common.util.JarWindowsBatExecutor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,8 +14,9 @@ import org.springframework.stereotype.Service;
  * -
  */
 @Service
-@Slf4j
 public class SystemScriptRunnerServiceImpl implements SystemScriptRunnerService {
+
+    private static final Logger log = LoggerFactory.getLogger(SystemScriptRunnerServiceImpl.class);
 
     private HostOsDetector osDetector = new HostOsDetector();
 

@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.User;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.repository.UserRepository;
 import org.freakz.hokan_ng_springboot.bot.common.util.StringStuff;
@@ -14,7 +13,6 @@ import java.util.List;
  * Created by Petri Airio on 11.3.2015.
  */
 @Service
-@Slf4j
 public class UserRepositoryService implements UserService {
 
     @Autowired
@@ -63,7 +61,6 @@ public class UserRepositoryService implements UserService {
             user.setLoggedIn(value);
         }
         userRepository.save(all);
-        log.debug("Logged in value set to: {} for {} users", value, all.size());
     }
 
 }

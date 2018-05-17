@@ -1,9 +1,10 @@
 package org.freakz.hokan_ng_springboot.bot.common.service.cityresolver;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.models.CityData;
 import org.freakz.hokan_ng_springboot.bot.common.util.FileUtil;
 import org.freakz.hokan_ng_springboot.bot.common.util.StringStuff;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,9 @@ import java.util.List;
  * -
  */
 @Service
-@Slf4j
 public class CityResolverImpl implements CityResolver {
+
+    private static final Logger log = LoggerFactory.getLogger(CityResolverImpl.class);
 
     private String[] cityNames = null;
 

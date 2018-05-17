@@ -1,12 +1,13 @@
 package org.freakz.hokan_ng_springboot.bot.common.service.translate;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.models.TranslateData;
 import org.freakz.hokan_ng_springboot.bot.common.models.TranslateResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,8 +18,9 @@ import java.util.List;
  * -
  */
 @Service
-@Slf4j
 public class SanakirjaOrgTranslateServiceImpl implements SanakirjaOrgTranslateService {
+
+    private static final Logger log = LoggerFactory.getLogger(SanakirjaOrgTranslateServiceImpl.class);
 
     private List<TranslateData> getTranslations(Elements elements) {
         List<TranslateData> results = new ArrayList<>();

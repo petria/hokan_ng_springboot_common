@@ -1,7 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.entity;
 
-import lombok.Getter;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,9 +15,9 @@ public enum UserFlag implements Serializable {
     IGNORE_ON_CHANNEL("IG", "User is ignored on public channels"),
     WEB_LOGIN("WL", "User can login via web ui");
 
-    @Getter
+
     private final String shortName;
-    @Getter
+
     private final String description;
 
     UserFlag(String shortName, String description) {
@@ -82,5 +80,11 @@ public enum UserFlag implements Serializable {
         return null;
     }
 
+    public String getShortName() {
+        return shortName;
+    }
 
+    public String getDescription() {
+        return description;
+    }
 }

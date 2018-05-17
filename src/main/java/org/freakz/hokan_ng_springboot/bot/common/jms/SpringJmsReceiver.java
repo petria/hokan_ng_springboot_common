@@ -1,9 +1,10 @@
 package org.freakz.hokan_ng_springboot.bot.common.jms;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jms.api.JmsMessageHandler;
 import org.freakz.hokan_ng_springboot.bot.common.jms.api.JmsSender;
 import org.freakz.hokan_ng_springboot.bot.common.service.UptimeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
@@ -21,8 +22,9 @@ import javax.jms.ObjectMessage;
  * -
  */
 @Component
-@Slf4j
 public abstract class SpringJmsReceiver implements JmsMessageHandler {
+
+    private static final Logger log = LoggerFactory.getLogger(SpringJmsReceiver.class);
 
     @Autowired
     private ConnectionFactory connectionFactory;

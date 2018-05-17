@@ -1,9 +1,8 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-//import com.arthurdo.parser.HtmlStreamTokenizer;
-
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.models.KelikameratWeatherData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -32,9 +31,9 @@ import java.util.regex.PatternSyntaxException;
  *
  * @author Petri Airio <petri.j.airio@gmail.com>
  */
-@Slf4j
 public class StringStuff {
 
+    private static final Logger log = LoggerFactory.getLogger(StringStuff.class);
 
     public final static SimpleDateFormat STRING_STUFF_DF_HH = new SimpleDateFormat("HH");
     public final static SimpleDateFormat STRING_STUFF_DF_HHMM = new SimpleDateFormat("HH:mm");

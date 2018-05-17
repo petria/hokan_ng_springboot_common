@@ -1,14 +1,16 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.enums.HostOS;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by Petri Airio on 10.3.2016.
  * -
  */
-@Slf4j
 public class HostOsDetector {
+
+    private static final Logger log = LoggerFactory.getLogger(HostOsDetector.class);
 
     public HostOS detectHostOs() {
         String OS = System.getProperty("os.name").toLowerCase();

@@ -1,8 +1,9 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Network;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.repository.NetworkRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,8 +14,9 @@ import java.util.List;
  * Created by Petri Airio on 19.2.2015.
  */
 @Service
-@Slf4j
 public class RepositoryNetworkService implements NetworkService {
+
+    private static final Logger log = LoggerFactory.getLogger(RepositoryNetworkService.class);
 
     @Resource
     private NetworkRepository networkRepository;

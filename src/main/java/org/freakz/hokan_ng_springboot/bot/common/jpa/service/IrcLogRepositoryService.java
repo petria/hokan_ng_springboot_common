@@ -1,24 +1,30 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.IrcLog;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.repository.IrcLogRepository;
 import org.freakz.hokan_ng_springboot.bot.common.models.StartAndEndTime;
 import org.freakz.hokan_ng_springboot.bot.common.util.StringStuff;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  * Created by Petri Airio on 21.8.2015.
  */
 @Service
-@Slf4j
 public class IrcLogRepositoryService implements IrcLogService {
+
+    private static final Logger log = LoggerFactory.getLogger(IrcLogRepositoryService.class);
 
     @Autowired
     private IrcLogRepository repository;

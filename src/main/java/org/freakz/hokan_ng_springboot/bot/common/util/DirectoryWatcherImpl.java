@@ -1,16 +1,22 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.api.DirectoryChangedHandler;
 import org.freakz.hokan_ng_springboot.bot.common.api.DirectoryWatcher;
 import org.freakz.hokan_ng_springboot.bot.common.cmdpool.CommandPool;
 import org.freakz.hokan_ng_springboot.bot.common.cmdpool.CommandRunnable;
 import org.freakz.hokan_ng_springboot.bot.common.exception.HokanException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.*;
+import java.nio.file.FileSystem;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchKey;
+import java.nio.file.WatchService;
 import java.util.concurrent.TimeUnit;
 
 import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
@@ -20,9 +26,11 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
  */
 @Component
 @Scope("prototype")
-@Slf4j
+
 @SuppressWarnings("unchecked")
 public class DirectoryWatcherImpl implements DirectoryWatcher {
+
+    private static final Logger log = LoggerFactory.getLogger(DirectoryWatcherImpl.class);
 
     private final Object sync = "Sync";
     @Autowired

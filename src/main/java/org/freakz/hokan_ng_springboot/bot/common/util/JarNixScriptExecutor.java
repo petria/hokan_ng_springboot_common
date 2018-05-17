@@ -1,8 +1,14 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,8 +20,9 @@ import java.util.List;
  *
  * @author Petri Airio <petri.j.airio@gmail.com>
  */
-@Slf4j
 public class JarNixScriptExecutor {
+
+    private static final Logger log = LoggerFactory.getLogger(JarNixScriptExecutor.class);
 
     private static final String SHELL = "/bin/sh";
     private final String scriptName;

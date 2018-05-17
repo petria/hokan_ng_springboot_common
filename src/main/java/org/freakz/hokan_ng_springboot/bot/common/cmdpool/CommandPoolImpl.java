@@ -1,11 +1,13 @@
 package org.freakz.hokan_ng_springboot.bot.common.cmdpool;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandHistory;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandStatus;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.service.CommandHistoryService;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.service.PropertyService;
 import org.freakz.hokan_ng_springboot.bot.common.service.HokanModuleService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,8 +28,9 @@ import java.util.concurrent.Executors;
  * @author Petri Airio <petri.j.airio@gmail.com>
  */
 @Component
-@Slf4j
 public class CommandPoolImpl implements CommandPool, DisposableBean {
+
+    private static final Logger log = LoggerFactory.getLogger(CommandPoolImpl.class);
 
     @Autowired
     private CommandHistoryService commandHistoryService;

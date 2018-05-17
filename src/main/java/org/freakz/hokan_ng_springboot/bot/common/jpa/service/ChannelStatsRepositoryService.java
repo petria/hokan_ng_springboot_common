@@ -1,9 +1,10 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Channel;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.ChannelStats;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.repository.ChannelStatsRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,9 @@ import org.springframework.stereotype.Service;
  * -
  */
 @Service
-@Slf4j
 public class ChannelStatsRepositoryService implements ChannelStatsService {
+
+    private static final Logger log = LoggerFactory.getLogger(ChannelStatsRepositoryService.class);
 
     private final ChannelStatsRepository repository;
 

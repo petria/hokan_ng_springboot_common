@@ -1,8 +1,14 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +16,9 @@ import java.util.List;
 /**
  * Created by Petri Airio on 29.10.2015.
  */
-@Slf4j
 public class JarWindowsBatExecutor {
+
+    private static final Logger log = LoggerFactory.getLogger(JarWindowsBatExecutor.class);
 
     private static final String SHELL = "cmd.exe";
     private final String scriptName;

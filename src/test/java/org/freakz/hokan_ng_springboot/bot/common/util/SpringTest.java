@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.api.DirectoryChangedHandler;
 import org.freakz.hokan_ng_springboot.bot.common.api.DirectoryWatcher;
 import org.junit.Before;
@@ -19,7 +18,6 @@ import java.util.UUID;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Slf4j
 public class SpringTest implements DirectoryChangedHandler {
 
     private final String testDirectory = "/tmp/test/";
@@ -66,6 +64,6 @@ public class SpringTest implements DirectoryChangedHandler {
 
     @Override
     public void fileCreated(String file) {
-        log.debug("File created: {}", file);
+        // log.debug("File created: {}", file);
     }
 }

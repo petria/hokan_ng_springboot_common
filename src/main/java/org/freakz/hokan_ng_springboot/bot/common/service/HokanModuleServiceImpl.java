@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.enums.HokanModule;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.PropertyEntity;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.service.PropertyService;
@@ -17,7 +16,6 @@ import java.util.Date;
  */
 @Component
 @Scope("singleton")
-@Slf4j
 public class HokanModuleServiceImpl implements HokanModuleService {
 
     @Autowired
@@ -32,10 +30,8 @@ public class HokanModuleServiceImpl implements HokanModuleService {
 
     @PostConstruct
     public void setHokanModule() {
-        log.debug("hokanModule: {}", hokanModule);
         this.module = HokanModule.valueOf(hokanModule);
         this.sessionId = new Date().getTime();
-        log.info("Module set to {}", module.toString());
         PropertyEntity property = propertyService.findFirstByPropertyName(module.getModuleProperty());
         if (property == null) {
             property = new PropertyEntity(module.getModuleProperty(), "", "");

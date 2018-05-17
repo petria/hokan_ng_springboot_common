@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.IrcServerConfig;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.repository.IrcServerConfigRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import java.util.List;
  * Created on 22.2.2015.
  */
 @Service
-@Slf4j
 public class RepositoryIrcServerConfigService implements IrcServerConfigService {
 
     @Autowired

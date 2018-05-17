@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.jms;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.enums.HokanModule;
 import org.freakz.hokan_ng_springboot.bot.common.jms.api.JmsSender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import javax.jms.ObjectMessage;
  */
 @Component
 @Profile("default")
-@Slf4j
 public class SpringJmsSender implements JmsSender {
 
     @Autowired

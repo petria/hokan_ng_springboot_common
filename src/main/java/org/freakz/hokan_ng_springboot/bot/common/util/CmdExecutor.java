@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.exception.HokanException;
 
 import java.io.BufferedReader;
@@ -8,7 +7,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
 public class CmdExecutor {
 
     private List<String> output;
@@ -23,7 +21,6 @@ public class CmdExecutor {
 
             p = Runtime.getRuntime().exec(cmd);
             int ret = p.waitFor();
-            log.info("Process {} ended: {}", p, ret);
             br = new BufferedReader(new InputStreamReader(p.getInputStream(), inputEncoding));
 
             String l;

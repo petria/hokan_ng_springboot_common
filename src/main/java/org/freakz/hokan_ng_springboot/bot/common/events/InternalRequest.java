@@ -1,10 +1,19 @@
 package org.freakz.hokan_ng_springboot.bot.common.events;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.exception.HokanException;
 import org.freakz.hokan_ng_springboot.bot.common.jms.JmsEnvelope;
-import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.*;
-import org.freakz.hokan_ng_springboot.bot.common.jpa.service.*;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Channel;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.ChannelStats;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Network;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.User;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.UserChannel;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.service.ChannelService;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.service.ChannelStatsService;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.service.NetworkService;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.service.UserChannelService;
+import org.freakz.hokan_ng_springboot.bot.common.jpa.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -19,9 +28,10 @@ import java.io.Serializable;
  * @author Petri Airio <petri.j.airio@gmail.com>
  */
 @Component
-@Slf4j
 @Scope("prototype")
 public class InternalRequest implements Serializable {
+
+    private static final Logger log = LoggerFactory.getLogger(InternalRequest.class);
 
     @Autowired
     private NetworkService networkService;

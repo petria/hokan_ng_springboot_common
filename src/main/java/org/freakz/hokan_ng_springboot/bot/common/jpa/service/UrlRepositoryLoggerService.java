@@ -1,9 +1,10 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Url;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.repository.UrlRepository;
 import org.freakz.hokan_ng_springboot.bot.common.models.StartAndEndTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,9 @@ import java.util.List;
  * Created by Petri Airio (petri.j.airio@gmail.com) on 15.4.2015.
  */
 @Service
-@Slf4j
 public class UrlRepositoryLoggerService implements UrlLoggerService {
+
+    private static final Logger log = LoggerFactory.getLogger(UrlRepositoryLoggerService.class);
 
     @Autowired
     private UrlRepository repository;
@@ -77,6 +79,5 @@ public class UrlRepositoryLoggerService implements UrlLoggerService {
 
         return repository.findByCreatedBetweenAndChannel(calStart.getTime(), calEnd.getTime(), channel);
     }
-
 
 }

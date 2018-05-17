@@ -1,9 +1,19 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 
 /**
  * Date: 11/26/13
@@ -12,8 +22,9 @@ import java.io.*;
  * @author Petri Airio <petri.j.airio@gmail.com>
  */
 @Component
-@Slf4j
 public class FileUtil {
+
+    private static final Logger log = LoggerFactory.getLogger(FileUtil.class);
 
     private static final int COPY_BUF_SIZE = 1024;
 

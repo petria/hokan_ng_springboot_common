@@ -1,7 +1,8 @@
 package org.freakz.hokan_ng_springboot.bot.common.cmdpool;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandHistory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * User: petria
@@ -10,8 +11,10 @@ import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandHistory;
  *
  * @author Petri Airio <petri.j.airio@gmail.com>
  */
-@Slf4j
+
 public class CommandRunner implements Runnable {
+
+    private static final Logger log = LoggerFactory.getLogger(CommandRunner.class);
 
     private long myPid;
     private CommandRunnable runnable;

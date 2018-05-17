@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.IrcLog;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.service.IrcLogService;
 import org.freakz.hokan_ng_springboot.bot.common.models.StatsData;
@@ -20,7 +19,6 @@ import java.util.List;
  * Created by Petri Airio on 21.8.2015.
  */
 @Service
-@Slf4j
 public class StatsServiceImpl implements StatsService {
 
     @Autowired

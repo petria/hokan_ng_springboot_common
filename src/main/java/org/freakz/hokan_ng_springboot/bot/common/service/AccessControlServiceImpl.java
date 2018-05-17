@@ -1,11 +1,13 @@
 package org.freakz.hokan_ng_springboot.bot.common.service;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Channel;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.User;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.UserFlag;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.service.UserService;
 import org.freakz.hokan_ng_springboot.bot.common.util.StringStuff;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +17,10 @@ import java.util.Set;
  * Created by Petri Airio on 23.3.2015.
  */
 @Service
-@Slf4j
+
 public class AccessControlServiceImpl implements AccessControlService {
+
+    private static final Logger log = LoggerFactory.getLogger(AccessControlServiceImpl.class);
 
     @Autowired
     private UserService userService;
