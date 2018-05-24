@@ -4,10 +4,10 @@ import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Network;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.repository.NetworkRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -18,7 +18,7 @@ public class RepositoryNetworkService implements NetworkService {
 
     private static final Logger log = LoggerFactory.getLogger(RepositoryNetworkService.class);
 
-    @Resource
+    @Autowired
     private NetworkRepository networkRepository;
 
     @Override

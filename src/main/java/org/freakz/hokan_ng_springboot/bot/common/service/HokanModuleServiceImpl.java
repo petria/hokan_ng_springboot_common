@@ -42,7 +42,7 @@ public class HokanModuleServiceImpl implements HokanModuleService {
 
     @Override
     public HokanModule getHokanModule() {
-        return this.module;
+        return HokanModule.valueOf(hokanModule);
     }
 
     @Override
