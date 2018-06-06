@@ -4,6 +4,7 @@ import org.freakz.hokan_ng_springboot.bot.common.enums.LunchPlace;
 import org.freakz.hokan_ng_springboot.bot.common.models.AlkoSearchResults;
 import org.freakz.hokan_ng_springboot.bot.common.models.ChannelSetTopic;
 import org.freakz.hokan_ng_springboot.bot.common.models.DataUpdaterModel;
+import org.freakz.hokan_ng_springboot.bot.common.models.FindCityResults;
 import org.freakz.hokan_ng_springboot.bot.common.models.GoogleCurrency;
 import org.freakz.hokan_ng_springboot.bot.common.models.HoroHolder;
 import org.freakz.hokan_ng_springboot.bot.common.models.HourlyWeatherData;
@@ -14,9 +15,7 @@ import org.freakz.hokan_ng_springboot.bot.common.models.LunchPlaceData;
 import org.freakz.hokan_ng_springboot.bot.common.models.MetarData;
 import org.freakz.hokan_ng_springboot.bot.common.models.NimipaivaData;
 import org.freakz.hokan_ng_springboot.bot.common.models.ScriptResult;
-import org.freakz.hokan_ng_springboot.bot.common.models.TelkkuProgram;
 import org.freakz.hokan_ng_springboot.bot.common.models.TranslateResponse;
-import org.freakz.hokan_ng_springboot.bot.common.models.TvNowData;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -60,34 +59,6 @@ public class ServiceResponse implements Serializable {
 
     public List<KelikameratWeatherData> getWeatherResponse() {
         List<KelikameratWeatherData> data = (List<KelikameratWeatherData>) responseData.get(type.getResponseDataKey());
-        if (data == null) {
-            return new ArrayList<>();
-        }
-        return data;
-    }
-
-    public List<TelkkuProgram> getTvFindData() {
-        List<TelkkuProgram> data = (List<TelkkuProgram>) responseData.get(type.getResponseDataKey());
-        if (data == null) {
-            return new ArrayList<>();
-        }
-        return data;
-    }
-
-    public TvNowData getTvNowData() {
-        TvNowData data = (TvNowData) responseData.get(type.getResponseDataKey());
-        if (data == null) {
-            return new TvNowData();
-        }
-        return data;
-    }
-
-    public TelkkuProgram getTvInfoData() {
-        return (TelkkuProgram) responseData.get(type.getResponseDataKey());
-    }
-
-    public List<TelkkuProgram> getTvDayData() {
-        List<TelkkuProgram> data = (List<TelkkuProgram>) responseData.get(type.getResponseDataKey());
         if (data == null) {
             return new ArrayList<>();
         }
@@ -155,10 +126,6 @@ public class ServiceResponse implements Serializable {
         return (ScriptResult) responseData.get(type.getResponseDataKey());
     }
 
-    public String getEngineResponse() {
-        return (String) responseData.get(type.getResponseDataKey());
-    }
-
     public String getSunRiseResponse() {
         return (String) responseData.get(type.getResponseDataKey());
     }
@@ -173,6 +140,10 @@ public class ServiceResponse implements Serializable {
 
     public AlkoSearchResults getAlkoSearchResults() {
         return (AlkoSearchResults) responseData.get(type.getResponseDataKey());
+    }
+
+    public FindCityResults getFindCityResults() {
+        return (FindCityResults) responseData.get(type.getResponseDataKey());
     }
 
 }
