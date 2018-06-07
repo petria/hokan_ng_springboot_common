@@ -19,6 +19,11 @@ public class KelikameratUrl implements Serializable {
         this.stationUrl = stationUrl;
     }
 
+    @Override
+    public String toString() {
+        return "URL: " + stationUrl;
+    }
+
     public String getAreaUrl() {
         return areaUrl;
     }
