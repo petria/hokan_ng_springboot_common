@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Petri Airio on 11.3.2015.
@@ -33,7 +34,11 @@ public class UserRepositoryService implements UserService {
     @Override
     @Transactional(readOnly = true)
     public User findById(long id) {
-        return userRepository.findOne(id);
+        Optional<User> byId = userRepository.findById(id);
+        if (byId.isPresent()) {
+            return byId.get();
+        }
+        return null;
     }
 
     @Override
@@ -60,7 +65,7 @@ public class UserRepositoryService implements UserService {
         for (User user : all) {
             user.setLoggedIn(value);
         }
-        userRepository.save(all);
+        userRepository.saveAll(all);
     }
 
 }

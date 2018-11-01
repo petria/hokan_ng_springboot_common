@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Petri Airio on 19.2.2015.
@@ -43,7 +44,11 @@ public class RepositoryNetworkService implements NetworkService {
     @Override
     @Transactional(readOnly = true)
     public Network findOne(long id) {
-        return networkRepository.findOne(id);
+        Optional<Network> byId = networkRepository.findById(id);
+        if (byId.isPresent()) {
+            return byId.get();
+        }
+        return null;
     }
 
     @Override

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by JohnDoe on 22.2.2015.
@@ -26,7 +27,11 @@ public class ChannelRepositoryService implements ChannelService {
     @Override
     @Transactional(readOnly = true)
     public Channel findOne(long id) {
-        return repository.findOne(id);
+        Optional<Channel> byId = repository.findById(id);
+        if (byId.isPresent()) {
+            return byId.get();
+        }
+        return null;
     }
 
     @Override

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Petri Airio on 31.8.2015.
@@ -52,7 +53,11 @@ public class SearchReplaceRepositoryService implements SearchReplaceService {
     @Override
     @Transactional(readOnly = true)
     public SearchReplace findOne(long id) {
-        return repository.findOne(id);
+        Optional<SearchReplace> byId = repository.findById(id);
+        if (byId.isPresent()) {
+            return byId.get();
+        }
+        return null;
     }
 
 }

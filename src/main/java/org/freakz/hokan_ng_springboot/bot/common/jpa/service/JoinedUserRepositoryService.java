@@ -31,7 +31,7 @@ public class JoinedUserRepositoryService implements JoinedUserService {
     public void clearJoinedUsers(Channel channel) {
         List<JoinedUser> joinedUsers = repository.findByChannel(channel);
         log.debug("Deleting {} joined users from channel {}", joinedUsers.size(), channel.getChannelName());
-        repository.delete(joinedUsers);
+        repository.deleteAll(joinedUsers);
     }
 
     @Override

@@ -23,7 +23,7 @@ public class LoggedInUserRepositoryService implements LoggedInUserService {
         for (LoggedInUser user : all) {
             user.setLoggedInState(LoggedInState.INVALID);
         }
-        repository.save(all);
+        repository.saveAll(all);
     }
 
 }

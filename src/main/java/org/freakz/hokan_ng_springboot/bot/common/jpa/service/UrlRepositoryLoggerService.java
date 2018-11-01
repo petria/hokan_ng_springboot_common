@@ -13,6 +13,7 @@ import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by Petri Airio (petri.j.airio@gmail.com) on 15.4.2015.
@@ -45,7 +46,8 @@ public class UrlRepositoryLoggerService implements UrlLoggerService {
 
     @Override
     public Url findOne(long id) {
-        return repository.findOne(id);
+        Optional<Url> byId = repository.findById(id);
+        return byId.orElseGet(byId::get);
     }
 
     @Override
