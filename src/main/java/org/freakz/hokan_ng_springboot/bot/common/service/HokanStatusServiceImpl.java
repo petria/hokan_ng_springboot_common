@@ -117,6 +117,6 @@ public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnab
 
     @Override
     public void run(String... strings) throws Exception {
-        start();
+//        start();
     }
 }
