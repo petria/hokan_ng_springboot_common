@@ -11,11 +11,11 @@ import org.freakz.hokan_ng_springboot.bot.common.models.HokanStatusModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import javax.jms.JMSException;
 import javax.jms.ObjectMessage;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ import java.util.Map;
 @Service
 @Scope("singleton")
 @Profile("default")
-public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnable {
+public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnable, CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(HokanStatusServiceImpl.class);
 
@@ -49,7 +49,6 @@ public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnab
     private boolean doRun;
     private HokanModule thisModule;
 
-    @PostConstruct
     public void start() {
         for (HokanModule module : HokanModule.values()) {
             statusModelMap.put(module, new HokanStatusModel("<unknown>"));
@@ -114,5 +113,10 @@ public class HokanStatusServiceImpl implements HokanStatusService, CommandRunnab
             }
 
         }
+    }
+
+    @Override
+    public void run(String... strings) throws Exception {
+        start();
     }
 }
