@@ -16,7 +16,7 @@ public class Url implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
-    private long id;
+    private Long id;
 
     @Column(name = "URL", length = 1024)
     private String url;
@@ -40,6 +40,7 @@ public class Url implements Serializable {
     private long wanhaCount;
 
     public Url() {
+        this.id = null;
         this.url = "";
         this.sender = "";
         this.channel = "";
@@ -49,11 +50,20 @@ public class Url implements Serializable {
     }
 
     public Url(String url, String sender, String channel, Date created) {
+        this.id = null;
         this.url = url;
         this.sender = sender;
         this.channel = channel;
         this.created = created;
         this.wanhaCount = 0;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUrl() {
@@ -72,6 +82,13 @@ public class Url implements Serializable {
         this.urlTitle = urlTitle;
     }
 
+    public String getShortUrl() {
+        return shortUrl;
+    }
+
+    public void setShortUrl(String shortUrl) {
+        this.shortUrl = shortUrl;
+    }
 
     public String getSender() {
         return sender;
@@ -79,14 +96,6 @@ public class Url implements Serializable {
 
     public void setSender(String sender) {
         this.sender = sender;
-    }
-
-    public String getShortUrl() {
-        return shortUrl;
-    }
-
-    public void setShortUrl(String shortUrl) {
-        this.shortUrl = shortUrl;
     }
 
     public String getChannel() {
@@ -101,29 +110,28 @@ public class Url implements Serializable {
         return created;
     }
 
-    public void setCreated(Date time) {
-        this.created = time;
-    }
-
-    public long getId() {
-        return id;
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
     public long getWanhaCount() {
-        return this.wanhaCount;
+        return wanhaCount;
     }
 
     public void setWanhaCount(long wanhaCount) {
         this.wanhaCount = wanhaCount;
     }
 
-    public void addWanhaCount(long delta) {
-        this.wanhaCount += delta;
-    }
-
     @Override
     public String toString() {
-        return String.format("%s [w: %d]", this.url, this.wanhaCount);
+        long id = 0;
+        if (this.id != null) {
+            id = this.id;
+        }
+        return String.format("[id: %3d] %s [w: %d]", id, this.url, this.wanhaCount);
     }
 
+    public void addWanhaCount(int i) {
+        this.wanhaCount += i;
+    }
 }
