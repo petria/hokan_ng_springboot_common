@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class TvNotify implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private long Id;
 

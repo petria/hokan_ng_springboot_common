@@ -14,7 +14,8 @@ import java.util.Date;
 public class Url implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
@@ -124,11 +125,11 @@ public class Url implements Serializable {
 
     @Override
     public String toString() {
-        long id = 0;
+        String id = null;
         if (this.id != null) {
-            id = this.id;
+            id = "" + this.id;
         }
-        return String.format("[id: %3d] %s [w: %d]", id, this.url, this.wanhaCount);
+        return String.format("[id: %s] %s [w: %d]", id, this.url, this.wanhaCount);
     }
 
     public void addWanhaCount(int i) {
