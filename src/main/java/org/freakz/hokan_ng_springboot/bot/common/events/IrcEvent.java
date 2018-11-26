@@ -17,6 +17,7 @@ public class IrcEvent implements Serializable {
 
     private String network;
     private String channel;
+    private long channelId;
     private String sender;
     private String login;
     private String hostname;
@@ -48,11 +49,11 @@ public class IrcEvent implements Serializable {
     }
 
     public String getBotNick() {
-        return this.botNick;
+        return botNick;
     }
 
-    public void setBotNick(String nick) {
-        this.botNick = nick;
+    public void setBotNick(String botNick) {
+        this.botNick = botNick;
     }
 
     public String getNetwork() {
@@ -69,6 +70,14 @@ public class IrcEvent implements Serializable {
 
     public void setChannel(String channel) {
         this.channel = channel;
+    }
+
+    public long getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(long channelId) {
+        this.channelId = channelId;
     }
 
     public String getSender() {
@@ -96,6 +105,10 @@ public class IrcEvent implements Serializable {
     }
 
     public String getMask() {
-        return this.mask;
+        return mask;
+    }
+
+    public void setMask(String mask) {
+        this.mask = mask;
     }
 }
