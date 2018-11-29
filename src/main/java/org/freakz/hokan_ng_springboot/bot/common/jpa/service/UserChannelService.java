@@ -1,7 +1,6 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.Channel;
-import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.IrcLog;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.User;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.UserChannel;
 
@@ -13,7 +12,7 @@ import java.util.List;
  */
 public interface UserChannelService {
 
-    UserChannel createUserChannel(User user, Channel channel, IrcLog ircLog);
+    UserChannel createUserChannel(User user, Channel channel);
 
     UserChannel getUserChannel(User user, Channel channel);
 

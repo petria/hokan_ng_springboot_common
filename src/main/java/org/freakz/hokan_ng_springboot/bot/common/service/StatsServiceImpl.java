@@ -1,12 +1,9 @@
 package org.freakz.hokan_ng_springboot.bot.common.service;
 
 import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.IrcLog;
-import org.freakz.hokan_ng_springboot.bot.common.jpa.service.IrcLogService;
 import org.freakz.hokan_ng_springboot.bot.common.models.StatsData;
 import org.freakz.hokan_ng_springboot.bot.common.models.StatsMapper;
 import org.freakz.hokan_ng_springboot.bot.common.util.StringStuff;
-import org.freakz.hokan_ng_springboot.bot.common.util.TimeUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -21,12 +18,9 @@ import java.util.List;
 @Service
 public class StatsServiceImpl implements StatsService {
 
-    @Autowired
-    private IrcLogService ircLogService;
-
     @Override
     public StatsMapper getDailyStatsForChannel(LocalDateTime day, String channel) {
-        List<IrcLog> logs = ircLogService.findByTimeStampBetweenAndTargetContaining(TimeUtil.getStartAndEndTimeForDay(day), channel);
+        List<IrcLog> logs = null; // TODO ircLogService.findByTimeStampBetweenAndTargetContaining(TimeUtil.getStartAndEndTimeForDay(day), channel);
         StatsMapper statsMapper = new StatsMapper();
         if (logs.size() == 0) {
             ZonedDateTime zdt = ZonedDateTime.of(day, ZoneId.systemDefault());
@@ -51,7 +45,7 @@ public class StatsServiceImpl implements StatsService {
     }
 
     public StatsMapper getStatsForChannel(String channel) {
-        List<IrcLog> logs = ircLogService.findByTarget(channel);
+        List<IrcLog> logs = null; // TODO ircLogService.findByTarget(channel);
         StatsMapper statsMapper = new StatsMapper();
         if (logs.size() == 0) {
             statsMapper.setError("No stats for channel: " + channel);
