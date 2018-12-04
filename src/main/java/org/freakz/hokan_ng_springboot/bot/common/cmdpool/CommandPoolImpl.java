@@ -1,21 +1,14 @@
 package org.freakz.hokan_ng_springboot.bot.common.cmdpool;
 
 
-import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandHistory;
-import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandStatus;
-import org.freakz.hokan_ng_springboot.bot.common.jpa.service.CommandHistoryService;
 import org.freakz.hokan_ng_springboot.bot.common.jpa.service.PropertyService;
-import org.freakz.hokan_ng_springboot.bot.common.service.HokanModuleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,12 +26,6 @@ public class CommandPoolImpl implements CommandPool, DisposableBean {
     private static final Logger log = LoggerFactory.getLogger(CommandPoolImpl.class);
 
     @Autowired
-    private CommandHistoryService commandHistoryService;
-
-    @Autowired
-    private HokanModuleService hokanModuleService;
-
-    @Autowired
     private PropertyService propertyService;
 
     private ExecutorService executor = Executors.newCachedThreadPool();
@@ -47,24 +34,6 @@ public class CommandPoolImpl implements CommandPool, DisposableBean {
     public CommandPoolImpl() {
     }
 
-    private CommandHistory createCommandHistory(long pid, CommandRunnable runnable, String startedBy, Object args) {
-        CommandHistory history = new CommandHistory();
-        history.setHokanModule(hokanModuleService.getHokanModule().toString());
-        history.setSessionId(hokanModuleService.getSessionId());
-        history.setPid(pid);
-        history.setStartTime(new Date());
-        if (args == null) {
-            history.setArgs("<none>");
-        } else {
-            history.setArgs(args.toString());
-        }
-        history.setRunnable(runnable.getClass().toString());
-        history.setStatus(CommandStatus.RUNNING);
-        history.setStartedBy(startedBy);
-        history.setErrorException("");
-        commandHistoryService.save(history);
-        return history;
-    }
 
     @Override
     public void startRunnable(CommandRunnable runnable, String startedBy) {
@@ -74,8 +43,7 @@ public class CommandPoolImpl implements CommandPool, DisposableBean {
     @Override
     public void startRunnable(CommandRunnable runnable, String startedBy, Object args) {
         long pid = propertyService.getNextPid();
-        CommandHistory history = createCommandHistory(pid, runnable, startedBy, args);
-        CommandRunner runner = new CommandRunner(pid, runnable, this, args, history);
+        CommandRunner runner = new CommandRunner(pid, runnable, this, args);
         activeRunners.add(runner);
         this.executor.execute(runner);
     }
@@ -83,25 +51,13 @@ public class CommandPoolImpl implements CommandPool, DisposableBean {
     @Override
     public void startSyncRunnable(CommandRunnable runnable, String startedBy, Object args) {
         long pid = propertyService.getNextPid();
-        CommandHistory history = createCommandHistory(pid, runnable, startedBy, args);
-        CommandRunner runner = new CommandRunner(pid, runnable, this, args, history);
+        CommandRunner runner = new CommandRunner(pid, runnable, this, args);
         activeRunners.add(runner);
         runner.run();
     }
 
     @Override
-    public void runnerFinished(CommandRunner runner, CommandHistory history, Exception error) {
-        if (error != null) {
-            history.setStatus(CommandStatus.ERROR);
-            StringWriter sw = new StringWriter();
-            error.printStackTrace(new PrintWriter(sw));
-            history.setErrorException(sw.getBuffer().toString().substring(0, 250));
-        } else {
-            history.setStatus(CommandStatus.FINISHED);
-            history.setErrorException("");
-        }
-        history.setEndTime(new Date());
-        commandHistoryService.save(history);
+    public void runnerFinished(CommandRunner runner, Exception error) {
         this.activeRunners.remove(runner);
     }
 

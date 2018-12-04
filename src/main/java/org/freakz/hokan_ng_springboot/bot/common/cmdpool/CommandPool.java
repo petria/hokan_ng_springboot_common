@@ -1,7 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.cmdpool;
 
-import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandHistory;
-
 import java.util.List;
 
 /**
@@ -19,7 +17,7 @@ public interface CommandPool {
 
     void startSyncRunnable(CommandRunnable runnable, String startedBy, Object args);
 
-    void runnerFinished(CommandRunner runner, CommandHistory history, Exception error);
+    void runnerFinished(CommandRunner runner, Exception error);
 
     List<CommandRunner> getActiveRunners();
 

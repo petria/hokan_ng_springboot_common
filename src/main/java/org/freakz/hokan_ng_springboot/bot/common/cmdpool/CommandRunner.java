@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.cmdpool;
 
-import org.freakz.hokan_ng_springboot.bot.common.jpa.entity.CommandHistory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,14 +19,12 @@ public class CommandRunner implements Runnable {
     private CommandRunnable runnable;
     private CommandPoolImpl commandPool;
     private Object args;
-    private CommandHistory history;
 
-    public CommandRunner(long myPid, CommandRunnable runnable, CommandPoolImpl commandPool, Object args, CommandHistory history) {
+    public CommandRunner(long myPid, CommandRunnable runnable, CommandPoolImpl commandPool, Object args) {
         this.myPid = myPid;
         this.runnable = runnable;
         this.commandPool = commandPool;
         this.args = args;
-        this.history = history;
     }
 
     @Override
@@ -35,10 +32,8 @@ public class CommandRunner implements Runnable {
         Thread.currentThread().setName("[" + myPid + "] CommandRunner: " + runnable);
         try {
             this.runnable.handleRun(myPid, args);
-            this.commandPool.runnerFinished(this, this.history, null);
         } catch (Exception e) {
             log.error("CommandRunner error", e);
-            this.commandPool.runnerFinished(this, this.history, e);
         }
 
     }
