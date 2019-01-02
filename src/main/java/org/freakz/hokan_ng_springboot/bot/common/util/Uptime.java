@@ -1,6 +1,8 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Date;
 
 /**
@@ -17,6 +19,11 @@ public class Uptime implements Serializable, Cloneable {
 
     public Uptime(long time) {
         this.time = time;
+    }
+
+    public Uptime(LocalDateTime jouluTime) {
+        long epochSecond = jouluTime.toEpochSecond(ZoneOffset.ofHours(0));
+
     }
 
     @Override
