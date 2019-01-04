@@ -23,7 +23,7 @@ public class Uptime implements Serializable, Cloneable {
 
     public Uptime(LocalDateTime jouluTime) {
         long epochSecond = jouluTime.toEpochSecond(ZoneOffset.ofHours(0));
-
+        this.time = epochSecond * 1000;
     }
 
     @Override
