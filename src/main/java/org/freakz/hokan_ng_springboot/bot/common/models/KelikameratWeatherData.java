@@ -106,14 +106,9 @@ public class KelikameratWeatherData implements Comparable, Serializable {
     public int compareTo(Object other) {
         KelikameratWeatherData w1 = this;
         KelikameratWeatherData w2 = (KelikameratWeatherData) other;
-
-        if (w1.getAir() > w2.getAir()) {
-            return 1;
-        }
-        if (w1.getAir() < w2.getAir()) {
-            return -1;
-        }
-        return 0;
+        Float air1 = w1.getAir();
+        Float air2 = w2.getAir();
+        return air1.compareTo(air2);
     }
 
     public int getPos() {
