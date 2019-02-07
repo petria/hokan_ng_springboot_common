@@ -1,6 +1,5 @@
 package org.freakz.hokan_ng_springboot.bot.common.util;
 
-import org.freakz.hokan_ng_springboot.bot.common.models.KelikameratWeatherData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,14 +9,7 @@ import java.security.MessageDigest;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -361,32 +353,6 @@ public class StringStuff {
     }
 
     /**
-     * Crypts a String using MD5 algorihtm.
-     *
-     * @param s - String to be MD5 crypted
-     * @return the MD5 crypted String
-     */
-    public static String md5(String s) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] bytes = md.digest(s.getBytes());
-            StringBuilder hexString = new StringBuilder();
-
-            for (byte aByte : bytes) {
-                String val = Integer.toHexString(0xFF & aByte);
-                if (val.length() == 1) {
-                    hexString.append("0");
-                }
-                hexString.append(val);
-            }
-            return hexString.toString();
-        } catch (Exception e) {
-            log.info("Exception", e);
-        }
-        return null;
-    }
-
-    /**
      * Generates random passwd from the defined set of characters.
      *
      * @param length - the maxium lenght of the generated passwd
@@ -661,21 +627,9 @@ public class StringStuff {
         return sb.toString();
     }
 
-
-    public static String formatWeather(KelikameratWeatherData d) {
-        String template1 = "%s: %2.1f°C tie %2.1f°C maa %2.1f°C";
-        String template2 = "%s: %2.1f°C";
-        String placeFromUrl = d.getPlaceFromUrl();
-        placeFromUrl = placeFromUrl.substring(placeFromUrl.indexOf("_") + 1).replaceAll("_", " ");
-
-        return String.format(template2, placeFromUrl
-                , d.getAir(), d.getRoad(), d.getGround());
-    }
-
     public static String getSHA1Password(String password) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            byte[] digest = messageDigest.digest(password.getBytes("UTF-8"));
             byte[] bytes = messageDigest.digest(password.getBytes());
             StringBuilder hexString = new StringBuilder();
 
@@ -691,6 +645,5 @@ public class StringStuff {
             throw new RuntimeException(e);
         }
     }
-
 
 }
