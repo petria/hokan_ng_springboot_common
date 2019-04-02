@@ -42,6 +42,16 @@ public class UserRepositoryService implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public User getUserTelegramId(int telegramId) {
+        Optional<User> byId = userRepository.findByTelegramId(telegramId);
+        if (byId.isPresent()) {
+            return byId.get();
+        }
+        return null;
+    }
+
+    @Override
     @Transactional
     public User save(User user) {
         return userRepository.save(user);

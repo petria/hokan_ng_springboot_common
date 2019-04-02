@@ -21,4 +21,5 @@ public interface UserService {
 
     void setAllLoggedIn(int value);
 
+    User getUserTelegramId(int telegramId);
 }
