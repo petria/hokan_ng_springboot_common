@@ -44,7 +44,7 @@ public class UserRepositoryService implements UserService {
     @Override
     @Transactional(readOnly = true)
     public User getUserTelegramId(int telegramId) {
-        Optional<User> byId = userRepository.findByTelegramId(telegramId);
+        Optional<User> byId = userRepository.findByTelegramID(telegramId);
         if (byId.isPresent()) {
             return byId.get();
         }
