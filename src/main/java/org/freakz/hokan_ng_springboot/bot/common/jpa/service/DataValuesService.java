@@ -1,9 +1,15 @@
 package org.freakz.hokan_ng_springboot.bot.common.jpa.service;
 
+import org.freakz.hokan_ng_springboot.bot.common.models.DataValuesModel;
+
+import java.util.List;
+
 public interface DataValuesService {
 
-    String getValue(String nick, String network, String key);
+    List<DataValuesModel> getDataValues(String channel, String network, String key);
 
-    void setValue(String nick, String network, String key, String value);
+    String getValue(String nick, String channel, String network, String key);
+
+    void setValue(String nick, String channel, String network, String key, String value);
 
 }
