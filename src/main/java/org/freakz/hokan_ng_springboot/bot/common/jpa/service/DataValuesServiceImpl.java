@@ -13,6 +13,7 @@ public class DataValuesServiceImpl implements DataValuesService {
     @Autowired
     private DataValuesRepository dataValuesRepository;
 
+
     @Override
     @Transactional(readOnly = true)
     public String getValue(String nick, String network, String key) {
