@@ -27,8 +27,7 @@ public class DataValuesServiceImpl implements DataValuesService {
             model.setNetwork(value.getNetwork());
 
             model.setKeyName(value.getKeyName());
-            model.setValue(value.getValue())
-            ;
+            model.setValue(value.getValue());
             models.add(model);
         }
 
@@ -53,6 +52,7 @@ public class DataValuesServiceImpl implements DataValuesService {
         if (data == null) {
             data = new DataValues();
             data.setNick(nick);
+            data.setChannel(channel);
             data.setNetwork(network);
             data.setKeyName(key);
         }
