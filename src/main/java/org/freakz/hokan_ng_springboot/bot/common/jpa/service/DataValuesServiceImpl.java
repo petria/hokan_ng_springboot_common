@@ -17,6 +17,7 @@ public class DataValuesServiceImpl implements DataValuesService {
     private DataValuesRepository dataValuesRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<DataValuesModel> getDataValues(String channel, String network, String key) {
         List<DataValues> modelsList = dataValuesRepository.findAllByChannelAndNetworkAndKeyName(channel, network, key);
         List<DataValuesModel> models = new ArrayList<>();
