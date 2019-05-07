@@ -50,7 +50,7 @@ public class SpringJmsSender implements JmsSender {
                     ObjectMessage objectMessage = session.createObjectMessage();
 
                     JmsMessage jmsMessage = new JmsMessage();
-            jmsMessage.setSender(hokanModule);
+                    jmsMessage.setSender(hokanModule);
                     jmsMessage.addPayLoadObject(key, object);
                     objectMessage.setObject(jmsMessage);
                     return objectMessage;
