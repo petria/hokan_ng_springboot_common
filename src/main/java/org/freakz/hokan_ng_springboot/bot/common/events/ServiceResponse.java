@@ -132,8 +132,8 @@ public class ServiceResponse implements Serializable {
         return (FindCityResults) responseData.get(type.getResponseDataKey());
     }
 
-    public String getSendSMSResponse() {
-        return (String) responseData.get(type.getResponseDataKey());
+    public SendSMSResponse getSendSMSResponse() {
+        return (SendSMSResponse) responseData.get(type.getResponseDataKey());
     }
 
     public String getSendSMSCreditResponse() {
