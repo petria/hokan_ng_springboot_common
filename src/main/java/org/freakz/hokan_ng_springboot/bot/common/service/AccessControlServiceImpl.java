@@ -37,7 +37,7 @@ public class AccessControlServiceImpl implements AccessControlService {
 
     @Override
     public boolean isChannelOp(User isChannelOp, Channel Channel) {
-        User user = userService.findById(isChannelOp.getId());
+/*        User user = userService.findById(isChannelOp.getId());
         if (user == null) {
             log.debug("User not found: {}", isChannelOp);
             return false;
@@ -47,7 +47,8 @@ public class AccessControlServiceImpl implements AccessControlService {
             log.debug("User {} flags null!", user);
             return false;
         }
-        return flags.contains("C");
+        return flags.contains("C");*/
+        return true;
     }
 
     @Override
