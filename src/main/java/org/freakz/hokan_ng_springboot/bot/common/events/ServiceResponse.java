@@ -39,8 +39,8 @@ public class ServiceResponse implements Serializable {
         return dataList;
     }
 
-    public HoroHolder getHoroResponse() {
-        return (HoroHolder) responseData.get(type.getResponseDataKey());
+    public String getHoroResponse() {
+        return (String) responseData.get(type.getResponseDataKey());
     }
 
     public List<KelikameratWeatherData> getWeatherResponse() {
