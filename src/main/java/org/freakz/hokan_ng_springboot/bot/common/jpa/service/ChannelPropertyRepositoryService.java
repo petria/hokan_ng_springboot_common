@@ -44,7 +44,10 @@ public class ChannelPropertyRepositoryService extends PropertyBase implements Ch
         repository.deleteByChannel(object);
     }
 
+    @Override
+    @Transactional
     public List<Channel> getChannelsWithProperty(PropertyName propertyName, String valueMatcher) {
+        List<ChannelPropertyEntity> all = repository.findAll();
         List<ChannelPropertyEntity> properties = repository.findByPropertyName(propertyName);
         List<Channel> channels = new ArrayList<>();
         for (ChannelPropertyEntity property : properties) {
