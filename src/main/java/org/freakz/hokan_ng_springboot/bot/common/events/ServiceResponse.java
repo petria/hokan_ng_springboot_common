@@ -139,4 +139,9 @@ public class ServiceResponse implements Serializable {
     public String getSendSMSCreditResponse() {
         return (String) responseData.get(type.getResponseDataKey());
     }
+
+    public Integer[] getKoronas() {
+        return (Integer[]) responseData.get(type.getResponseDataKey());
+    }
+
 }
