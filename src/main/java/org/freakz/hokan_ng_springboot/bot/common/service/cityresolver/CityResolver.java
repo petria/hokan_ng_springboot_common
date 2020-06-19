@@ -10,4 +10,5 @@ public interface CityResolver {
 
     CityData resolveCityNames(String query);
 
+    CityData resolveCityNames(String[] cities);
 }
