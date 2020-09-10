@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class DataValuesServiceImpl implements DataValuesService {
@@ -60,5 +59,17 @@ public class DataValuesServiceImpl implements DataValuesService {
         data.setValue(value);
         data = dataValuesRepository.save(data);
 
+    }
+
+    @Override
+    public Set<String> getMatchingKeys(String keyLikeRegEx) {
+        List<DataValues> all = dataValuesRepository.findAll();
+        Map<String, String> keys = new HashMap<>();
+        for (DataValues values : all) {
+            if (values.getKeyName().matches(keyLikeRegEx)) {
+                keys.put(values.getKeyName(), "1");
+            }
+        }
+        return keys.keySet();
     }
 }
