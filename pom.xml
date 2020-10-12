@@ -17,7 +17,7 @@
 
         <logback.version>1.1.9</logback.version>
         <jsoup.version>1.9.2</jsoup.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 
     </properties>
 
