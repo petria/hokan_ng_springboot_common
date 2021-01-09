@@ -20,40 +20,41 @@ import java.util.List;
 @Slf4j
 public class CityResolverImpl implements CityResolver {
 
-  private String[] cityNames = null;
+    private String[] cityNames = null;
 
-  @Autowired
-  private FileUtil fileUtil;
+    @Autowired
+    private FileUtil fileUtil;
 
 
-  @Override
-  public CityData resolveCityNames(String pattern) {
-    return resolveCityNames(new String[]{pattern});
-  }
+    @Override
+    public CityData resolveCityNames(String pattern) {
+        return resolveCityNames(new String[]{pattern});
+    }
 
-  @Override
-  public CityData resolveCityNames(String[] queries) {
-    CityData cityData = new CityData();
-    if (cityNames == null) {
-      log.info("Reading city names file");
-      StringBuilder sb = new StringBuilder();
-      File tmpFile;
-      try {
-        tmpFile = File.createTempFile("kuntalista", "");
-        fileUtil.copyResourceToFile("/kuntalista.txt", tmpFile, sb);
-        cityNames = sb.toString().split("\n");
-      } catch (IOException e) {
+    @Override
+    public CityData resolveCityNames(String[] queries) {
+        CityData cityData = new CityData();
+        if (cityNames == null) {
+            log.info("Reading city names file");
+            StringBuilder sb = new StringBuilder();
+            File tmpFile;
+            try {
+                tmpFile = File.createTempFile("kuntalista", "");
+                fileUtil.copyResourceToFile("/kuntalista.txt", tmpFile, sb);
+                cityNames = sb.toString().split("\n");
+            } catch (IOException e) {
                 log.error("Failed to get city stations", e);
                 return cityData;
             }
         }
         List<String> matches = new ArrayList<>();
+
         for (String name : cityNames) {
-          for (String query : queries) {
-            if (StringStuff.match(name, ".*" + query + ".*", true)) {
-              matches.add(name);
+            for (String query : queries) {
+                if (StringStuff.match(name, ".*" + query + ".*", true)) {
+                    matches.add(name);
+                }
             }
-          }
         }
         cityData.setResolvedCityNames(matches);
         return cityData;
